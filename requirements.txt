@@ -2,3 +2,5 @@ flask
 TA-Lib
 pandas
 yfinance
+numpy
+ta

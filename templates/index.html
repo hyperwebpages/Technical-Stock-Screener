@@ -2,9 +2,213 @@
     <head>
         <style>
             body { font-family:arial; margin:20px;}
+            th {text-align:left;}
         </style>
+        <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
     </head>
     <body>
         <h1>Technical Screener</h1>
+        <div id="chart"></div>
+        <h3>Settings</h3>
+
+        <div id="settings">
+            <form action="/snapshot" method="post">
+                <div>
+                    <input type="checkbox" /> RSI </br>
+                    <input type="text" id="rsi_length" name="rsi_length" placeholder="14" value="14" />
+                    Overbought
+                    <input type="text" id="rsi_overbought" name="rsi_overbought" placeholder="70" value="70" />
+                    Oversold
+                    <input type="text" id="rsi_oversold" name="rsi_oversold" placeholder="30" value="30" />
+                    
+                </div>
+                
+                <div>
+                    <input type="checkbox" /> Stochastic RSI </br> 
+                
+                    K Value
+                    <input type="text" id="K_val" name="K_val" placeholder="3" value="3" />
+                    D Value
+                    <input type="text" id="D_val" name="D_val" placeholder="3" value="3" />
+                    Stochastic Length
+                    <input type="text" id="stoch_length" name="stoch_length" placeholder="14" value="14" />
+                    Stochastic Buy Level
+                    <input type="text" id="stoch_buy_level" name="stoch_buy_level" placeholder="20" value="20" />
+                    Stochastic Sell Level
+                    <input type="text" id="stoch_sell_level" name="stoch_sell_level" placeholder="80" value="80" />                    
+                </div>
+                <div>
+                    <input type="checkbox" /> MACD </br> 
+                
+                    Fast Period
+                    <input type="text" id="Fast_p" name="Fast_p" placeholder="12" value="12" />
+                    Slow Period
+                    <input type="text" id="Slow_p" name="Slow_p" placeholder="26" value="26" />
+                    Signal Period
+                    <input type="text" id="Signal_p" name="Signal_p" placeholder="9" value="9" />
+                </div>
+                <div>
+                    <input type="checkbox" /> EMA </br> 
+                
+                    Fast Period
+                    <input type="text" id="Fast_ep" name="Fast_ep" placeholder="20" value="20" />
+                    Medium Period
+                    <input type="text" id="Medium_ep" name="Medium_ep" placeholder="50" value="50" />
+                    Slow Period
+                    <input type="text" id="Slow_ep" name="Slow_ep" placeholder="200" value="200" />
+                </div>
+                <div>
+                    <input type="checkbox" /> Cipher B </br> 
+                
+                    n1
+                    <input type="text" id="n1" name="n1" placeholder="10" value="10" />
+                    n2
+                    <input type="text" id="n2" name="n2" placeholder="21" value="21" />
+                    Over Bought Level 1
+                    <input type="text" id="obl1" name="obl1" placeholder="60" value="60" />
+                    Over Bought Level 2
+                    <input type="text" id="obl2" name="obl2" placeholder="53" value="53" />
+                    Over Sold Level 1
+                    <input type="text" id="osl1" name="osl1" placeholder="-60" value="-60" />
+                    Over Sold Level 2
+                    <input type="text" id="osl2" name="osl2" placeholder="-53" value="-53" />
+                    WT Smoothing
+                    <input type="text" id="wts" name="wts" placeholder="4" value="4" />
+                </div>
+                <input type="submit" name="scan" value="scan" />
+            </form>
+        </div>
+
+        {% if RSIVals is defined %}
+        <div id="RSI Conditions">
+            <h4>RSI Values Used</h4>
+            <p><b>RSI Length:</b>{{ RSIVals['rsi_length'] }}
+            <b>RSI Overbought:</b>{{ RSIVals['rsi_overbought'] }}
+            <b>RSI Oversold:</b>{{ RSIVals['rsi_oversold'] }}
+            </p>
+        </div>
+
+        <div id="StochRSI Condtions">
+            <h4>StochRSI Values Used</h4>
+            <p><b>StochRSI Length:</b>{{ StochRSIVals['StochRSI Length'] }}
+            <b>StochRSI K Val:</b>{{ StochRSIVals['StochRSI K Val'] }}
+            <b>StochRSI D Val:</b>{{ StochRSIVals['StochRSI D Val'] }}
+            <b>StochRSI Buy Level:</b>{{ StochRSIVals['StochRSI Buy Level'] }}
+            <b>StochRSI Sell Level:</b>{{ StochRSIVals['StochRSI Sell Level'] }}
+            </p>
+        </div>
+        <div id="MACD Condtions">
+            <h4>MACD Values Used</h4>
+            <p><b>MACD Slow period:</b>{{ MACDVals['MACD Slow'] }}
+            <b>MACD Fast period:</b>{{ MACDVals['MACD Fast'] }}
+            <b>MACD Signal period:</b>{{ MACDVals['MACD Signal'] }}
+            </p>
+        </div>
+        <div id="EMA Condtions">
+            <h4>EMA Values Used</h4>
+            <p><b>EMA Fast:</b>{{ EMAVals['EMA Fast'] }}
+            <b>EMA Medium:</b>{{ EMAVals['EMA Medium'] }}
+            <b>EMA Slow:</b>{{ EMAVals['EMA Slow'] }}
+            </p>
+        </div>
+        <div id="Cipher Condtions">
+            <h4>Cipher Values Used</h4>
+            <p><b>n1:</b>{{ CIPHERVals['n1'] }}
+            <b>n2:</b>{{ CIPHERVals['n2'] }}
+            <b>Overbought Level 1:</b>{{ CIPHERVals['obl1'] }}
+            <b>Overbought Level 2:</b>{{ CIPHERVals['obl2'] }}
+            <b>Oversold Level 1:</b>{{ CIPHERVals['osl1'] }}
+            <b>Oversold Level 2:</b>{{ CIPHERVals['osl2'] }}
+            <b>wts:</b>{{ CIPHERVals['wts'] }}
+            </p>
+        </div>
+        {% endif %}
+        <h3>Stocks Data</h3>
+        <table>
+            <tr>
+                <th>symbol</th>
+                <th>company</th>
+            </tr>
+            {% for stock in stocks %}
+                
+                <tr>
+                    <td>
+                        {{ stock }}
+                    </td>
+                    <td>
+                        {{ stocks[stock]['company'] }}
+                    </td>
+                    
+                </tr>
+                
+                <tr>
+                    <td>
+                        <tr>
+                            <th>Date</th>
+                            <th>Open</th>
+                            <th>High</th>
+                            <th>Low</th>
+                            <th>Close</th>
+                            <th>Volume</th>
+                            <th>RSI</th>
+                            <th>RSIflag</th>
+                            <th>StochRSIK</th>
+                            <th>StochRSID</th>
+                            <th>StochRSIflag</th>
+                            <th>EMA Fast</th>
+                            <th>EMA Medium</th>
+                            <th>EMA Slow</th>
+                            <th>MACD</th>
+                            <th>MACD Signal</th>
+                            <th>MACD Histogram</th>
+                            <th>MACD Flag</th>
+                            <th>Cipher Wt1</th>
+                            <th>Cipher Wt2</th>
+                            <th>Cipher Flag</th>
+                            </tr>
+                        {% for data in stocks[stock]['data'] %}
+                            
+                            <tr>
+                            <td>{{ data['Date'] | safe}}</td>
+                            <td>{{ data['Open'] | safe}}</td>
+                            <td>{{ data['High'] | safe}}</td>
+                            <td>{{ data['Low'] | safe}}</td>
+                            <td>{{ data['Close'] | safe}}</td>
+                            <td>{{ data['Volume'] | safe}}</td>
+                            <td>{{ data['RSI'] | safe}}</td>
+                            <td>{{ data['RSIflag'] | safe}}</td>
+                            <td>{{ data['fastk'] | safe}}</td>
+                            <td>{{ data['fastd'] | safe}}</td>
+                            <td>{{ data['StochRSIflag'] | safe}}</td>
+                            <td>{{ data['EMA_fast'] | safe}}</td>
+                            <td>{{ data['EMA_medium'] | safe}}</td>
+                            <td>{{ data['EMA_slow'] | safe}}</td>
+                            <td>{{ data['macd'] | safe}}</td>
+                            <td>{{ data['macdsignal'] | safe}}</td>
+                            <td>{{ data['macdhist'] | safe}}</td>
+                            <td>{{ data['MACDflag'] | safe}}</td>
+                            <td>{{ data['wt1'] | safe}}</td>
+                            <td>{{ data['wt2'] | safe}}</td>
+                            <td>{{ data['CipherFlag'] | safe}}</td>
+                            </tr>
+                                                        
+                        {% endfor %}
+                    </td>
+                </tr>    
+                
+                
+                
+                <tr>
+                    <td colspan="3">
+                        <img src="https://finviz.com/chart.ashx?t={{ stock }}&ty=c&ta=1&p=d&s=l" />
+                    </td>
+                </tr>
+                
+            {% endfor %}
+        </table>
+        
+
+        <script src="{{ url_for('static', filename='chart.js') }}"></script>        
+            
     </body>
 </html>
