@@ -1,0 +1,28 @@
+# Global analysis
+
+Here you can find a few informations about how many stocks met your conditions.
+
+_Non neutral pressure_ refers to pressure given by any indicator which estimates the direction of a stock.
+There exists a trade-off between having very good predictions and having predictions on every asset.
+
+
+__Studied stocks:__ {len_stocks}
+
+__Elapsed time:__ {elapsed_time:.0f}ms.
+
+__Non neutral pressures:__ {non_neutral_pressures}
+
+
+Let's suppose you have 4 conditions on 4 different indicators on a specific asset:
+
+    * If those 4 indicators all output a buy pressure, the asset will be given a global score of 4.
+    * If those 4 indicators all output a sell pressure, the asset will be given a global score of -4.
+    * Otherwise, if 2 of those 4 indicator output a buy pressure and the rest output a sell pressure, the asset will be given a global score of 0.
+
+In the end, each asset of the S&P500 are given a global score. Now, we would like to know which indicator is responsible of which pressure.
+The following graph shows you which indicator was responsible of which pressure. In the x-axis, you can read the global score of all the assets. 
+Each bar denote the score given by a specific indicator for any global score.
+
+
+
+

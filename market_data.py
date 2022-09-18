@@ -6,9 +6,7 @@ import pandas as pd
 import pytz
 import yfinance as yf
 
-path_to_datasets = Path("datasets/daily")
-start_date = datetime(2010, 1, 1)
-
+PATH_TO_DATASETS = Path("datasets/daily")
 FORMAT = "%d-%m-%Y"
 """Expected datetime format"""
 
@@ -18,7 +16,18 @@ def fetch_klines(
     beginning_date: datetime,
     ending_date: datetime,
     interval: str = "1d",
-):
+) -> pd.DataFrame:
+    """Retrieve klines thanks to the Yahoo Finance API.
+
+    Args:
+        symbol (str): ticker to download eg `AAPL`
+        beginning_date (datetime): open time
+        ending_date (datetime): close time
+        interval (str): interval of klines, eg `6h`. Defaults to `1d`.
+
+    Returns:
+        pd.DataFrame: dataframe containing the klines fetched online.
+    """
     klines = yf.download(
         tickers=symbol,
         start=beginning_date,
@@ -47,8 +56,24 @@ def save_klines(
     beginning_date: datetime,
     ending_date: datetime,
     interval: str = "1d",
-    directory: Path = path_to_datasets,
-):
+    directory: Path = PATH_TO_DATASETS,
+) -> str:
+    """_summary_
+
+    Args:
+        data (pd.DataFrame): data/ klines to save
+        symbol (str): ticker to download eg `AAPL`
+        beginning_date (datetime): open time
+        ending_date (datetime): close time
+        interval (str): interval of klines, eg `6h`. Defaults to `1d`.
+        directory (Path): directory to save the klines. Defaults to `PATH_TO_DATASETS`.
+
+    Raises:
+        ValueError: if data is an empty dataframe.
+
+    Returns:
+        str: filename containing the data
+    """
     filename = Path(directory) / "_".join(
         [
             symbol,
@@ -71,15 +96,16 @@ def fetch_and_save_klines(
     beginning_date: datetime,
     ending_date: datetime,
     interval: str = "1d",
-    directory: Path = path_to_datasets,
-):
+    directory: Path = PATH_TO_DATASETS,
+) -> str:
     """
-    Downloads klines of `symbol` from `from_date` to `to_date`, at interval `interval`.
+    Downloads klines of `symbol` from `beginning_date` to `ending_date`, at interval `interval`.
     Args:
-        symbol (str): ticker to download eg `BTCUSDT`
-        interval (str): interval of klines, eg `6h`
+        symbol (str): ticker to download eg `AAPL`
         beginning_date (datetime): open time
         ending_date (datetime): close time
+        interval (str): interval of klines, eg `6h`. Defaults to `1d`.
+        directory (Path): directory to save the klines. Defaults to `PATH_TO_DATASETS`.
     Returns:
         str: filename of csv file containing the klines
     """
@@ -103,8 +129,8 @@ def fetch_and_save_klines(
 def select_klines_from_file(
     beginning_date: datetime,
     ending_date: datetime,
-    filename: Path,
-):
+    filename: str,
+) -> pd.DataFrame:
     """
     Selects klines from a csv file. These klines open at `beginning_date` and close at `ending_date`.
     Args:
@@ -127,18 +153,19 @@ def download_klines(
     beginning_date: datetime,
     ending_date: datetime,
     interval: str = "1d",
-    directory: Path = path_to_datasets,
-):
+    directory: Path = PATH_TO_DATASETS,
+) -> pd.DataFrame:
 
     """
-    Selects klines of `symbol` from `from_date` to `to_date`, at interval `interval`.
+    Selects klines of `symbol` from `beginning_date` to `to_date`, at interval `ending_date`.
     If the klines have already been downloaded, it fetches it in the csv file.
-    Otherwise, it downloads the data from the Binance API.
+    Otherwise, it downloads the data from the Yahoo Finance API.
     Args:
-        symbol (str): ticker to download eg `BTCUSDT`
-        interval (str): interval of klines, eg `6h`
+        symbol (str): ticker to download eg `AAPL`
         beginning_date (datetime): open time
         ending_date (datetime): close time
+        interval (str): interval of klines, eg `6h`. Defaults to `1d`.
+        directory (Path): directory to save the klines. Defaults to `PATH_TO_DATASETS`.
     Returns:
         pd.DataFrame: dataframe containing klines
     """

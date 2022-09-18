@@ -3,24 +3,19 @@ from typing import List
 
 import numpy as np
 import pandas as pd
-import plotly.express as px
 import plotly.graph_objects as go
-import streamlit as st
+from plotly.graph_objects import Figure
 from plotly.subplots import make_subplots
 
-from cached_functions import compute_score, load_stocks
-from indicator import EMA, MACD, RSI, CipherB, Indicator, StochRSI
-from market_data import download_klines
-from stock import Stock, get_all_symbols_df
+from stock import Stock
 
 
-def indicator_histogram(stocks: List[Stock]):
+def indicator_histogram(stocks: List[Stock]) -> Figure:
     l = []
     for stock in stocks:
         for ind, score_ind in stock.detailed_score.items():
             l.append([stock.symbol, stock.global_score, str(ind), score_ind])
     df = pd.DataFrame(l, columns=["symbols", "score", "indicator", "indicator_score"])
-
     _index = df[df["score"] < 0].index
     df.loc[_index, "indicator_score"] *= -1
 
@@ -35,6 +30,10 @@ def indicator_histogram(stocks: List[Stock]):
                 hovertemplate=f"<b>{indicator_name}</b>:"
                 + "<br>%{y} stocks detected."
                 + "<extra></extra>",
+                xbins=dict(  # bins used for histogram
+                    start=df["score"].min(), end=df["score"].max() + 1, size=1
+                ),
+                xaxis="x",
             )
         )
     fig.update_layout(
@@ -43,11 +42,22 @@ def indicator_histogram(stocks: List[Stock]):
         yaxis_title="Number of stocks detected",
         legend_title="Indicators",
         hovermode="x unified",
+        xaxis=dict(
+            tickmode="array",
+            tickvals=list(
+                np.arange(df["score"].min() + 0.5, df["score"].max() + 1.5, 1)
+            ),
+            ticktext=list(range(df["score"].min(), df["score"].max() + 1, 1)),
+        ),
     )
     return fig
 
 
-def mutliple_row_charts(stock, indicators_to_draw_above, indicators_to_draw_beside):
+def mutliple_row_charts(
+    stock: Stock,
+    indicators_to_draw_above: List[str] = [],
+    indicators_to_draw_beside: List[str] = [],
+) -> Figure:
     row_heights = [0.7] + [0.2] * len(indicators_to_draw_beside)
     fig = make_subplots(
         rows=len(indicators_to_draw_beside) + 1,

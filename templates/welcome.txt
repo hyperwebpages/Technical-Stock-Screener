@@ -1,0 +1,21 @@
+## Welcome !
+On this page, you'll have the chance to monitor stocks.
+By defining indicators and threshold, you will be able to detect in real time if a stock meets your condition.
+
+In the whole website, we make references to a _score_. A score is simply a _buy_ or _sell_ pressure computed by indicators. Its value is in [-1, 0, +1]:
+    
+    * -1 means a sell pressure
+    * +1 means a buy pressure
+    * 0 means a neutral pressure.
+
+### Workflow
+
+On this website, there exists a standard Workflow to make the best out of it:
+
+    1. First select indicators and thresholds.
+    2. Click on "scan" to let the algorithm scan every stock of the S&P500. 
+    If you are lucky, some stocks will meet your conditions.
+    3. However, it is very rare that a stock will meet every one of your conditions. 
+    This is why, you can finetune how many of those conditions you would like to see being met.
+    4. You can analyse deeper the charts and the raw data.
+    5. Enjoy !

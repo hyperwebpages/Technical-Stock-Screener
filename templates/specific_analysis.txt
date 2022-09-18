@@ -1,0 +1,12 @@
+## Analysis per asset
+
+In this section, you can analyse each asset separately. 
+
+The first thing to do is to decide what to plot. 
+The main plot of each asset is an OHLC chart. 
+You can decide to plot other information below or on top of this this chart.
+
+Then, there is a filter to whitelist assets meeting a specific number of conditions. 
+This filter automatically gives you the assets respecting the highest number of conditions.
+
+Finally, you can simply explore charts and raw data.

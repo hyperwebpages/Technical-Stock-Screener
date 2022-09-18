@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 
 import numpy as np
+import pandas as pd
 import streamlit as st
 import talib
 from ta.momentum import RSIIndicator
@@ -48,7 +49,7 @@ class RSI(Indicator):
 
     flag_column: str = "RSIflag"
 
-    def apply_indicator(self, ohlc):
+    def apply_indicator(self, ohlc: pd.DataFrame) -> pd.DataFrame:
         ohlc["RSI"] = RSIIndicator(ohlc["Close"], int(self.period)).rsi()
         ohlc["RSIflag"] = 0
         condSold = ohlc["RSI"] < float(self.oversold)
@@ -68,7 +69,7 @@ class StochRSI(Indicator):
 
     flag_column: str = "StochRSIflag"
 
-    def apply_indicator(self, ohlc):
+    def apply_indicator(self, ohlc: pd.DataFrame) -> pd.DataFrame:
         ohlc["fastk"], ohlc["fastd"] = talib.STOCHRSI(
             ohlc["Close"],
             int(self.period),
@@ -102,7 +103,7 @@ class EMA(Indicator):
     medium_period: int = 50
     slow_period: int = 200
 
-    def apply_indicator(self, ohlc):
+    def apply_indicator(self, ohlc: pd.DataFrame) -> pd.DataFrame:
         ohlc["EMA_fast"] = EMAIndicator(
             ohlc["Close"], int(self.fast_period)
         ).ema_indicator()
@@ -128,7 +129,7 @@ class MACD(Indicator):
 
     flag_column: str = "MACohlclag"
 
-    def apply_indicator(self, ohlc):
+    def apply_indicator(self, ohlc: pd.DataFrame) -> pd.DataFrame:
         ema = EMA(
             fast_period=self.ema_fast_period,
             medium_period=self.ema_medium_period,
@@ -175,7 +176,7 @@ class CipherB(Indicator):
 
     flag_column: str = "CipherFlag"
 
-    def apply_indicator(self, ohlc):
+    def apply_indicator(self, ohlc: pd.DataFrame) -> pd.DataFrame:
         ohlc["ap"] = (ohlc["High"] + ohlc["Low"] + ohlc["Close"]) / 3
         esa = EMAIndicator(ohlc["ap"], int(self.n1)).ema_indicator()
         ohlc["esa"] = esa
