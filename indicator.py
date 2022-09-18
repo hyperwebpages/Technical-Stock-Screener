@@ -8,7 +8,16 @@ from ta.momentum import RSIIndicator
 from ta.trend import EMAIndicator, SMAIndicator
 
 
-def beautiful_str(s: str):
+def beautiful_str(s: str) -> str:
+    """Transform ugly strings in beautiful strings.
+    For instance, `love_tacos` is transformed into `Love tacos`.
+
+    Args:
+        s (str): original string
+
+    Returns:
+        str: beautiful string
+    """
     s = list(str(s))
     s = [" " if c == "_" else c for c in s]
     s[0] = s[0].upper()
@@ -29,7 +38,7 @@ class Indicator:
 
     def text_input(self):
         for param, _ in type(self).__dataclass_fields__.items():
-            if param != "flag_column":
+            if param != "flag_column" and param[0] != "_":
                 setattr(
                     self,
                     param,
