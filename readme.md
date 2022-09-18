@@ -2,9 +2,8 @@
 
 This repository is a streamlit wesbite where one can analyse and filter stocks based on custom conditions.
 
-## Usage
 
-### Cloning and running
+## Cloning and running
 
 Here is a bunch of code to launch the streamlit app.
 
@@ -16,7 +15,7 @@ streamlit run app.py
 ```
 
 
-### Usefulness of files.
+## Usefulness of files.
 
 Here is a table containing the usefulness of files / folders.
 
@@ -32,7 +31,7 @@ Here is a table containing the usefulness of files / folders.
 | plotting.py            | Create the beautiful figures for the streamlit app, using Plotly.                                       |
 | stock.py               | Define the stock class. Useful for storing candlesticks, symbol, <br>global score, score per indicator. |
 
-### How to update code
+## How to update code
 
 What mattters is your ability to define new conditions, new indicators or even new plot.
 Let's say we want to define a new indicator, you need to:
