@@ -1,7 +1,8 @@
 flask
-TA-Lib
-pandas==1.4.4
-yfinance==0.1.74
 numpy==1.23.3
-ta==0.10.2
+pandas==1.4.4
+plotly==5.10.0
 streamlit==1.12.2
+ta==0.10.2
+TA-Lib
+yfinance==0.1.74

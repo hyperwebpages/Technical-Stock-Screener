@@ -18,6 +18,9 @@ def beautiful_str(s: str):
 class Indicator:
     flag_column: str = None
 
+    def __str__(self) -> str:
+        return type(self).__name__
+
     def checkbox(
         self,
     ):
@@ -40,12 +43,12 @@ class Indicator:
 @dataclass
 class RSI(Indicator):
     period: int = 14
-    overbought: float = 70
-    oversold: float = 30
+    overbought: float = 0
+    oversold: float = 100
 
     flag_column: str = "RSIflag"
 
-    def add_indicator_to_dataframe(self, ohlc):
+    def apply_indicator(self, ohlc):
         ohlc["RSI"] = RSIIndicator(ohlc["Close"], int(self.period)).rsi()
         ohlc["RSIflag"] = 0
         condSold = ohlc["RSI"] < float(self.oversold)
@@ -60,12 +63,12 @@ class StochRSI(Indicator):
     period: int = 14
     k: int = 3
     d: int = 3
-    buy_level: float = 20
-    sell_level: float = 80
+    buy_level: float = 0
+    sell_level: float = 100
 
     flag_column: str = "StochRSIflag"
 
-    def add_indicator_to_dataframe(self, ohlc):
+    def apply_indicator(self, ohlc):
         ohlc["fastk"], ohlc["fastd"] = talib.STOCHRSI(
             ohlc["Close"],
             int(self.period),
@@ -99,7 +102,7 @@ class EMA(Indicator):
     medium_period: int = 50
     slow_period: int = 200
 
-    def add_indicator_to_dataframe(self, ohlc):
+    def apply_indicator(self, ohlc):
         ohlc["EMA_fast"] = EMAIndicator(
             ohlc["Close"], int(self.fast_period)
         ).ema_indicator()
@@ -119,10 +122,19 @@ class MACD(Indicator):
     slow_period: int = 26
     signal_period: int = 9
 
+    ema_fast_period: int = 20
+    ema_medium_period: int = 50
+    ema_slow_period: int = 200
+
     flag_column: str = "MACohlclag"
 
-    def add_indicator_to_dataframe(self, ohlc, ema: EMA):
-        # ohlc = ema.add_indicator_to_dataframe(ohlc)
+    def apply_indicator(self, ohlc):
+        ema = EMA(
+            fast_period=self.ema_fast_period,
+            medium_period=self.ema_medium_period,
+            slow_period=self.ema_slow_period,
+        )
+        ohlc = ema.apply_indicator(ohlc)
         ohlc["macd"], ohlc["macdsignal"], ohlc["macdhist"] = talib.MACD(
             ohlc["Close"],
             int(self.fast_period),
@@ -163,7 +175,7 @@ class CipherB(Indicator):
 
     flag_column: str = "CipherFlag"
 
-    def add_indicator_to_dataframe(self, ohlc):
+    def apply_indicator(self, ohlc):
         ohlc["ap"] = (ohlc["High"] + ohlc["Low"] + ohlc["Close"]) / 3
         esa = EMAIndicator(ohlc["ap"], int(self.n1)).ema_indicator()
         ohlc["esa"] = esa

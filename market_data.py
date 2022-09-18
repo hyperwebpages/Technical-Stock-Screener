@@ -1,14 +1,10 @@
 import re
-from datetime import date, datetime, timedelta
+from datetime import datetime, timedelta
 from pathlib import Path
 
-import numpy as np
 import pandas as pd
 import pytz
-import talib
 import yfinance as yf
-from ta.momentum import RSIIndicator
-from ta.trend import EMAIndicator, SMAIndicator
 
 path_to_datasets = Path("datasets/daily")
 start_date = datetime(2010, 1, 1)
