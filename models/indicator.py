@@ -53,8 +53,8 @@ class Indicator:
 @dataclass
 class RSI(Indicator):
     period: int = 14
-    overbought: float = 0
-    oversold: float = 100
+    overbought: float = 70
+    oversold: float = 30
 
     flag_column: str = "RSIflag"
 
@@ -73,8 +73,8 @@ class StochRSI(Indicator):
     period: int = 14
     k: int = 3
     d: int = 3
-    buy_level: float = 0
-    sell_level: float = 100
+    buy_level: float = 20
+    sell_level: float = 80
 
     flag_column: str = "StochRSIflag"
 
