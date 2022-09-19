@@ -90,3 +90,20 @@ Let's say we want to define a new indicator, you need to:
     `apply_indicator(self, ohlc: pd.DataFrame) -> pd.DataFrame` 
     which applies the indicator columns and more on the given `ohlc` dataframe, and returns the modified dataframe.
 4. add your indicator in the streamlit app, at the top. 
+
+
+### Example
+
+```{python}
+@dataclass
+class DummyIndicator(Indicator):
+    period_to_finetune_by_user: int = 14
+
+    flag_column: str = "direction"
+
+    _period_i_finetune: int = 15
+
+    def apply_indicator(self, ohlc: pd.DataFrame) -> pd.DataFrame:
+        ohlc[self.flag_column] = ohlc["Close"]
+        return ohlc
+```
