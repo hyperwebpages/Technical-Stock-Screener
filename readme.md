@@ -11,7 +11,8 @@ Here is a bunch of code to launch the streamlit app.
 git clone git@github.com:hyperwebpages/Technical-Stock-Screener.git
 cd Technical-Stock-Screener
 pip install -r requirements.txt
-streamlit run app.py
+pip install --editable .
+streamlit run app/main.py
 ```
 
 
@@ -39,7 +40,8 @@ Let's say we want to define a new indicator, you need to:
     1. create a new `my_dummy_indicator` class in the `indicator.py` file. This class is a dataclass, meaning you can store whatever you want
     2. There are 3 types of variables:
         * variable the user can finetune. This variable can be stored simply as dataclass field.
-        * the name of the dataframe column which gives the buy/sell pressure. This variable needs to be called `flag_column`. If your indicator doesn't give any buy/sell pressure, you can simply omit this variable.
+        * the name of the dataframe column which gives the buy/sell pressure. This variable needs to be called `flag_column`. 
+        If your indicator doesn't give any buy/sell pressure, you can simply omit this variable.
         * variable the user can't finetune. This variable can be stored as dataclass field, BUT its name must begin with an underscore `_`.
     3. implement a class function 
     `apply_indicator(self, ohlc: pd.DataFrame) -> pd.DataFrame` 

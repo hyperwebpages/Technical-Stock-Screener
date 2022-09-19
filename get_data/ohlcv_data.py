@@ -5,7 +5,7 @@ import pandas as pd
 import pytz
 import yfinance as yf
 
-PATH_TO_DATASETS = Path("datasets/daily")
+PATH_TO_DATASETS = Path("../datasets/daily")
 FORMAT = "%d-%m-%Y"
 """Expected datetime format"""
 
@@ -15,6 +15,7 @@ def fetch_klines(
     beginning_date: datetime,
     ending_date: datetime,
     interval: str = "1d",
+    **kwargs
 ) -> pd.DataFrame:
     """Retrieve klines thanks to the Yahoo Finance API.
 
@@ -56,6 +57,7 @@ def save_klines(
     ending_date: datetime,
     interval: str = "1d",
     directory: Path = PATH_TO_DATASETS,
+    **kwargs
 ) -> str:
     """_summary_
 
@@ -96,6 +98,7 @@ def fetch_and_save_klines(
     ending_date: datetime,
     interval: str = "1d",
     directory: Path = PATH_TO_DATASETS,
+    **kwargs
 ) -> str:
     """
     Downloads klines of `symbol` from `beginning_date` to `ending_date`, at interval `interval`.
@@ -126,9 +129,7 @@ def fetch_and_save_klines(
 
 
 def select_klines_from_file(
-    beginning_date: datetime,
-    ending_date: datetime,
-    filename: str,
+    beginning_date: datetime, ending_date: datetime, filename: str, **kwargs
 ) -> pd.DataFrame:
     """
     Selects klines from a csv file. These klines open at `beginning_date` and close at `ending_date`.
@@ -152,7 +153,9 @@ def download_klines(
     beginning_date: datetime,
     ending_date: datetime,
     interval: str = "1d",
+    force_download: bool = False,
     directory: Path = PATH_TO_DATASETS,
+    **kwargs
 ) -> pd.DataFrame:
 
     """
@@ -180,6 +183,8 @@ def download_klines(
 
     beginning_date = beginning_date.replace(tzinfo=pytz.UTC)
     ending_date = datetime(ending_date.year, ending_date.month, ending_date.day)
+    if force_download:
+        ending_date = datetime.now()
     ending_date = ending_date.replace(tzinfo=pytz.UTC)
 
     symbol_to_string = "-".join(symbol) if isinstance(symbol, list) else symbol

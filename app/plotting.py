@@ -4,10 +4,9 @@ from typing import List
 import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
+from models.stock import Stock
 from plotly.graph_objects import Figure
 from plotly.subplots import make_subplots
-
-from stock import Stock
 
 
 def indicator_histogram(stocks: List[Stock]) -> Figure:
@@ -38,10 +37,11 @@ def indicator_histogram(stocks: List[Stock]) -> Figure:
         )
     fig.update_layout(
         title="Number of stocks detected having a trend on specific indicators",
-        xaxis_title="Score",
+        xaxis_title="Global score",
         yaxis_title="Number of stocks detected",
         legend_title="Indicators",
         hovermode="x unified",
+        height=600,
         xaxis=dict(
             tickmode="array",
             tickvals=list(
@@ -49,6 +49,18 @@ def indicator_histogram(stocks: List[Stock]) -> Figure:
             ),
             ticktext=list(range(df["score"].min(), df["score"].max() + 1, 1)),
         ),
+        margin_b=190,  # increase the bottom margin to have space for caption
+        annotations=[
+            dict(
+                xref="paper",
+                yref="paper",
+                x=0.5,
+                y=-0.35,
+                showarrow=False,
+                text="A negative global score means a sell pressure <br>given by the conditions, and vice versa. <br>"
+                + "The higher the absolute value, the more powerful is the pressure.",
+            )
+        ],
     )
     return fig
 
