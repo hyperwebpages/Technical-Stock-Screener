@@ -149,13 +149,12 @@ else:
 
 
 if st.button("Update data"):
-    with st.spinner(f"Retrieving historical and financial data"):
-        app_state._initialize_stock_state(
-            stock_symbols,
-            max_workers,
-            retrieve_mode,
-            True,
-            path_to_ohlcv,
-            path_to_financials,
-        )
+    app_state._initialize_stock_state(
+        stock_symbols,
+        max_workers,
+        retrieve_mode,
+        True,
+        path_to_ohlcv,
+        path_to_financials,
+    )
 st.write(f"Last update at: {st.session_state['updated_at']}")
