@@ -1,0 +1,16 @@
+[displaying]
+length_displayed_stocks = 10
+length_displayed_tweets = 3
+
+[data_access]
+path_to_symbols = "datasets/symbols.csv"
+path_to_ohlcv = "datasets/daily/ohlcv/"
+path_to_financials = "datasets/daily/financials/"
+max_workers = 61
+retrieve_mode = "get"
+
+[twitter_api]
+bearer_token = "AAAAAAAAAAAAAAAAAAAAAG8AhQEAAAAA4EckVEMHWEyM3rfxgNyiFTCy5hg%3DgSiAHWLHyAKtt9erA7l3dDMCgnQgoYifatBNcoUNrJUSh24D4w"
+
+
+

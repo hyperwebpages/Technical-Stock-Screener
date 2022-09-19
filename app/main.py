@@ -13,11 +13,16 @@ import widgets
 
 st.set_page_config(layout="wide")
 
-length_displayed_stocks = 10
-length_displayed_tweets = 3
-max_workers = 61
-retrieve_mode = "get"
-
+(
+    length_displayed_stocks,
+    length_displayed_tweets,
+    max_workers,
+    retrieve_mode,
+    path_to_symbols,
+    path_to_ohlcv,
+    path_to_financials,
+    bearer_token,
+) = app_state.read_config_file(Path("config.toml"))
 
 rsi = RSI()
 stochrsi = StochRSI()
@@ -27,7 +32,7 @@ cipher_b = CipherB()
 
 indicators = [rsi, stochrsi, ema, macd, cipher_b]
 
-stock_symbols = pd.read_csv(Path("datasets/symbols.csv"))["symbol"]
+stock_symbols = pd.read_csv(path_to_symbols)["symbol"]
 nb_indicators = len(indicators)
 
 
@@ -37,6 +42,8 @@ app_state._initialize_stock_state(
     max_workers,
     retrieve_mode,
     False,
+    path_to_ohlcv,
+    path_to_financials,
 )
 
 with st.sidebar:
@@ -53,7 +60,7 @@ if scan_button:
     with st.spinner(f"Computing indicators on {len(stock_symbols)} stocks..."):
         start_time = time()
         st.session_state["stocks"] = compute_score(
-            st.session_state["original_stocks"], on_indicators
+            st.session_state["original_stocks"], on_indicators, max_workers
         )
         st.session_state["stocks"] = sorted(
             st.session_state["stocks"],
@@ -125,6 +132,7 @@ else:
 
     widgets.expanders_widget(
         selected_stocks,
+        bearer_token,
         index_in_stock_list,
         length_displayed_stocks,
         length_displayed_tweets,
@@ -147,5 +155,7 @@ if st.button("Update data"):
             max_workers,
             retrieve_mode,
             True,
+            path_to_ohlcv,
+            path_to_financials,
         )
 st.write(f"Last update at: {st.session_state['updated_at']}")

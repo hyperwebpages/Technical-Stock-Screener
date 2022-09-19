@@ -5,10 +5,10 @@ import tweepy
 
 from models.stock import Stock
 
-bearer_token = "AAAAAAAAAAAAAAAAAAAAAG8AhQEAAAAA4EckVEMHWEyM3rfxgNyiFTCy5hg%3DgSiAHWLHyAKtt9erA7l3dDMCgnQgoYifatBNcoUNrJUSh24D4w"
-
 
 class Tweet(object):
+    """Streamlit component containing an embed tweet."""
+
     def __init__(self, tweet_id):
         api = "https://publish.twitter.com/oembed?url=https://twitter.com/twitter/statuses/{tweet_id}".format(
             tweet_id=tweet_id
@@ -27,7 +27,9 @@ class Tweet(object):
 
 
 class TweetsSearch:
-    def __init__(self, stock: Stock) -> None:
+    """Contains the result of a tweet search."""
+
+    def __init__(self, bearer_token: str, stock: Stock) -> None:
         self.client = tweepy.Client(bearer_token)
         self.stock = stock
         self.query = f"stocks #{stock.symbol} lang:en -is:retweet"

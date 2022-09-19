@@ -14,7 +14,7 @@ def fetch_klines(
     symbol: str,
     beginning_date: datetime,
     ending_date: datetime,
-    interval: str = "1d",
+    interval: str,
     **kwargs
 ) -> pd.DataFrame:
     """Retrieve klines thanks to the Yahoo Finance API.
@@ -23,7 +23,7 @@ def fetch_klines(
         symbol (str): ticker to download eg `AAPL`
         beginning_date (datetime): open time
         ending_date (datetime): close time
-        interval (str): interval of klines, eg `6h`. Defaults to `1d`.
+        interval (str): interval of klines, eg `6h`.
 
     Returns:
         pd.DataFrame: dataframe containing the klines fetched online.
@@ -55,19 +55,19 @@ def save_klines(
     symbol: str,
     beginning_date: datetime,
     ending_date: datetime,
-    interval: str = "1d",
-    directory: Path = PATH_TO_DATASETS,
+    interval: str,
+    directory: Path,
     **kwargs
 ) -> str:
-    """_summary_
+    """Save klines data in `directory`.
 
     Args:
         data (pd.DataFrame): data/ klines to save
         symbol (str): ticker to download eg `AAPL`
         beginning_date (datetime): open time
         ending_date (datetime): close time
-        interval (str): interval of klines, eg `6h`. Defaults to `1d`.
-        directory (Path): directory to save the klines. Defaults to `PATH_TO_DATASETS`.
+        interval (str): interval of klines, eg `6h`.
+        directory (Path): directory to save the klines.
 
     Raises:
         ValueError: if data is an empty dataframe.
@@ -96,18 +96,19 @@ def fetch_and_save_klines(
     symbol: str,
     beginning_date: datetime,
     ending_date: datetime,
-    interval: str = "1d",
-    directory: Path = PATH_TO_DATASETS,
+    interval: str,
+    directory: Path,
     **kwargs
 ) -> str:
     """
-    Downloads klines of `symbol` from `beginning_date` to `ending_date`, at interval `interval`.
+    Downloads klines of `symbol` from `beginning_date` to `ending_date`, at interval `interval`
+    and saves them in `directory`.
     Args:
         symbol (str): ticker to download eg `AAPL`
         beginning_date (datetime): open time
         ending_date (datetime): close time
-        interval (str): interval of klines, eg `6h`. Defaults to `1d`.
-        directory (Path): directory to save the klines. Defaults to `PATH_TO_DATASETS`.
+        interval (str): interval of klines, eg `6h`.
+        directory (Path): directory to save the klines.
     Returns:
         str: filename of csv file containing the klines
     """
@@ -152,22 +153,23 @@ def download_klines(
     symbol: str,
     beginning_date: datetime,
     ending_date: datetime,
-    interval: str = "1d",
-    force_download: bool = False,
-    directory: Path = PATH_TO_DATASETS,
+    interval: str,
+    force_download: bool,
+    directory: Path,
     **kwargs
 ) -> pd.DataFrame:
 
     """
     Selects klines of `symbol` from `beginning_date` to `to_date`, at interval `ending_date`.
-    If the klines have already been downloaded, it fetches it in the csv file.
+    If the klines have already been downloaded, it fetches it in the csv file, unless `force_download=True`.
     Otherwise, it downloads the data from the Yahoo Finance API.
     Args:
         symbol (str): ticker to download eg `AAPL`
         beginning_date (datetime): open time
         ending_date (datetime): close time
-        interval (str): interval of klines, eg `6h`. Defaults to `1d`.
-        directory (Path): directory to save the klines. Defaults to `PATH_TO_DATASETS`.
+        interval (str): interval of klines, eg `6h`.
+        force_download (bool): whether to re-download the financials, even it they are already located in `directory`.
+        directory (Path): directory to save the klines.
     Returns:
         pd.DataFrame: dataframe containing klines
     """

@@ -7,22 +7,18 @@ import pandas as pd
 import pytz
 import yfinance as yf
 
-PATH_TO_DATASETS = Path("datasets/daily/financials")
 FORMAT = "%d-%m-%Y"
 """Expected datetime format"""
 
 
-def fetch_financials(symbol: str, **kwargs) -> pd.DataFrame:
-    """Retrieve klines thanks to the Yahoo Finance API.
+def fetch_financials(symbol: str, **kwargs) -> dict:
+    """Retrieve financials thanks to the Yahoo Finance API.
 
     Args:
         symbol (str): ticker to download eg `AAPL`
-        beginning_date (datetime): open time
-        ending_date (datetime): close time
-        interval (str): interval of klines, eg `6h`. Defaults to `1d`.
 
     Returns:
-        pd.DataFrame: dataframe containing the klines fetched online.
+        dict: dict containing selected financials.
     """
     stats = yf.Ticker(symbol).stats()
     financial_keys = [
@@ -42,21 +38,15 @@ def fetch_financials(symbol: str, **kwargs) -> pd.DataFrame:
 
 
 def save_financials(
-    data: dict,
-    symbol: str,
-    date: datetime,
-    directory: Path = PATH_TO_DATASETS,
-    **kwargs
+    data: dict, symbol: str, date: datetime, directory: Path, **kwargs
 ) -> str:
-    """_summary_
+    """Save financials data in `directory`.
 
     Args:
-        data (pd.DataFrame): data/ klines to save
+        data (dict): data to save
         symbol (str): ticker to download eg `AAPL`
-        beginning_date (datetime): open time
-        ending_date (datetime): close time
-        interval (str): interval of klines, eg `6h`. Defaults to `1d`.
-        directory (Path): directory to save the klines. Defaults to `PATH_TO_DATASETS`.
+        date (datetime): date the financials were retrieved
+        directory (Path): directory to save the klines.
 
     Raises:
         ValueError: if data is an empty dataframe.
@@ -81,18 +71,16 @@ def save_financials(
 
 
 def fetch_and_save_financials(
-    symbol: str, date: datetime, directory: Path = PATH_TO_DATASETS, **kwargs
+    symbol: str, date: datetime, directory: Path, **kwargs
 ) -> str:
     """
-    Downloads klines of `symbol` from `beginning_date` to `ending_date`, at interval `interval`.
+    Downloads financials of `symbol` save them in `directory`.
     Args:
         symbol (str): ticker to download eg `AAPL`
-        beginning_date (datetime): open time
-        ending_date (datetime): close time
-        interval (str): interval of klines, eg `6h`. Defaults to `1d`.
-        directory (Path): directory to save the klines. Defaults to `PATH_TO_DATASETS`.
+        date (datetime): date the financials were retrieved
+        directory (Path): directory to save the klines.
     Returns:
-        str: filename of csv file containing the klines
+        str: filename of csv file containing the financials
     """
     klines = fetch_financials(
         symbol,
@@ -107,23 +95,18 @@ def fetch_and_save_financials(
 
 
 def download_financials(
-    symbol: str,
-    date: datetime,
-    force_download: bool = False,
-    directory: Path = PATH_TO_DATASETS,
-    **kwargs
+    symbol: str, date: datetime, force_download: bool, directory: Path, **kwargs
 ) -> pd.DataFrame:
 
     """
-    Selects klines of `symbol` from `beginning_date` to `to_date`, at interval `ending_date`.
-    If the klines have already been downloaded, it fetches it in the csv file.
+    Selects the financials of `symbol`.
+    If the financials have already been downloaded, it fetches it in the csv file, unless `force_download=True`.
     Otherwise, it downloads the data from the Yahoo Finance API.
     Args:
         symbol (str): ticker to download eg `AAPL`
-        beginning_date (datetime): open time
-        ending_date (datetime): close time
-        interval (str): interval of klines, eg `6h`. Defaults to `1d`.
-        directory (Path): directory to save the klines. Defaults to `PATH_TO_DATASETS`.
+        date (datetime): date the financials were retrieved
+        force_download (bool): whether to re-download the financials, even it they are already located in `directory`.
+        directory (Path): directory to save the klines.
     Returns:
         pd.DataFrame: dataframe containing klines
     """

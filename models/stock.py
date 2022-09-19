@@ -2,7 +2,7 @@ import concurrent.futures
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Dict, List, Optional, Tuple
 
 import numpy as np
 import pandas as pd
@@ -23,7 +23,9 @@ class Stock:
     interval: str = "1d"
 
     retrieve_mode: str = "get"
-    force_retrieve: bool = False
+    force_download: bool = False
+    path_to_ohlcv: Path = Path()
+    path_to_financials: Path = Path()
 
     def __post_init__(self):
         if self.retrieve_mode == "get":
@@ -42,8 +44,8 @@ class Stock:
                 beginning_date=self.start_date,
                 ending_date=self.end_date,
                 interval="1d",
-                force_download=self.force_retrieve,
-                directory=Path("datasets/daily/ohlcv"),
+                force_download=self.force_download,
+                directory=self.path_to_ohlcv,
             )
         except ValueError as e:
             self.klines = []
@@ -52,8 +54,8 @@ class Stock:
             self.financials = retrieve_financials_function(
                 self.symbol,
                 date=self.end_date,
-                force_download=self.force_retrieve,
-                directory=Path("datasets/daily/financials"),
+                force_download=self.force_download,
+                directory=self.path_to_financials,
             )
         except ValueError as e:
             self.financials = {}
@@ -70,11 +72,29 @@ class Stock:
 
 
 def load_stocks(
-    symbols,
-    max_workers: int = 61,
-    retrieve_mode: str = "get",
-    force_retrieve: bool = False,
+    symbols: List[str],
+    max_workers: int,
+    retrieve_mode: str,
+    force_download: bool,
+    path_to_ohlcv: Optional[Path] = None,
+    path_to_financials: Optional[Path] = None,
 ) -> Tuple[List[Stock], datetime]:
+    """Create `Stock` instances. Uses multiprocessing.
+
+    Args:
+        symbols (List[str]): list of symbols to create Stock instances with
+        max_workers (int): max workers for the threading
+        retrieve_mode (str): Retrieve mode. One of ["get", "fetch"].
+            * `fetch` will only retrieve data from online, and won't save them.
+            * `get` will first try to retrieve data from the disk before trying online
+        force_download (bool): useful when `retrieve_mode=get`.
+            The algorithm will always fetch data from online and save it.
+        path_to_ohlcv (Path): path to the ohlcv data if `retrieve_mode=get`
+        path_to_financials (Path): path to the financial data if `retrieve_mode=get`
+
+    Returns:
+        Tuple[List[Stock], datetime]: List of Stock instances and the time the data were lastly updated.
+    """
     stocks = []
     with concurrent.futures.ProcessPoolExecutor(max_workers) as executor:
         future_proc = [
@@ -82,7 +102,9 @@ def load_stocks(
                 Stock,
                 symbol,
                 retrieve_mode=retrieve_mode,
-                force_retrieve=force_retrieve,
+                force_download=force_download,
+                path_to_ohlcv=path_to_ohlcv,
+                path_to_financials=path_to_financials,
             )
             for symbol in symbols
         ]
@@ -98,12 +120,12 @@ def load_stocks(
         modified_dates_ohlcv = pd.to_datetime(
             [
                 1000 * x.lstat().st_mtime
-                for x in Path("datasets/daily/financials").glob("*.json")
+                for x in path_to_ohlcv.glob("*.json")
                 if x.is_file()
             ]
             + [
                 1000 * x.lstat().st_mtime
-                for x in Path("datasets/daily/ohlcv").glob("*.csv")
+                for x in path_to_financials.glob("*.csv")
                 if x.is_file()
             ],
             utc=True,
@@ -115,14 +137,33 @@ def load_stocks(
 
 
 def add_indicators(stock: Stock, indicators: List[Indicator]) -> Stock:
+    """Add indicators to the klines of a stock
+
+    Args:
+        stock (Stock): Stock to add klines to
+        indicators (List[Indicator]): List of indicators to add
+
+    Returns:
+        Stock: modified stock (no copy)
+    """
     for indicator in indicators:
         stock.add_indicator(indicator)
     return stock
 
 
 def compute_score(
-    stocks: List[Stock], indicators: List[Indicator], max_workers: int = 61
+    stocks: List[Stock], indicators: List[Indicator], max_workers: int
 ) -> List[Stock]:
+    """Computes the global and detailed score of each stock in list. Uses multiprocessing.
+
+    Args:
+        stocks (List[Stock]): List of stocks to compute score
+        indicators (List[Indicator]): List of indicators giving score
+        max_workers (int): max workers for the threading
+
+    Returns:
+        List[Stock]: list of updated stocks (no copy)
+    """
     updated_stocks = []
     with concurrent.futures.ProcessPoolExecutor(max_workers) as executor:
         future_proc = [

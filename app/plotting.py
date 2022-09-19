@@ -10,6 +10,14 @@ from plotly.subplots import make_subplots
 
 
 def indicator_histogram(stocks: List[Stock]) -> Figure:
+    """Creates a figure containing a summary of the scanned stocks
+
+    Args:
+        stocks (List[Stock]): relevant stocks among the scanned stocks
+
+    Returns:
+        Figure: plotly figure
+    """
     l = []
     for stock in stocks:
         for ind, score_ind in stock.detailed_score.items():
@@ -70,6 +78,18 @@ def mutliple_row_charts(
     indicators_to_draw_above: List[str] = [],
     indicators_to_draw_beside: List[str] = [],
 ) -> Figure:
+    """Creates a figure containing multiple rows of charts:
+        * a first OHLC chart, and the `indicators_to_draw_above` on top.
+        * a chart of each indicator in `indicators_to_draw_beside`
+
+    Args:
+        stock (Stock): selected stock
+        indicators_to_draw_above (List[str], optional): Indicators to draw below the OHLC chart. Defaults to [].
+        indicators_to_draw_beside (List[str], optional): Indicators to draw on top of the OHLC chart. Defaults to [].
+
+    Returns:
+        Figure: plotly figure containing all the chart
+    """
     row_heights = [0.7] + [0.2] * len(indicators_to_draw_beside)
     fig = make_subplots(
         rows=len(indicators_to_draw_beside) + 1,

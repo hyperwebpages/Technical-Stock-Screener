@@ -4,5 +4,6 @@ plotly==5.10.0
 streamlit==1.12.2
 ta==0.10.2
 TA-Lib
+toml==0.10.2
 tweepy==4.10.1
 yfinance==0.1.74
