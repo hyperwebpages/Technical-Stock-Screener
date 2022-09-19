@@ -117,15 +117,16 @@ def load_stocks(
     if retrieve_mode == "fetch":
         updated_at = datetime.now()
     elif retrieve_mode == "get":
+
         modified_dates_ohlcv = pd.to_datetime(
             [
                 1000 * x.lstat().st_mtime
-                for x in path_to_ohlcv.glob("*.json")
+                for x in path_to_financials.glob("*")
                 if x.is_file()
             ]
             + [
                 1000 * x.lstat().st_mtime
-                for x in path_to_financials.glob("*.csv")
+                for x in path_to_ohlcv.glob("*")
                 if x.is_file()
             ],
             utc=True,
