@@ -1,4 +1,5 @@
 import concurrent.futures
+import multiprocessing as mp
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
@@ -96,7 +97,9 @@ def load_stocks(
         Tuple[List[Stock], datetime]: List of Stock instances and the time the data were lastly updated.
     """
     stocks = []
-    with concurrent.futures.ProcessPoolExecutor(max_workers) as executor:
+    with concurrent.futures.ProcessPoolExecutor(
+        max_workers, mp_context=mp.get_context("fork")
+    ) as executor:
         future_proc = [
             executor.submit(
                 Stock,
@@ -111,7 +114,10 @@ def load_stocks(
         for future in concurrent.futures.as_completed(future_proc):
             result = future.result()
             if len(result.klines) == 0:
-                st.warning(f"{result.symbol} cannot be found.", icon="⚠️")
+                st.warning(f"{result.symbol} OHLCV cannot be found.", icon="⚠️")
+                continue
+            if len(result.financials) == 0:
+                st.warning(f"{result.symbol} financials cannot be found.", icon="⚠️")
                 continue
             stocks.append(result)
     if retrieve_mode == "fetch":
@@ -166,7 +172,9 @@ def compute_score(
         List[Stock]: list of updated stocks (no copy)
     """
     updated_stocks = []
-    with concurrent.futures.ProcessPoolExecutor(max_workers) as executor:
+    with concurrent.futures.ProcessPoolExecutor(
+        max_workers, mp_context=mp.get_context("fork")
+    ) as executor:
         future_proc = [
             executor.submit(add_indicators, stock, indicators) for stock in stocks
         ]
