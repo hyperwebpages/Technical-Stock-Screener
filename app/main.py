@@ -18,7 +18,7 @@ def run_app():
     (
         length_displayed_stocks,
         length_displayed_tweets,
-        max_workers,
+        fork_mode,
         retrieve_mode,
         path_to_symbols,
         path_to_ohlcv,
@@ -40,7 +40,7 @@ def run_app():
     app_state._initialize_variable_state(stock_symbols, nb_indicators)
     app_state._initialize_stock_state(
         stock_symbols,
-        max_workers,
+        fork_mode,
         retrieve_mode,
         False,
         path_to_ohlcv,
@@ -61,7 +61,7 @@ def run_app():
         with st.spinner(f"Computing indicators on {len(stock_symbols)} stocks..."):
             start_time = time()
             st.session_state["stocks"] = compute_score(
-                st.session_state["original_stocks"], on_indicators, max_workers
+                st.session_state["original_stocks"], on_indicators, fork_mode
             )
             st.session_state["stocks"] = sorted(
                 st.session_state["stocks"],
@@ -150,7 +150,7 @@ def run_app():
     if st.button("Update data"):
         app_state._initialize_stock_state(
             stock_symbols,
-            max_workers,
+            fork_mode,
             retrieve_mode,
             True,
             path_to_ohlcv,

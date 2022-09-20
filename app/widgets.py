@@ -1,7 +1,7 @@
 from typing import List
 
 import streamlit as st
-from models.stock import Stock, load_stocks
+from models.stock import Stock
 from models.tweet import TweetsSearch
 
 import app.plotting as plotting
@@ -132,8 +132,7 @@ def expanders_widget(
         indicators_to_draw_beside (List): indicators to draw beside the OHLC chart
     """
     for index in range(
-        index_in_stock_list,
-        index_in_stock_list + length_displayed_stocks,
+        index_in_stock_list, index_in_stock_list + length_displayed_stocks,
     ):
         if index >= len(stocks):
             break

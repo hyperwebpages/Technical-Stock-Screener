@@ -21,7 +21,7 @@ def read_config_file(path: Path) -> Tuple:
     length_displayed_stocks = config["displaying"]["length_displayed_stocks"]
     length_displayed_tweets = config["displaying"]["length_displayed_tweets"]
 
-    max_workers = config["data_access"]["max_workers"]
+    fork_mode = config["data_access"]["fork_mode"]
     retrieve_mode = config["data_access"]["retrieve_mode"]
     path_to_symbols = Path(config["data_access"]["path_to_symbols"])
     path_to_ohlcv = Path(config["data_access"]["path_to_ohlcv"])
@@ -31,7 +31,7 @@ def read_config_file(path: Path) -> Tuple:
     return (
         length_displayed_stocks,
         length_displayed_tweets,
-        max_workers,
+        fork_mode,
         retrieve_mode,
         path_to_symbols,
         path_to_ohlcv,
@@ -63,7 +63,7 @@ def _initialize_variable_state(symbols: List[str], nb_indicators: int):
 
 def _initialize_stock_state(
     symbols: List[str],
-    max_workers: int,
+    fork_mode: str,
     retrieve_mode: str,
     force_download: bool,
     path_to_ohlcv: Path,
@@ -73,7 +73,7 @@ def _initialize_stock_state(
 
     Args:
         symbols (List[str]): list of symbols to generate stocks from
-        max_workers (int): max workers for the threading
+        fork_mode (str): fork mode. One of ["fork", "spawn"]
         retrieve_mode (str): Retrieve mode. One of ["get", "fetch"].
             * `fetch` will only retrieve data from online, and won't save them.
             * `get` will first try to retrieve data from the disk before trying online
@@ -95,7 +95,7 @@ def _initialize_stock_state(
                 st.session_state["updated_at"],
             ) = load_stocks(
                 symbols,
-                max_workers=max_workers,
+                fork_mode=fork_mode,
                 retrieve_mode=retrieve_mode,
                 force_download=force_download,
                 path_to_ohlcv=path_to_ohlcv,

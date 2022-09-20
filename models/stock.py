@@ -74,7 +74,7 @@ class Stock:
 
 def load_stocks(
     symbols: List[str],
-    max_workers: int,
+    fork_mode: int,
     retrieve_mode: str,
     force_download: bool,
     path_to_ohlcv: Optional[Path] = None,
@@ -84,7 +84,7 @@ def load_stocks(
 
     Args:
         symbols (List[str]): list of symbols to create Stock instances with
-        max_workers (int): max workers for the threading
+        fork_mode (str): fork mode. One of ["fork", "spawn"]
         retrieve_mode (str): Retrieve mode. One of ["get", "fetch"].
             * `fetch` will only retrieve data from online, and won't save them.
             * `get` will first try to retrieve data from the disk before trying online
@@ -96,30 +96,33 @@ def load_stocks(
     Returns:
         Tuple[List[Stock], datetime]: List of Stock instances and the time the data were lastly updated.
     """
+
     stocks = []
-    with concurrent.futures.ProcessPoolExecutor(
-        max_workers, mp_context=mp.get_context("fork")
-    ) as executor:
-        future_proc = [
-            executor.submit(
-                Stock,
-                symbol,
+
+    def callback(result):
+        if len(result.klines) == 0:
+            st.warning(f"{result.symbol} OHLCV cannot be found.", icon="⚠️")
+        elif len(result.financials) == 0:
+            st.warning(f"{result.symbol} financials cannot be found.", icon="⚠️")
+        else:
+            stocks.append(result)
+
+    pool = mp.get_context(fork_mode).Pool()
+    for symbol in symbols:
+        pool.apply_async(
+            Stock,
+            kwds=dict(
+                symbol=symbol,
                 retrieve_mode=retrieve_mode,
                 force_download=force_download,
                 path_to_ohlcv=path_to_ohlcv,
                 path_to_financials=path_to_financials,
-            )
-            for symbol in symbols
-        ]
-        for future in concurrent.futures.as_completed(future_proc):
-            result = future.result()
-            if len(result.klines) == 0:
-                st.warning(f"{result.symbol} OHLCV cannot be found.", icon="⚠️")
-                continue
-            if len(result.financials) == 0:
-                st.warning(f"{result.symbol} financials cannot be found.", icon="⚠️")
-                continue
-            stocks.append(result)
+            ),
+            callback=callback,
+        )
+    pool.close()
+    pool.join()
+
     if retrieve_mode == "fetch":
         updated_at = datetime.now()
     elif retrieve_mode == "get":
@@ -159,25 +162,28 @@ def add_indicators(stock: Stock, indicators: List[Indicator]) -> Stock:
 
 
 def compute_score(
-    stocks: List[Stock], indicators: List[Indicator], max_workers: int
+    stocks: List[Stock], indicators: List[Indicator], fork_mode: str
 ) -> List[Stock]:
     """Computes the global and detailed score of each stock in list. Uses multiprocessing.
 
     Args:
         stocks (List[Stock]): List of stocks to compute score
         indicators (List[Indicator]): List of indicators giving score
-        max_workers (int): max workers for the threading
+        fork_mode (str): fork mode. One of ["fork", "spawn"]
 
     Returns:
         List[Stock]: list of updated stocks (no copy)
     """
     updated_stocks = []
-    with concurrent.futures.ProcessPoolExecutor(
-        max_workers, mp_context=mp.get_context("fork")
-    ) as executor:
-        future_proc = [
-            executor.submit(add_indicators, stock, indicators) for stock in stocks
-        ]
-    for future in concurrent.futures.as_completed(future_proc):
-        updated_stocks.append(future.result())
+
+    def callback(result):
+        updated_stocks.append(result)
+
+    pool = mp.get_context(fork_mode).Pool()
+    for stock in stocks:
+        pool.apply_async(
+            add_indicators, (stock, indicators), callback=callback,
+        )
+    pool.close()
+    pool.join()
     return updated_stocks
