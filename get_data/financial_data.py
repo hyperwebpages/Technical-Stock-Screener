@@ -34,7 +34,9 @@ def fetch_financials(symbol: str, **kwargs) -> dict:
         ["price", "averageDailyVolume10Day"],
         ["price", "regularMarketChangePercent"],
     ]
-    return {keys[1]: stats[keys[0]][keys[1]] for keys in financial_keys}
+    return {
+        keys[1]: stats.get(keys[0], {}).get(keys[1], None) for keys in financial_keys
+    }
 
 
 def save_financials(
