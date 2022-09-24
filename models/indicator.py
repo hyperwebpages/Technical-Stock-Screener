@@ -3,7 +3,6 @@ from dataclasses import dataclass
 import numpy as np
 import pandas as pd
 import streamlit as st
-import talib
 from ta.momentum import RSIIndicator, StochRSIIndicator
 from ta.trend import MACD, EMAIndicator, SMAIndicator
 
