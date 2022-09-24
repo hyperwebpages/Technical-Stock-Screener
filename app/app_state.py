@@ -1,8 +1,10 @@
 from pathlib import Path
 from typing import List, Tuple
 
+import pandas as pd
 import streamlit as st
 import toml
+from get_data.update import update_data
 from models.asset import load_stocks_indices
 
 import app.plotting as plotting
@@ -22,7 +24,6 @@ def read_config_file(path: Path) -> Tuple:
     length_displayed_tweets = config["displaying"]["length_displayed_tweets"]
 
     fork_mode = config["data_access"]["fork_mode"]
-    retrieve_mode = config["data_access"]["retrieve_mode"]
     path_to_index_symbols = Path(config["data_access"]["path_to_index_symbols"])
     path_to_stock_symbols = Path(config["data_access"]["path_to_stock_symbols"])
     path_to_ohlcv = Path(config["data_access"]["path_to_ohlcv"])
@@ -33,7 +34,6 @@ def read_config_file(path: Path) -> Tuple:
         length_displayed_stocks,
         length_displayed_tweets,
         fork_mode,
-        retrieve_mode,
         path_to_index_symbols,
         path_to_stock_symbols,
         path_to_ohlcv,
@@ -67,8 +67,6 @@ def _initialize_stock_index_state(
     index_symbols: List[str],
     stock_symbols: List[str],
     fork_mode: str,
-    retrieve_mode: str,
-    force_download: bool,
     path_to_ohlcv: Path,
     path_to_financials: Path,
 ):
@@ -89,10 +87,9 @@ def _initialize_stock_index_state(
     if (
         "original_stocks" not in st.session_state
         or "updated_at" not in st.session_state
-        or force_download
     ):
         with st.spinner(
-            f"Retrieving historical and financial data of {len(index_symbols+stock_symbols)} stocks..."
+            f"Loading historical and financial data of {len(index_symbols+stock_symbols)} assets..."
         ):
             (
                 st.session_state["original_indices"],
@@ -102,8 +99,47 @@ def _initialize_stock_index_state(
                 index_symbols,
                 stock_symbols,
                 fork_mode=fork_mode,
-                retrieve_mode=retrieve_mode,
-                force_download=force_download,
                 path_to_ohlcv=path_to_ohlcv,
                 path_to_financials=path_to_financials,
             )
+
+
+def _initialize_asset_data(
+    index_symbols: List,
+    stock_symbols: List,
+    path_to_ohlcv: Path,
+    path_to_financials: Path,
+    fork_mode: str,
+    force_update: bool,
+):
+    ohlcv_filenames = [
+        x.stem.split("_") for x in path_to_ohlcv.glob("**/*") if x.is_file()
+    ]
+    ohlcv_files_symbols = pd.DataFrame(ohlcv_filenames, columns=["symbol", "interval"])[
+        "symbol"
+    ]
+    financial_filenames = [
+        x.stem.split("_") for x in path_to_financials.glob("**/*") if x.is_file()
+    ]
+    financial_files_symbols = pd.DataFrame(financial_filenames, columns=["symbol"])[
+        "symbol"
+    ]
+    if (
+        set(financial_files_symbols) != set(stock_symbols)
+        or set(ohlcv_files_symbols) != set(stock_symbols) | set(index_symbols)
+        or force_update
+    ):
+        with st.spinner(
+            f"Downloading historical and financial data of {len(index_symbols+stock_symbols)} assets..."
+        ):
+            problematic_ohlcv, problematic_financials = update_data(
+                index_symbols,
+                stock_symbols,
+                path_to_ohlcv,
+                path_to_financials,
+                fork_mode,
+            )
+            for pb_index in problematic_ohlcv:
+                st.warning(f"{pb_index.symbol} OHLCV cannot be found.", icon="⚠️")
+            for pb_index in problematic_financials:
+                st.warning(f"{pb_index.symbol} financials cannot be found.", icon="⚠️")

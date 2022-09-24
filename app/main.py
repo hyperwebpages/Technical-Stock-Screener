@@ -19,7 +19,6 @@ def run_app():
         length_displayed_stocks,
         length_displayed_tweets,
         fork_mode,
-        retrieve_mode,
         path_to_index_symbols,
         path_to_stock_symbols,
         path_to_ohlcv,
@@ -35,18 +34,23 @@ def run_app():
 
     indicators = [rsi, stochrsi, ema, macd, cipher_b]
 
-    index_symbols = pd.read_csv(path_to_index_symbols)["symbol"]
-    stock_symbols = pd.read_csv(path_to_stock_symbols)["symbol"]
-    all_symbols = [index_symbols, stock_symbols]
+    index_symbols = list(pd.read_csv(path_to_index_symbols)["symbol"])
+    stock_symbols = list(pd.read_csv(path_to_stock_symbols)["symbol"])
     nb_indicators = len(indicators)
 
-    app_state._initialize_variable_state(pd.concat(all_symbols), nb_indicators)
+    app_state._initialize_variable_state(index_symbols + stock_symbols, nb_indicators)
+    app_state._initialize_asset_data(
+        index_symbols,
+        stock_symbols,
+        path_to_ohlcv,
+        path_to_financials,
+        fork_mode,
+        force_update=False,
+    )
     app_state._initialize_stock_index_state(
         index_symbols,
         stock_symbols,
         fork_mode,
-        retrieve_mode,
-        False,
         path_to_ohlcv,
         path_to_financials,
     )
@@ -60,7 +64,9 @@ def run_app():
         scan_button = st.button("Scan")
 
     if scan_button:
-        app_state._initialize_variable_state(all_symbols, nb_indicators)
+        app_state._initialize_variable_state(
+            index_symbols + stock_symbols, nb_indicators
+        )
 
         with st.spinner(f"Computing indicators on {len(stock_symbols)} stocks..."):
             start_time = time()
@@ -97,7 +103,7 @@ def run_app():
                     ),
                 )
             )
-        
+
         st.plotly_chart(plotting.indicator_histogram(indices, stocks))
 
         with open(
@@ -171,13 +177,13 @@ def run_app():
             ] += length_displayed_stocks
 
     if st.button("Update data"):
-        app_state._initialize_stock_state(
+        app_state._initialize_asset_data(
+            index_symbols,
             stock_symbols,
-            fork_mode,
-            retrieve_mode,
-            True,
             path_to_ohlcv,
             path_to_financials,
+            fork_mode,
+            force_update=True,
         )
     st.write(f"Last update at: {st.session_state['updated_at']}")
 

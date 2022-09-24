@@ -8,7 +8,6 @@ path_to_stock_symbols = "datasets/stocks.csv"
 path_to_ohlcv = "datasets/daily/ohlcv/"
 path_to_financials = "datasets/daily/financials/"
 fork_mode = "fork"
-retrieve_mode = "get"
 
 [twitter_api]
 bearer_token = "AAAAAAAAAAAAAAAAAAAAAG8AhQEAAAAA4EckVEMHWEyM3rfxgNyiFTCy5hg%3DgSiAHWLHyAKtt9erA7l3dDMCgnQgoYifatBNcoUNrJUSh24D4w"

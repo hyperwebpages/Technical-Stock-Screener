@@ -39,9 +39,7 @@ def fetch_financials(symbol: str, **kwargs) -> dict:
     }
 
 
-def save_financials(
-    data: dict, symbol: str, date: datetime, directory: Path, **kwargs
-) -> str:
+def save_financials(data: dict, symbol: str, directory: Path, **kwargs) -> str:
     """Save financials data in `directory`.
 
     Args:
@@ -56,7 +54,7 @@ def save_financials(
     Returns:
         str: filename containing the data
     """
-    filename = Path(directory) / "_".join([symbol, date.strftime(FORMAT),])
+    filename = Path(directory) / symbol
     Path(filename).parent.mkdir(parents=True, exist_ok=True)
     filename = str(filename) + ".json"
     if len(data) > 0:
@@ -67,9 +65,7 @@ def save_financials(
     return filename
 
 
-def fetch_and_save_financials(
-    symbol: str, date: datetime, directory: Path, **kwargs
-) -> str:
+def fetch_and_save_financials(symbol: str, directory: Path, **kwargs) -> str:
     """
     Downloads financials of `symbol` save them in `directory`.
     Args:
@@ -79,15 +75,18 @@ def fetch_and_save_financials(
     Returns:
         str: filename of csv file containing the financials
     """
-    klines = fetch_financials(symbol,)
-    filename = save_financials(klines, symbol, date, directory,)
+    klines = fetch_financials(
+        symbol,
+    )
+    filename = save_financials(
+        klines,
+        symbol,
+        directory,
+    )
     return filename
 
 
-def download_financials(
-    symbol: str, date: datetime, force_download: bool, directory: Path, **kwargs
-) -> pd.DataFrame:
-
+def select_financials(symbol: str, directory: Path, **kwargs) -> pd.DataFrame:
     """
     Selects the financials of `symbol`.
     If the financials have already been downloaded, it fetches it in the csv file, unless `force_download=True`.
@@ -103,33 +102,13 @@ def download_financials(
     p = Path(directory).glob("*.json")
     files = [x for x in p if x.is_file()]
     filenames = [x.stem.split("_") for x in files]
-    df_files = pd.DataFrame(filenames, columns=["symbol", "date"])
-    df_files.loc[:, "date"] = df_files["date"].apply(
-        lambda x: pd.to_datetime(x, format=FORMAT).tz_localize("UTC")
-    )
+    df_files = pd.DataFrame(filenames, columns=["symbol"])
 
-    ending_date = datetime(date.year, date.month, date.day)
-    if force_download:
-        ending_date = datetime.now()
-    ending_date = ending_date.replace(tzinfo=pytz.UTC)
-
-    symbol_to_string = "-".join(symbol) if isinstance(symbol, list) else symbol
-
-    perfect_file = df_files[
-        (df_files["symbol"] == symbol_to_string) & (df_files["date"] >= ending_date)
-    ]
-    useless_file = df_files[
-        (df_files["symbol"] == symbol_to_string) & (df_files["date"] < ending_date)
-    ]
+    perfect_file = df_files[(df_files["symbol"] == symbol)]
     if not perfect_file.empty:
         filename = files[perfect_file.index[0]]
         with open(filename) as financial_file:
             return json.load(financial_file)
 
-    for index in useless_file.index:
-        filename = files[index]
-        Path.unlink(filename)
-
-    new_filename = fetch_and_save_financials(symbol, ending_date, directory,)
-    with open(new_filename) as financial_file:
-        return json.load(financial_file)
+    else:
+        raise FileNotFoundError(f"There is no financials data associated to {symbol}.")
