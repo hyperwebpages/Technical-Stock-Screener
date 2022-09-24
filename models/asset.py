@@ -207,7 +207,6 @@ def load_stocks_indices(
         path_to_ohlcv,
         path_to_financials,
     )
-    print(len(indices), len(stocks))
     return indices, stocks, min(index_updated_at, stock_updated_at)
 
 
@@ -221,6 +220,7 @@ def add_indicators(stock: Stock, indicators: List[Indicator]) -> Stock:
     Returns:
         Stock: modified stock (no copy)
     """
+    print(stock)
     for indicator in indicators:
         stock.add_indicator(indicator)
     return stock
@@ -240,17 +240,10 @@ def compute_score(
         List[Stock]: list of updated stocks (no copy)
     """
     updated_stocks = []
-
-    def callback(result):
-        updated_stocks.append(result)
-
-    pool = mp.get_context(fork_mode).Pool()
-    for stock in stocks:
-        pool.apply_async(
-            add_indicators,
-            (stock, indicators),
-            callback=callback,
-        )
-    pool.close()
-    pool.join()
+    with concurrent.futures.ThreadPoolExecutor(61) as executor:
+        future_proc = [
+            executor.submit(add_indicators, stock, indicators) for stock in stocks
+        ]
+    for future in concurrent.futures.as_completed(future_proc):
+        updated_stocks.append(future.result())
     return updated_stocks
