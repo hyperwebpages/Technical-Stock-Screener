@@ -139,7 +139,7 @@ def _initialize_asset_data(
                 path_to_financials,
                 fork_mode,
             )
-            for pb_index in problematic_ohlcv:
-                st.warning(f"{pb_index.symbol} OHLCV cannot be found.", icon="⚠️")
-            for pb_index in problematic_financials:
-                st.warning(f"{pb_index.symbol} financials cannot be found.", icon="⚠️")
+        for pb_index in problematic_ohlcv:
+            st.warning(f"{pb_index.symbol} OHLCV cannot be found.", icon="⚠️")
+        for pb_index in problematic_financials:
+            st.warning(f"{pb_index.symbol} financials cannot be found.", icon="⚠️")

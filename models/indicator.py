@@ -3,8 +3,7 @@ from dataclasses import dataclass
 import numpy as np
 import pandas as pd
 import streamlit as st
-from ta.momentum import RSIIndicator, StochRSIIndicator
-from ta.trend import MACD, EMAIndicator, SMAIndicator
+from ta import momentum, trend
 
 
 def beautiful_str(s: str) -> str:
@@ -58,7 +57,7 @@ class RSI(Indicator):
     flag_column: str = "RSIflag"
 
     def apply_indicator(self, ohlc: pd.DataFrame) -> pd.DataFrame:
-        ohlc["RSI"] = RSIIndicator(ohlc["Close"], int(self.period)).rsi()
+        ohlc["RSI"] = momentum.RSIIndicator(ohlc["Close"], int(self.period)).rsi()
         ohlc["RSIflag"] = 0
         condSold = ohlc["RSI"] < float(self.oversold)
         ohlc["RSIflag"] = np.where(condSold, 1, ohlc["RSIflag"])
@@ -78,11 +77,11 @@ class StochRSI(Indicator):
     flag_column: str = "StochRSIflag"
 
     def apply_indicator(self, ohlc: pd.DataFrame) -> pd.DataFrame:
-        stoch_rsi_ind = StochRSIIndicator(
+        stoch_rsi_ind = momentum.StochRSIIndicator(
             ohlc["Close"],
             int(self.period),
-            smooth1=float(self.k),
-            smooth2=float(self.d),
+            smooth1=int(self.k),
+            smooth2=int(self.d),
         )
         ohlc["fastk"], ohlc["fastd"] = (
             stoch_rsi_ind.stochrsi_k(),
@@ -115,14 +114,14 @@ class EMA(Indicator):
     slow_period: int = 200
 
     def apply_indicator(self, ohlc: pd.DataFrame) -> pd.DataFrame:
-        ohlc["EMA_fast"] = EMAIndicator(
+        ohlc["EMA_fast"] = trend.EMAIndicator(
             ohlc["Close"], int(self.fast_period)
         ).ema_indicator()
 
-        ohlc["EMA_medium"] = EMAIndicator(
+        ohlc["EMA_medium"] = trend.EMAIndicator(
             ohlc["Close"], int(self.medium_period)
         ).ema_indicator()
-        ohlc["EMA_slow"] = EMAIndicator(
+        ohlc["EMA_slow"] = trend.EMAIndicator(
             ohlc["Close"], int(self.slow_period)
         ).ema_indicator()
         return ohlc
@@ -148,7 +147,7 @@ class MACD(Indicator):
         )
         ohlc = ema.apply_indicator(ohlc)
 
-        macd_indicator = MACD(
+        macd_indicator = trend.MACD(
             ohlc["Close"],
             window_slow=int(self.slow_period),
             window_fast=int(self.fast_period),
@@ -195,16 +194,18 @@ class CipherB(Indicator):
 
     def apply_indicator(self, ohlc: pd.DataFrame) -> pd.DataFrame:
         ohlc["ap"] = (ohlc["High"] + ohlc["Low"] + ohlc["Close"]) / 3
-        esa = EMAIndicator(ohlc["ap"], int(self.n1)).ema_indicator()
+        esa = trend.EMAIndicator(ohlc["ap"], int(self.n1)).ema_indicator()
         ohlc["esa"] = esa
         ohlc["dval"] = abs(ohlc["ap"] - ohlc["esa"])
-        ohlc["d"] = EMAIndicator(ohlc["dval"], int(self.n1)).ema_indicator()
+        ohlc["d"] = trend.EMAIndicator(ohlc["dval"], int(self.n1)).ema_indicator()
 
         ohlc["ci"] = (ohlc["ap"] - ohlc["esa"]) / (0.015 * ohlc["d"])
-        ohlc["tci"] = EMAIndicator(ohlc["ci"], int(self.n2)).ema_indicator()
+        ohlc["tci"] = trend.EMAIndicator(ohlc["ci"], int(self.n2)).ema_indicator()
 
         ohlc["wt1"] = ohlc["tci"]
-        ohlc["wt2"] = SMAIndicator(ohlc["wt1"], int(self.wt_smoothing)).sma_indicator()
+        ohlc["wt2"] = trend.SMAIndicator(
+            ohlc["wt1"], int(self.wt_smoothing)
+        ).sma_indicator()
         ohlc["CipherFlag"] = 0
 
         CipherBullCond = (ohlc["wt1"].shift(1) < ohlc["wt2"].shift(1)) & (

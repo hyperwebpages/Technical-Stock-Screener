@@ -207,6 +207,7 @@ def load_stocks_indices(
         path_to_ohlcv,
         path_to_financials,
     )
+    print(len(indices), len(stocks))
     return indices, stocks, min(index_updated_at, stock_updated_at)
 
 
