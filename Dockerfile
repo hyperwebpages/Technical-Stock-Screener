@@ -6,5 +6,6 @@ COPY . /app/
 WORKDIR /app
 
 RUN pip3 install -r requirements.txt
+RUN pip3 install --editable .
 
 ENTRYPOINT ["streamlit", "run", "app/main.py", "--server.port=8501"]
