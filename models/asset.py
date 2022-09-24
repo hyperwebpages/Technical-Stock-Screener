@@ -136,27 +136,21 @@ def load_asset(
 
     stocks = []
 
-    def callback(result):
-        if hasattr(result, "klines") and len(result.klines) == 0:
-            st.warning(f"{result.symbol} OHLCV cannot be found.", icon="⚠️")
-        elif hasattr(result, "financials") and len(result.financials) == 0:
-            st.warning(f"{result.symbol} financials cannot be found.", icon="⚠️")
-        else:
-            stocks.append(result)
-
-    pool = mp.get_context(fork_mode).Pool()
-    for symbol in symbols:
-        pool.apply_async(
-            loading_function,
-            kwds=dict(
+    with concurrent.futures.ProcessPoolExecutor(
+        61, mp_context=mp.get_context("fork")
+    ) as executor:
+        future_proc = [
+            executor.submit(
+                loading_function,
                 symbol=symbol,
                 path_to_ohlcv=path_to_ohlcv,
                 path_to_financials=path_to_financials,
-            ),
-            callback=callback,
-        )
-    pool.close()
-    pool.join()
+            )
+            for symbol in symbols
+        ]
+        for future in concurrent.futures.as_completed(future_proc):
+            result = future.result()
+            stocks.append(result)
 
     modified_dates_ohlcv = pd.to_datetime(
         [1000 * x.lstat().st_mtime for x in path_to_financials.glob("*") if x.is_file()]
@@ -220,7 +214,6 @@ def add_indicators(stock: Stock, indicators: List[Indicator]) -> Stock:
     Returns:
         Stock: modified stock (no copy)
     """
-    print(stock)
     for indicator in indicators:
         stock.add_indicator(indicator)
     return stock
