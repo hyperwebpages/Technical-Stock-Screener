@@ -5,7 +5,7 @@ EXPOSE 8501
 WORKDIR /app
 
 RUN echo 'alias ll="ls -al"' >> ~/.bashrc
-RUN apt-get update
+RUN apt-get update && apt-get install -y wget
 
 
 # TA-Lib
