@@ -2,7 +2,7 @@ version: "3"
 
 services:
   visualization-streamlit:
-    container_name: visualization-container
+    container_name: webapp
     build: ./
     restart: unless-stopped
     ports:
