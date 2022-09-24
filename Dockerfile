@@ -7,4 +7,4 @@ WORKDIR /app
 
 RUN pip3 install -r requirements.txt
 
-ENTRYPOINT ["streamlit", "run", "streamlit_app.py", "--server.port=8501"]
+ENTRYPOINT ["streamlit", "run", "app/main.py", "--server.port=8501"]

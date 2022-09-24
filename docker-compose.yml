@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  visualization-streamlit:
+  webapp:
     container_name: webapp
     build: ./
     restart: unless-stopped
