@@ -3,7 +3,8 @@ length_displayed_stocks = 10
 length_displayed_tweets = 3
 
 [data_access]
-path_to_symbols = "datasets/symbols.csv"
+path_to_index_symbols = "datasets/indices.csv"
+path_to_stock_symbols = "datasets/stocks.csv"
 path_to_ohlcv = "datasets/daily/ohlcv/"
 path_to_financials = "datasets/daily/financials/"
 fork_mode = "fork"

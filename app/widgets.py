@@ -1,17 +1,10 @@
 from typing import List
 
 import streamlit as st
-from models.stock import Stock
+from models.asset import Stock
 from models.tweet import TweetsSearch
 
 import app.plotting as plotting
-
-
-def format_int_or_na(value, format="\${:,}") -> str:
-    if value is None:
-        return "N/A"
-    else:
-        return format.format(value).replace(",", " ")
 
 
 def tweets_widget(
@@ -62,38 +55,15 @@ def expander_widget(
         indicators_to_draw_above (List): indicators to draw above the OHLC chart
         indicators_to_draw_beside (List): indicators to draw beside the OHLC chart
     """
-    financials = stock.financials
-    st.write(financials["longName"] + ", " + financials["industry"])
-    _, col1, col2, _ = st.columns([1, 5, 5, 1])
+    if isinstance(stock, Stock):
+        financials = stock.financials
+        st.write(financials["longName"] + ", " + financials["industry"])
 
-    with col1:
-        st.write(
-            "Target price (1 year): " + format_int_or_na(financials["targetMeanPrice"])
-        )
-        st.write(
-            "Day Low - Day High: "
-            + format_int_or_na(financials["regularMarketDayLow"])
-            + " - "
-            + format_int_or_na(financials["regularMarketDayHigh"])
-        )
-        st.write(
-            "Market Change: "
-            + format_int_or_na(
-                financials["regularMarketChangePercent"], format="{:.3f}%"
-            )
-        )
-        st.write(
-            "1 year week change: "
-            + format_int_or_na(financials["52WeekChange"], format="{:.3f}%")
-        )
-
-    with col2:
-        st.write("Market Cap: " + format_int_or_na(financials["marketCap"]))
-        st.write("Total Revenue: " + format_int_or_na(financials["totalRevenue"]))
-        st.write(
-            "Average Daily Volume (last 10 days): "
-            + format_int_or_na(financials["averageDailyVolume10Day"], format="{:,}")
-        )
+        _, col1, col2, _ = st.columns([1, 4, 4, 1])
+        financial_cols = stock.financials_to_str()
+        for col, financial_col in zip([col1, col2], financial_cols):
+            for f_col in financial_col:
+                col.write(f_col)
 
     fig = plotting.mutliple_row_charts(
         stock, indicators_to_draw_above, indicators_to_draw_beside

@@ -6,7 +6,7 @@ _Non neutral pressure_ refers to pressure given by any indicator which estimates
 There exists a trade-off between having very good predictions and having predictions on every asset.
 
 
-__Studied stocks:__ {len_stocks}
+__Studied stocks:__ {len_assets}
 
 __Elapsed time:__ {elapsed_time:.0f}ms.
 

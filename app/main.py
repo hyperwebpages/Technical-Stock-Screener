@@ -4,8 +4,8 @@ from time import time
 import numpy as np
 import pandas as pd
 import streamlit as st
+from models.asset import compute_score
 from models.indicator import EMA, MACD, RSI, CipherB, StochRSI
-from models.stock import compute_score
 
 import app.plotting as plotting
 import app_state
@@ -20,7 +20,8 @@ def run_app():
         length_displayed_tweets,
         fork_mode,
         retrieve_mode,
-        path_to_symbols,
+        path_to_index_symbols,
+        path_to_stock_symbols,
         path_to_ohlcv,
         path_to_financials,
         bearer_token,
@@ -34,11 +35,14 @@ def run_app():
 
     indicators = [rsi, stochrsi, ema, macd, cipher_b]
 
-    stock_symbols = pd.read_csv(path_to_symbols)["symbol"]
+    index_symbols = pd.read_csv(path_to_index_symbols)["symbol"]
+    stock_symbols = pd.read_csv(path_to_stock_symbols)["symbol"]
+    all_symbols = [index_symbols, stock_symbols]
     nb_indicators = len(indicators)
 
-    app_state._initialize_variable_state(stock_symbols, nb_indicators)
-    app_state._initialize_stock_state(
+    app_state._initialize_variable_state(pd.concat(all_symbols), nb_indicators)
+    app_state._initialize_stock_index_state(
+        index_symbols,
         stock_symbols,
         fork_mode,
         retrieve_mode,
@@ -56,15 +60,20 @@ def run_app():
         scan_button = st.button("Scan")
 
     if scan_button:
-        app_state._initialize_variable_state(stock_symbols, nb_indicators)
+        app_state._initialize_variable_state(all_symbols, nb_indicators)
 
         with st.spinner(f"Computing indicators on {len(stock_symbols)} stocks..."):
             start_time = time()
-            st.session_state["stocks"] = compute_score(
-                st.session_state["original_stocks"], on_indicators, fork_mode
+            st.session_state["indices"] = sorted(
+                compute_score(
+                    st.session_state["original_indices"], on_indicators, fork_mode
+                ),
+                key=lambda index: (np.abs(index.global_score), index.symbol),
             )
             st.session_state["stocks"] = sorted(
-                st.session_state["stocks"],
+                compute_score(
+                    st.session_state["original_stocks"], on_indicators, fork_mode
+                ),
                 key=lambda stock: (np.abs(stock.global_score), stock.symbol),
             )
             st.session_state["elapsed_time"] = time() - start_time
@@ -75,32 +84,26 @@ def run_app():
             welcome_str = welcome_file.read()
             st.markdown(welcome_str)
     else:
+        indices = st.session_state["indices"]
         stocks = st.session_state["stocks"]
         with open(Path("templates/global_analysis.txt"), "r") as global_analysis_file:
             global_analysis_str = global_analysis_file.read()
             st.markdown(
                 global_analysis_str.format(
-                    len_stocks=len(stocks),
+                    len_assets=len(indices) + len(stocks),
                     elapsed_time=1000 * st.session_state["elapsed_time"],
                     non_neutral_pressures=len(
                         [1 for s in stocks if len(s.detailed_score) > 0]
                     ),
                 )
             )
+        
+        st.plotly_chart(plotting.indicator_histogram(indices, stocks))
 
-        st.plotly_chart(plotting.indicator_histogram(stocks))
-
-        with open(Path("templates/specific_analysis.txt"), "r") as global_analysis_file:
-            global_analysis_str = global_analysis_file.read()
-            st.markdown(
-                global_analysis_str.format(
-                    len_stocks=len(stocks),
-                    elapsed_time=1000 * st.session_state["elapsed_time"],
-                    non_neutral_pressures=len(
-                        [1 for s in stocks if len(s.detailed_score) > 0]
-                    ),
-                )
-            )
+        with open(
+            Path("templates/specific_analysis.txt"), "r"
+        ) as specific_analysis_file:
+            st.markdown(specific_analysis_file.read())
 
         indicators_to_draw_above = st.multiselect(
             "Indicators to draw above the ohlc chart",
@@ -122,6 +125,26 @@ def run_app():
             step=1,
             value=int(np.abs(stocks[-1].global_score)),
         )
+
+        selected_indices = [
+            index
+            for index in indices
+            if np.abs(index.global_score) == agreed_indicators
+        ]
+        st.write(
+            f"{len(selected_indices)} indices found matching {agreed_indicators} conditions."
+        )
+
+        widgets.expanders_widget(
+            selected_indices,
+            bearer_token,
+            0,
+            5,
+            length_displayed_tweets,
+            indicators_to_draw_above,
+            indicators_to_draw_beside,
+        )
+
         selected_stocks = [
             stock for stock in stocks if np.abs(stock.global_score) == agreed_indicators
         ]

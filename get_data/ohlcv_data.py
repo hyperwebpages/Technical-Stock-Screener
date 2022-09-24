@@ -8,6 +8,13 @@ import yfinance as yf
 PATH_TO_DATASETS = Path("../datasets/daily")
 FORMAT = "%d-%m-%Y"
 """Expected datetime format"""
+INDICES_TRANSLATIONS = {
+    "BTC": "BTC-USDT",
+    "DOW": "^DJI",
+    "EUR": "EURUSD=X",
+    "SP500": "^GSPC",
+    "Nasdaq": "^NDX",
+}
 
 
 def fetch_klines(
@@ -28,6 +35,7 @@ def fetch_klines(
     Returns:
         pd.DataFrame: dataframe containing the klines fetched online.
     """
+    symbol = INDICES_TRANSLATIONS.get(symbol, symbol)
     klines = yf.download(
         tickers=symbol,
         start=beginning_date,
@@ -42,10 +50,7 @@ def fetch_klines(
         klines.index = klines.index.tz_localize(pytz.UTC).rename("Datetime")
     except AttributeError as e:
         pass
-    klines = klines.drop(
-        labels=["Adj Close"],
-        axis=1,
-    )
+    klines = klines.drop(labels=["Adj Close"], axis=1,)
     klines = klines.astype("float64")
     return klines
 
@@ -112,19 +117,9 @@ def fetch_and_save_klines(
     Returns:
         str: filename of csv file containing the klines
     """
-    klines = fetch_klines(
-        symbol,
-        beginning_date,
-        ending_date,
-        interval,
-    )
+    klines = fetch_klines(symbol, beginning_date, ending_date, interval,)
     filename = save_klines(
-        klines,
-        symbol,
-        beginning_date,
-        ending_date,
-        interval,
-        directory,
+        klines, symbol, beginning_date, ending_date, interval, directory,
     )
     return filename
 
@@ -207,25 +202,14 @@ def download_klines(
 
     if not perfect_file.empty:
         filename = files[perfect_file.index[0]]
-        return select_klines_from_file(
-            beginning_date,
-            ending_date,
-            filename,
-        )
+        return select_klines_from_file(beginning_date, ending_date, filename,)
 
     for index in useless_file.index:
         filename = files[index]
         Path.unlink(filename)
 
     new_filename = fetch_and_save_klines(
-        symbol,
-        beginning_date,
-        ending_date,
-        interval,
-        directory,
+        symbol, beginning_date, ending_date, interval, directory,
     )
-    return select_klines_from_file(
-        beginning_date,
-        ending_date,
-        new_filename,
-    )
+    return select_klines_from_file(beginning_date, ending_date, new_filename,)
+

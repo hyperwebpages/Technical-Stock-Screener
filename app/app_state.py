@@ -3,7 +3,7 @@ from typing import List, Tuple
 
 import streamlit as st
 import toml
-from models.stock import load_stocks
+from models.asset import load_stocks_indices
 
 import app.plotting as plotting
 
@@ -23,7 +23,8 @@ def read_config_file(path: Path) -> Tuple:
 
     fork_mode = config["data_access"]["fork_mode"]
     retrieve_mode = config["data_access"]["retrieve_mode"]
-    path_to_symbols = Path(config["data_access"]["path_to_symbols"])
+    path_to_index_symbols = Path(config["data_access"]["path_to_index_symbols"])
+    path_to_stock_symbols = Path(config["data_access"]["path_to_stock_symbols"])
     path_to_ohlcv = Path(config["data_access"]["path_to_ohlcv"])
     path_to_financials = Path(config["data_access"]["path_to_financials"])
 
@@ -33,7 +34,8 @@ def read_config_file(path: Path) -> Tuple:
         length_displayed_tweets,
         fork_mode,
         retrieve_mode,
-        path_to_symbols,
+        path_to_index_symbols,
+        path_to_stock_symbols,
         path_to_ohlcv,
         path_to_financials,
         bearer_token,
@@ -61,8 +63,9 @@ def _initialize_variable_state(symbols: List[str], nb_indicators: int):
             st.session_state["stock_index_" + str(i)] = 0
 
 
-def _initialize_stock_state(
-    symbols: List[str],
+def _initialize_stock_index_state(
+    index_symbols: List[str],
+    stock_symbols: List[str],
     fork_mode: str,
     retrieve_mode: str,
     force_download: bool,
@@ -72,7 +75,8 @@ def _initialize_stock_state(
     """Loads the original stocks, without any indicators in it.
 
     Args:
-        symbols (List[str]): list of symbols to generate stocks from
+        index_symbols (List[str]): list of symbols to create Index instances with
+        stock_symbols (List[str]): list of symbols to create Stock instances with
         fork_mode (str): fork mode. One of ["fork", "spawn"]
         retrieve_mode (str): Retrieve mode. One of ["get", "fetch"].
             * `fetch` will only retrieve data from online, and won't save them.
@@ -88,13 +92,15 @@ def _initialize_stock_state(
         or force_download
     ):
         with st.spinner(
-            f"Retrieving historical and financial data of {len(symbols)} stocks..."
+            f"Retrieving historical and financial data of {len(index_symbols+stock_symbols)} stocks..."
         ):
             (
+                st.session_state["original_indices"],
                 st.session_state["original_stocks"],
                 st.session_state["updated_at"],
-            ) = load_stocks(
-                symbols,
+            ) = load_stocks_indices(
+                index_symbols,
+                stock_symbols,
                 fork_mode=fork_mode,
                 retrieve_mode=retrieve_mode,
                 force_download=force_download,

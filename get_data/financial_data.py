@@ -56,12 +56,7 @@ def save_financials(
     Returns:
         str: filename containing the data
     """
-    filename = Path(directory) / "_".join(
-        [
-            symbol,
-            date.strftime(FORMAT),
-        ]
-    )
+    filename = Path(directory) / "_".join([symbol, date.strftime(FORMAT),])
     Path(filename).parent.mkdir(parents=True, exist_ok=True)
     filename = str(filename) + ".json"
     if len(data) > 0:
@@ -84,15 +79,8 @@ def fetch_and_save_financials(
     Returns:
         str: filename of csv file containing the financials
     """
-    klines = fetch_financials(
-        symbol,
-    )
-    filename = save_financials(
-        klines,
-        symbol,
-        date,
-        directory,
-    )
+    klines = fetch_financials(symbol,)
+    filename = save_financials(klines, symbol, date, directory,)
     return filename
 
 
@@ -142,10 +130,6 @@ def download_financials(
         filename = files[index]
         Path.unlink(filename)
 
-    new_filename = fetch_and_save_financials(
-        symbol,
-        ending_date,
-        directory,
-    )
+    new_filename = fetch_and_save_financials(symbol, ending_date, directory,)
     with open(new_filename) as financial_file:
         return json.load(financial_file)

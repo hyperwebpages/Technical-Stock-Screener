@@ -3,7 +3,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 import tweepy
 
-from models.stock import Stock
+from models.asset import Stock
 
 
 class Tweet(object):
@@ -34,9 +34,7 @@ class TweetsSearch:
         self.stock = stock
         self.query = f"stocks #{stock.symbol} lang:en -is:retweet"
         self.tweet_search = self.client.search_recent_tweets(
-            query=self.query,
-            max_results=100,
-            tweet_fields=["id", "public_metrics"],
+            query=self.query, max_results=100, tweet_fields=["id", "public_metrics"],
         )[0]
         if self.tweet_search is None:
             self.tweet_search = []
