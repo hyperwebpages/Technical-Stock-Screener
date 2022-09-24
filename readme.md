@@ -41,6 +41,32 @@ You then need to copy it into the `config.toml` file. For now, you can use my to
 
 > **WARNING**: this method to store token is good only for local development. If you intend to deploy the app, it is better to store the token in the environment variables and load it with python.
 
+## Add stock to watchlist
+
+If you want to add a stock to the watchlist, you can simply add his symbol to the specific csv file. You just need to make sure that this symbol is the one use in the yfinance API:
+
+* go to the yahoo finance page of your stock
+* the symbol should be between parenthesis `()`.
+
+The path to csv file of symbols is indicated in `config.toml > [data_access] > path_to_stock_symbols`.
+
+## Add index to watchlist
+
+If you want to add an index to the watchlist, there is 2 steps:
+
+* add a human readable symbol in the specific csv file. The path to csv file of symbols is indicated in `config.toml > [data_access] > path_to_index_symbols`.
+* add the real symbol of that index to the `INDICES_TRANSLATIONS` dictionnary located at `get_data/ohlcv_data.py`. To find the real symbol of the index:
+    * go to the yahoo finance page of your index
+    * the symbol should be between parenthesis `()`.
+
+
+
+For instance, if I want to add the Russian Ruble/USD as an index:
+
+* I add this symbol `Ruble` into the file located at `path_to_index_symbols`
+* I add this line `"Ruble": "RUBUSD=X"`into the `INDICES_TRANSLATIONS` dictionnary located at `get_data/ohlcv_data.py`
+
+
 ## Retrieve mode and force download
 
 I implemented a few features for retrieving the data. In the code, you will find 2 variables: `retrieve_mode` and `force_download`:
