@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  visualization-streamlit:
+    container_name: visualization-container
+    build: ./
+    restart: unless-stopped
+    ports:
+      - "8501:8501"
+    volumes:
+      - "./:/app"
+    tty: true
