@@ -4,8 +4,8 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 import talib
-from ta.momentum import RSIIndicator
-from ta.trend import EMAIndicator, SMAIndicator
+from ta.momentum import RSIIndicator, StochRSIIndicator
+from ta.trend import MACD, EMAIndicator, SMAIndicator
 
 
 def beautiful_str(s: str) -> str:
@@ -79,12 +79,15 @@ class StochRSI(Indicator):
     flag_column: str = "StochRSIflag"
 
     def apply_indicator(self, ohlc: pd.DataFrame) -> pd.DataFrame:
-        ohlc["fastk"], ohlc["fastd"] = talib.STOCHRSI(
+        stoch_rsi_ind = StochRSIIndicator(
             ohlc["Close"],
             int(self.period),
-            float(self.k),
-            float(self.d),
-            0,
+            smooth1=float(self.k),
+            smooth2=float(self.d),
+        )
+        ohlc["fastk"], ohlc["fastd"] = (
+            stoch_rsi_ind.stochrsi_k(),
+            stoch_rsi_ind.stochrsi_d(),
         )
         ohlc["StochRSIflag"] = 0
         ##Stoch conditions to test for
@@ -145,11 +148,17 @@ class MACD(Indicator):
             slow_period=self.ema_slow_period,
         )
         ohlc = ema.apply_indicator(ohlc)
-        ohlc["macd"], ohlc["macdsignal"], ohlc["macdhist"] = talib.MACD(
+
+        macd_indicator = MACD(
             ohlc["Close"],
-            int(self.fast_period),
-            int(self.signal_period),
-            int(self.slow_period),
+            window_slow=int(self.slow_period),
+            window_fast=int(self.fast_period),
+            window_sign=int(self.signal_period),
+        )
+        ohlc["macd"], ohlc["macdsignal"], ohlc["macdhist"] = (
+            macd_indicator.macd(),
+            macd_indicator.macd_signal(),
+            macd_indicator.macd_diff(),
         )
         ohlc["MACohlclag"] = 0
 
