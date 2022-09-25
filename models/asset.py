@@ -1,5 +1,6 @@
 import concurrent.futures
 import multiprocessing as mp
+from copy import deepcopy
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
@@ -10,8 +11,7 @@ import pandas as pd
 import streamlit as st
 from get_data.financial import select_financials
 from get_data.ohlcv import select_klines
-
-from models.indicator import Indicator
+from get_data.sentiment import select_sentiment
 
 
 def format_int_or_na(value, format="\${:,}") -> str:
@@ -28,8 +28,8 @@ class Index:
     detailed_score: Dict[str, int] = field(default_factory=lambda: ({}))
     interval: str = "1d"
 
-    def add_indicator(self, indicator: Indicator):
-        self.klines = indicator.apply_indicator(self.klines)
+    def add_indicator(self, indicator):
+        indicator.apply_indicator(self)
 
         if indicator.flag_column is not None:
             if np.abs(self.klines[indicator.flag_column].iloc[-1]) > 0:
@@ -42,14 +42,14 @@ class Index:
     def load_index(
         cls,
         symbol: str,
-        path_to_ohlcv: Optional[Path] = None,
+        path_to_datasets: Path,
         **kwargs,
     ):
         current_cls = cls(symbol=symbol)
         current_cls.klines = select_klines(
             symbol=current_cls.symbol,
             interval=current_cls.interval,
-            directory=path_to_ohlcv,
+            directory=path_to_datasets / "ohlcv",
         )
         return current_cls
 
@@ -93,19 +93,35 @@ class Stock(Index):
     def load_stock(
         cls,
         symbol: str,
-        path_to_ohlcv: Optional[Path],
-        path_to_financials: Optional[Path],
+        path_to_datasets: Path,
         **kwargs,
     ):
         current_cls = cls(symbol=symbol)
         current_cls.klines = select_klines(
             symbol=current_cls.symbol,
             interval=current_cls.interval,
-            directory=path_to_ohlcv,
+            directory=path_to_datasets / "ohlcv",
         )
+        current_cls.klines["score"] = 0
+        sentiments = select_sentiment(
+            symbol=current_cls.symbol,
+            interval=current_cls.interval,
+            directory=path_to_datasets / "sentiment",
+        )
+        current_cls.klines = (
+            pd.concat([current_cls.klines, sentiments])
+            .sort_index(inplace=False)
+            .fillna(method="ffill")
+        )
+        current_cls.klines = current_cls.klines.groupby(
+            [current_cls.klines.index.date]
+        ).sum()
+        current_cls.klines.index = pd.to_datetime(current_cls.klines.index, utc=True)
+        current_cls.klines = current_cls.klines.loc[: sentiments.index[-1]]
+
         current_cls.financials = select_financials(
             symbol=current_cls.symbol,
-            directory=path_to_financials,
+            directory=path_to_datasets / "financial",
         )
         return current_cls
 
@@ -114,8 +130,7 @@ def load_asset(
     symbols: List[str],
     loading_function: Callable,
     fork_mode: int,
-    path_to_ohlcv: Path,
-    path_to_financials: Path,
+    path_to_datasets: Path,
 ) -> Tuple[List[Stock], datetime]:
     """Create `Stock` instances. Uses multiprocessing.
 
@@ -136,15 +151,12 @@ def load_asset(
 
     stocks = []
 
-    with concurrent.futures.ProcessPoolExecutor(
-        61, mp_context=mp.get_context("fork")
-    ) as executor:
+    with concurrent.futures.ThreadPoolExecutor(61) as executor:
         future_proc = [
             executor.submit(
                 loading_function,
                 symbol=symbol,
-                path_to_ohlcv=path_to_ohlcv,
-                path_to_financials=path_to_financials,
+                path_to_datasets=path_to_datasets,
             )
             for symbol in symbols
         ]
@@ -153,8 +165,21 @@ def load_asset(
             stocks.append(result)
 
     modified_dates_ohlcv = pd.to_datetime(
-        [1000 * x.lstat().st_mtime for x in path_to_financials.glob("*") if x.is_file()]
-        + [1000 * x.lstat().st_mtime for x in path_to_ohlcv.glob("*") if x.is_file()],
+        [
+            1000 * x.lstat().st_mtime
+            for x in (path_to_datasets / "ohlc").glob("*")
+            if x.is_file()
+        ]
+        + [
+            1000 * x.lstat().st_mtime
+            for x in (path_to_datasets / "financial").glob("*")
+            if x.is_file()
+        ]
+        + [
+            1000 * x.lstat().st_mtime
+            for x in (path_to_datasets / "sentiment").glob("*")
+            if x.is_file()
+        ],
         utc=True,
         unit="ms",
     )
@@ -167,8 +192,7 @@ def load_stocks_indices(
     index_symbols: List[str],
     stock_symbols: List[str],
     fork_mode: int,
-    path_to_ohlcv: Path,
-    path_to_financials: Path,
+    path_to_datasets: Path,
 ) -> Tuple[List[Stock], datetime]:
     """Create `Stock` instances. Uses multiprocessing.
 
@@ -191,20 +215,18 @@ def load_stocks_indices(
         index_symbols,
         Index.load_index,
         fork_mode,
-        path_to_ohlcv,
-        path_to_financials,
+        path_to_datasets,
     )
     stocks, stock_updated_at = load_asset(
         stock_symbols,
         Stock.load_stock,
         fork_mode,
-        path_to_ohlcv,
-        path_to_financials,
+        path_to_datasets,
     )
     return indices, stocks, min(index_updated_at, stock_updated_at)
 
 
-def add_indicators(stock: Stock, indicators: List[Indicator]) -> Stock:
+def initialize_indicators(stock: Stock, indicators) -> Stock:
     """Add indicators to the klines of a stock
 
     Args:
@@ -214,14 +236,14 @@ def add_indicators(stock: Stock, indicators: List[Indicator]) -> Stock:
     Returns:
         Stock: modified stock (no copy)
     """
+    stock.global_score = 0
+    stock.detailed_score = {}
     for indicator in indicators:
         stock.add_indicator(indicator)
     return stock
 
 
-def compute_score(
-    stocks: List[Stock], indicators: List[Indicator], fork_mode: str
-) -> List[Stock]:
+def compute_score(stocks: List[Stock], indicators, fork_mode: str) -> List[Stock]:
     """Computes the global and detailed score of each stock in list. Uses multiprocessing.
 
     Args:
@@ -233,9 +255,12 @@ def compute_score(
         List[Stock]: list of updated stocks (no copy)
     """
     updated_stocks = []
-    with concurrent.futures.ThreadPoolExecutor(61) as executor:
+    with concurrent.futures.ThreadPoolExecutor(
+        61,
+    ) as executor:
         future_proc = [
-            executor.submit(add_indicators, stock, indicators) for stock in stocks
+            executor.submit(initialize_indicators, stock, indicators)
+            for stock in stocks
         ]
     for future in concurrent.futures.as_completed(future_proc):
         updated_stocks.append(future.result())

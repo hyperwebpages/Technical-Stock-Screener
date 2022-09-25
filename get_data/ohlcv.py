@@ -5,7 +5,6 @@ import pandas as pd
 import pytz
 import yfinance as yf
 
-PATH_TO_DATASETS = Path("../datasets/daily")
 FORMAT = "%d-%m-%Y"
 """Expected datetime format"""
 INDICES_TRANSLATIONS = {

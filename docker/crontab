@@ -1,2 +1,2 @@
-#Update financial and OHLCV data every day of the week at 17:05 (market's close)
-5 17 * * 1-5 cd /app && /usr/local/bin/python /app/get_data/update.py >> /var/log/cron.log 2>&1
+#Update financial and OHLCV data every day of the week at 21:05 (market's close time at UTC)
+5 21 * * 1-5 cd /app && /usr/local/bin/python /app/get_data/update.py >> /var/log/cron.log 2>&1

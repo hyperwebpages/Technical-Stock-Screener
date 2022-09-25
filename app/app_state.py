@@ -1,3 +1,4 @@
+import sys
 from pathlib import Path
 from typing import List, Tuple
 
@@ -6,8 +7,6 @@ import streamlit as st
 import toml
 from get_data.update import update_data
 from models.asset import load_stocks_indices
-
-import app.plotting as plotting
 
 
 def read_config_file(path: Path) -> Tuple:
@@ -26,8 +25,7 @@ def read_config_file(path: Path) -> Tuple:
     fork_mode = config["data_access"]["fork_mode"]
     path_to_index_symbols = Path(config["data_access"]["path_to_index_symbols"])
     path_to_stock_symbols = Path(config["data_access"]["path_to_stock_symbols"])
-    path_to_ohlcv = Path(config["data_access"]["path_to_ohlcv"])
-    path_to_financials = Path(config["data_access"]["path_to_financials"])
+    path_to_datasets = Path(config["data_access"]["path_to_datasets"])
 
     bearer_token = config["twitter_api"]["bearer_token"]
     return (
@@ -36,8 +34,7 @@ def read_config_file(path: Path) -> Tuple:
         fork_mode,
         path_to_index_symbols,
         path_to_stock_symbols,
-        path_to_ohlcv,
-        path_to_financials,
+        path_to_datasets,
         bearer_token,
     )
 
@@ -63,12 +60,11 @@ def _initialize_variable_state(symbols: List[str], nb_indicators: int):
             st.session_state["stock_index_" + str(i)] = 0
 
 
-def _initialize_stock_index_state(
+def _load_asset_data(
     index_symbols: List[str],
     stock_symbols: List[str],
     fork_mode: str,
-    path_to_ohlcv: Path,
-    path_to_financials: Path,
+    path_to_datasets: Path,
 ):
     """Loads the original stocks, without any indicators in it.
 
@@ -99,47 +95,26 @@ def _initialize_stock_index_state(
                 index_symbols,
                 stock_symbols,
                 fork_mode=fork_mode,
-                path_to_ohlcv=path_to_ohlcv,
-                path_to_financials=path_to_financials,
+                path_to_datasets=path_to_datasets,
             )
 
 
-def _initialize_asset_data(
+def _download_asset_data(
     index_symbols: List,
     stock_symbols: List,
-    path_to_ohlcv: Path,
-    path_to_financials: Path,
+    path_to_datasets: Path,
     fork_mode: str,
-    force_update: bool,
 ):
-    ohlcv_filenames = [
-        x.stem.split("_") for x in path_to_ohlcv.glob("**/*") if x.is_file()
-    ]
-    ohlcv_files_symbols = pd.DataFrame(ohlcv_filenames, columns=["symbol", "interval"])[
-        "symbol"
-    ]
-    financial_filenames = [
-        x.stem.split("_") for x in path_to_financials.glob("**/*") if x.is_file()
-    ]
-    financial_files_symbols = pd.DataFrame(financial_filenames, columns=["symbol"])[
-        "symbol"
-    ]
-    if (
-        set(financial_files_symbols) != set(stock_symbols)
-        or set(ohlcv_files_symbols) != set(stock_symbols) | set(index_symbols)
-        or force_update
+    with st.spinner(
+        f"Downloading historical and financial data of {len(index_symbols+stock_symbols)} assets..."
     ):
-        with st.spinner(
-            f"Downloading historical and financial data of {len(index_symbols+stock_symbols)} assets..."
-        ):
-            problematic_ohlcv, problematic_financials = update_data(
-                index_symbols,
-                stock_symbols,
-                path_to_ohlcv,
-                path_to_financials,
-                fork_mode,
-            )
-        for pb_index in problematic_ohlcv:
-            st.warning(f"{pb_index.symbol} OHLCV cannot be found.", icon="⚠️")
-        for pb_index in problematic_financials:
-            st.warning(f"{pb_index.symbol} financials cannot be found.", icon="⚠️")
+        problematic_ohlcv, problematic_financials = update_data(
+            index_symbols,
+            stock_symbols,
+            path_to_datasets,
+            fork_mode,
+        )
+    for pb_index in problematic_ohlcv:
+        st.warning(f"{pb_index.symbol} OHLCV cannot be found.", icon="⚠️")
+    for pb_index in problematic_financials:
+        st.warning(f"{pb_index.symbol} financials cannot be found.", icon="⚠️")

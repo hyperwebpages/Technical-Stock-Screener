@@ -5,8 +5,7 @@ length_displayed_tweets = 3
 [data_access]
 path_to_index_symbols = "datasets/indices.csv"
 path_to_stock_symbols = "datasets/stocks.csv"
-path_to_ohlcv = "datasets/daily/ohlcv/"
-path_to_financials = "datasets/daily/financials/"
+path_to_datasets = "datasets/daily/"
 fork_mode = "fork"
 
 [twitter_api]

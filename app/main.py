@@ -1,11 +1,17 @@
+import os
+import sys
 from pathlib import Path
+
+sys.path.append(Path("/app/stock-screener"))
+sys.path.append(os.getcwd())
+
 from time import time
 
 import numpy as np
 import pandas as pd
 import streamlit as st
 from models.asset import compute_score
-from models.indicator import EMA, MACD, RSI, CipherB, StochRSI
+from models.indicator import EMA, MACD, RSI, CipherB, SentimentScore, StochRSI
 
 import app.plotting as plotting
 import app_state
@@ -21,8 +27,7 @@ def run_app():
         fork_mode,
         path_to_index_symbols,
         path_to_stock_symbols,
-        path_to_ohlcv,
-        path_to_financials,
+        path_to_datasets,
         bearer_token,
     ) = app_state.read_config_file(Path("config.toml"))
 
@@ -31,28 +36,20 @@ def run_app():
     macd = MACD()
     ema = EMA()
     cipher_b = CipherB()
+    sentiment_score = SentimentScore()
 
-    indicators = [rsi, stochrsi, ema, macd, cipher_b]
+    indicators = [rsi, stochrsi, ema, macd, cipher_b, sentiment_score]
 
     index_symbols = list(pd.read_csv(path_to_index_symbols)["symbol"])
     stock_symbols = list(pd.read_csv(path_to_stock_symbols)["symbol"])
     nb_indicators = len(indicators)
 
     app_state._initialize_variable_state(index_symbols + stock_symbols, nb_indicators)
-    app_state._initialize_asset_data(
-        index_symbols,
-        stock_symbols,
-        path_to_ohlcv,
-        path_to_financials,
-        fork_mode,
-        force_update=False,
-    )
-    app_state._initialize_stock_index_state(
+    app_state._load_asset_data(
         index_symbols,
         stock_symbols,
         fork_mode,
-        path_to_ohlcv,
-        path_to_financials,
+        path_to_datasets,
     )
 
     with st.sidebar:
@@ -68,7 +65,9 @@ def run_app():
             index_symbols + stock_symbols, nb_indicators
         )
 
-        with st.spinner(f"Computing indicators on {len(stock_symbols)} stocks..."):
+        with st.spinner(
+            f"Computing indicators on {len(index_symbols)+len(stock_symbols)} assets..."
+        ):
             start_time = time()
             st.session_state["indices"] = sorted(
                 compute_score(
@@ -177,13 +176,11 @@ def run_app():
             ] += length_displayed_stocks
 
     if st.button("Update data"):
-        app_state._initialize_asset_data(
+        app_state._download_asset_data(
             index_symbols,
             stock_symbols,
-            path_to_ohlcv,
-            path_to_financials,
+            path_to_datasets,
             fork_mode,
-            force_update=True,
         )
     st.write(f"Last update at: {st.session_state['updated_at']}")
 
