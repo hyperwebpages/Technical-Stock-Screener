@@ -12,6 +12,15 @@ git clone git@github.com:hyperwebpages/Technical-Stock-Screener.git
 cd Technical-Stock-Screener
 pip install -r requirements.txt
 pip install --editable .
+```
+
+> If you are on MacOS:
+    ```
+    export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+    ```
+
+and finally
+```
 streamlit run app/main.py
 ```
 
@@ -67,43 +76,32 @@ For instance, if I want to add the Russian Ruble/USD as an index:
 * I add this line `"Ruble": "RUBUSD=X"`into the `INDICES_TRANSLATIONS` dictionnary located at `get_data/ohlcv_data.py`
 
 
-## Retrieve mode and force download
-
-I implemented a few features for retrieving the data. In the code, you will find 2 variables: `retrieve_mode` and `force_download`:
-
-* `retrieve_mode` is one of ["get", "fetch"].
-    * `fetch` will only retrieve data from online, and won't save them.
-    * `get` will first try to retrieve data from the disk before trying online.
-* `force_download` is useful when `retrieve_mode=get`. 
-If `True`, the algorithm will always fetch data from online and save it.
-
-If you don't know what option to use, ask you these questions:
-
-* do I want most up-to-date data every time I run the program ?
-    * No. Use `retrieve_mode="get"` and `force_download=False`. In that case, data will always be updated daily (or more if I click the `Update data` button in the app.)
-    * Yes. Use `retrieve_mode="fetch"` and `force_download=False`.
-
-
 ## Usefulness of files.
 
 Here is a table containing the usefulness of files / folders.
 
-| File / Folder          | Usefulness                                                                                                                         |
-|------------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| .streamlit/config.toml | Configuration files for streamlit. Nothing really important.                                                                       |
-| app/                   | Main files for streamlit.                                                                                                          |
-| datasets/symbols.csv   | Symbols of the stocks to analyse.                                                                                                  |
-| datasets/daily/        | Folder containing the daily OHLCV candlesticks and <br>financials of the stocks.                                                   |
-| get_data/              | Files in charge of retrieving online data from <br>Yahoo Finance API, saving it in the folder <br>`datasets/daily/` and return it. |
-| models/                | Files defining the 3 dataclasses we use: Stock, Indicator and Tweet.                                                               |
-| models/indicator.py    | Define indicators, columns and conditions that need to be made.                                                                    |
-| models/stock.py        | Define the stock class. Useful for storing candlesticks, symbol, <br>global score, score per indicator.                            |
-| models/tweet.py        | Define the tweet and the tweet search classes.                                                                                     |
-| templates/             | Template folder for the string contained in the streamlit app.                                                                     |
+| File / Folder | Usefulness |
+|---|---|
+| .streamlit/config.toml | Configuration files for streamlit. Nothing really important. |
+| app/ | Main files for streamlit. |
+| datasets/stocks.csv | Symbols of the stocks to analyse. |
+| datasets/indices.csv | Symbols of indices to analyse |
+| datasets/daily/ | Folder containing the daily OHLCV candlesticks and <br>financials of the stocks. |
+| docker | Folder containing 2 dockers: one running the webapp on port 8501, and one running <br>the cron job to update local data every day at 17h05 on market's close |
+| get_data/ | Files in charge of retrieving online data from <br>Yahoo Finance API, saving it in the folder <br>`datasets/daily/` and return it. |
+| models/ | Files defining the 3 dataclasses we use: Stock, Indicator and Tweet. |
+| models/indicator.py | Define indicators, columns and conditions that need to be made. |
+| models/asset.py | Define the stock and index class. Useful for storing candlesticks, symbol, <br>global score, score per indicator. |
+| models/tweet.py | Define the tweet and the tweet search classes. |
+| templates/ | Template folder for the string contained in the streamlit app. |
+| config.toml | Config file for the webapp. |
 
-## How to update code
+## Create a new indicators
 
-What mattters is your ability to define new conditions, new indicators or even new plot.
+What mattters is your ability to define new conditions, new indicators or even new plot. 
+
+> It is important to notice that an indicator is based on an asset. Thus you can define on indicator on an asset financial. For instance, you can whitelist stocks that have a Market Cap > $100 000 000 000
+
 Let's say we want to define a new indicator, you need to:
 
 1. create a new `my_dummy_indicator` class in the `indicator.py` file. This class is a dataclass, meaning you can store whatever you want
@@ -129,7 +127,7 @@ class DummyIndicator(Indicator):
 
     _period_i_finetune: int = 15
 
-    def apply_indicator(self, ohlc: pd.DataFrame) -> pd.DataFrame:
+    def apply_indicator(self, stock: Union[Index, Stock]) -> pd.DataFrame:
         ohlc[self.flag_column] = ohlc["Close"]
         return ohlc
 ```

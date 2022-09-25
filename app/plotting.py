@@ -88,7 +88,7 @@ def indicator_histogram(indices: List[Index], stocks: List[Stock]) -> Figure:
         legend_title="Indicators",
         hovermode="x unified",
         height=600,
-        width=1000,
+        width=950,
         margin_b=190,  # increase the bottom margin to have space for caption
         annotations=[
             dict(
@@ -137,7 +137,9 @@ def mutliple_row_charts(
             trace = go.Bar(
                 x=stock.klines.index,
                 y=stock.klines["Volume"],
-                marker={"color": "lightgrey",},
+                marker={
+                    "color": "lightgrey",
+                },
                 name=indicator_name,
                 opacity=0.7,
             )
@@ -149,7 +151,10 @@ def mutliple_row_charts(
                 name=indicator_name,
             )
         fig.add_trace(
-            trace, row=1, col=1, secondary_y=True,
+            trace,
+            row=1,
+            col=1,
+            secondary_y=True,
         )
 
     fig.add_trace(
