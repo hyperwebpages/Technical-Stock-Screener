@@ -2,10 +2,16 @@
 
 This repository is a streamlit wesbite where one can analyse and filter stocks based on custom conditions.
 
+## Running the app
 
-## Cloning and running
+There are 2 ways in running the app:
 
-Here is a bunch of code to launch the streamlit app.
+* either you run it locally on your computer. This is useful when you want to debug your app, or add new indicators. This is what you should do when you are developping new features.
+* either you run it on the cloud. This is what you should do when you want to deploy your app: you have made local changes that you would like to see on the final app.
+
+### Dev: running locally
+
+First, you need to clone the app and install it.
 
 ```
 git clone git@github.com:hyperwebpages/Technical-Stock-Screener.git
@@ -13,16 +19,44 @@ cd Technical-Stock-Screener
 pip install -r requirements.txt
 pip install --editable .
 ```
+You then need to run the app. To do that, you simply run streamlit with specific environment variables.
 
 > If you are on MacOS:
     ```
     export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
     ```
 
-and finally
+and finally, ervery time you want to run the app locally, you can do:
+(change XXX, YYY and ZZZ with the correct tokens)
 ```
+export TWITTER_BEARER="XXX"
+export ALPACA_API="YYY"
+export ALPACA_API_SECRET="ZZZ"
 streamlit run app/main.py
 ```
+
+### Prod: running in the cloud
+
+<ins>Requirements</ins>:
+
+* you have made changes to the app. You pushed your code to the `main` branch.
+* you have set up an ssh connection with the server. See tutorial at https://support.hostinger.com/en/articles/5723772-how-to-connect-to-your-vps-via-ssh
+
+Then, you simply need to pull the changes you previously made on GitHub:
+
+```{shell}
+cd ~/Technical-Stock-Screener/
+git pull
+```
+You can wait a few seconds to see your changes take effect.
+
+The app in the cloud is running in Docker containers. Those containers share the code with the host, so there should be no need to run into a container. However, if you have modified the docker, you can re-build them:
+
+```{shell}
+cd ~/Technical-Stock-Screener/docker
+docker compose up -d --build 
+```
+
 
 ## Changing configuration
 
@@ -32,17 +66,20 @@ You can easily change the configuration of the app:
 * `config.toml` changes the parameters of the app:
     * `length_displayed_stocks`: number of visible expanders at once.
     * `length_displayed_tweets`: number of tweets displayed in a row per stock.
-    * `path_to_symbols`: path to the list of symbols
-    * `path_to_ohlcv`: path to the list of OHLCV data
-    * `path_to_financials`: path to the list of financial data
-    * `retrieve_mode`: retrieve mode, see later
-
+    * `path_to_index_symbols`: path to the list of symbols
+    * `path_to_stock_symbols`: path to the list of symbols
+    * `path_to_datasets`: path where all the csv and json files are stored
 
 
 ## Twitter API
 
 To run the app, you will need a bearer token from the Twitter API. 
 You can follow this tutorial to obtain it: https://towardsdatascience.com/how-to-access-data-from-the-twitter-api-using-tweepy-python-e2d9e4d54978.
+
+## Alpaca API
+
+To run the app, you will need the credentials from the Alpaca API. 
+You can follow this tutorial to obtain it: https://www.qmr.ai/cryptocurrency-trading-bot-with-alpaca-in-python/.
 
 ## Add stock to watchlist
 

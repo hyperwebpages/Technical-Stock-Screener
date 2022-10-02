@@ -57,7 +57,7 @@ def fetch_sentiment(
         }
 
         request_session = requests.Session()
-        retries = Retry(total=5, backoff_factor=2, status_forcelist=[429])
+        retries = Retry(total=7, backoff_factor=2, status_forcelist=[429])
         request_session.mount("https://", HTTPAdapter(max_retries=retries))
         request = request_session.get(url, headers=headers, params=querystring).json()
 
@@ -93,7 +93,7 @@ def fetch_sentiment(
         lambda headline: vader.polarity_scores(headline)["compound"]
     )
     sentiment = sentiment.groupby([sentiment.index.date]).sum()
-    sentiment.index = pd.to_datetime(sentiment.index, utc=True)
+    sentiment.index = pd.to_datetime(sentiment.index, utc=True).rename("Datetime")
     sentiment = sentiment.astype("float64")
     return sentiment[beginning_date:]
 

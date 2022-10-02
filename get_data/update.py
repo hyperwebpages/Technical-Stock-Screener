@@ -29,7 +29,7 @@ def update_data(
     problematic_ohlcv = []
     problematic_financials = []
 
-    pbar = tqdm(total=len(index_symbols) + 2 * len(stock_symbols))
+    pbar = tqdm(total=len(index_symbols) + 3 * len(stock_symbols))
 
     def health_check(result):
         pbar.update(1)
@@ -39,7 +39,7 @@ def update_data(
             problematic_financials.append(result.symbol)
 
     with concurrent.futures.ProcessPoolExecutor(
-        mp_context=mp.get_context("spawn")
+        max_workers=4, mp_context=mp.get_context("spawn")
     ) as executor:
         future_financials = [
             executor.submit(
@@ -67,7 +67,7 @@ def update_data(
                 interval="1d",
                 directory=path_to_datasets / "ohlcv",
             )
-            for symbol in stock_symbols
+            for symbol in stock_symbols + index_symbols
         ]
         for future in concurrent.futures.as_completed(
             future_financials + future_sentiment + future_klines
