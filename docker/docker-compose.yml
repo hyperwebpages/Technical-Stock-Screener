@@ -12,11 +12,11 @@ services:
     volumes:
       - "../:/app"
     tty: true
-    deploy:
-      resources:
-        limits:
-          cpus: "0.5"
-          memory: 512M
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: "0.5"
+    #       memory: 512M
 
   cronjob:
     container_name: cronjob
@@ -27,8 +27,8 @@ services:
     volumes:
       - "../:/app"
     tty: true
-    deploy:
-      resources:
-        limits:
-          cpus: "0.5"
-          memory: 512M
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: "0.5"
+    #       memory: 512M
