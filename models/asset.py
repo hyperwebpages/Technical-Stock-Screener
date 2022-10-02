@@ -151,7 +151,21 @@ def load_asset(
 
     stocks = []
 
-    with concurrent.futures.ThreadPoolExecutor(61) as executor:
+    # with concurrent.futures.ThreadPoolExecutor(61) as executor:
+    #     future_proc = [
+    #         executor.submit(
+    #             loading_function,
+    #             symbol=symbol,
+    #             path_to_datasets=path_to_datasets,
+    #         )
+    #         for symbol in symbols
+    #     ]
+    #     for future in concurrent.futures.as_completed(future_proc):
+    #         result = future.result()
+    #         stocks.append(result)
+
+    stocks = []
+    with concurrent.futures.ProcessPoolExecutor() as executor:
         future_proc = [
             executor.submit(
                 loading_function,
@@ -255,13 +269,16 @@ def compute_score(stocks: List[Stock], indicators, fork_mode: str) -> List[Stock
         List[Stock]: list of updated stocks (no copy)
     """
     updated_stocks = []
-    with concurrent.futures.ThreadPoolExecutor(
-        61,
-    ) as executor:
+    with concurrent.futures.ProcessPoolExecutor() as executor:
         future_proc = [
-            executor.submit(initialize_indicators, stock, indicators)
+            executor.submit(
+                initialize_indicators,
+                stock=stock,
+                indicators=indicators,
+            )
             for stock in stocks
         ]
-    for future in concurrent.futures.as_completed(future_proc):
-        updated_stocks.append(future.result())
+        for future in concurrent.futures.as_completed(future_proc):
+            result = future.result()
+            updated_stocks.append(result)
     return updated_stocks
