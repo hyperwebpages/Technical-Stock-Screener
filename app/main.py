@@ -28,7 +28,6 @@ def run_app():
         path_to_index_symbols,
         path_to_stock_symbols,
         path_to_datasets,
-        bearer_token,
     ) = app_state.read_config_file(Path("config.toml"))
 
     rsi = RSI()
@@ -142,7 +141,6 @@ def run_app():
 
         widgets.expanders_widget(
             selected_indices,
-            bearer_token,
             0,
             5,
             length_displayed_tweets,
@@ -160,7 +158,6 @@ def run_app():
 
         widgets.expanders_widget(
             selected_stocks,
-            bearer_token,
             index_in_stock_list,
             length_displayed_stocks,
             length_displayed_tweets,

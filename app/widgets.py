@@ -37,7 +37,6 @@ def tweets_widget(
 
 def expander_widget(
     stock: Stock,
-    bearer_token: str,
     length_displayed_tweets: int,
     indicators_to_draw_above: List,
     indicators_to_draw_beside: List,
@@ -50,7 +49,6 @@ def expander_widget(
 
     Args:
         stock (Stock): stock to display
-        bearer_token (str): token to connect to the Twitter API.
         length_displayed_tweets (int): number of tweet widgets displayed per stock
         indicators_to_draw_above (List): indicators to draw above the OHLC chart
         indicators_to_draw_beside (List): indicators to draw beside the OHLC chart
@@ -70,7 +68,7 @@ def expander_widget(
     )
     st.plotly_chart(fig, use_container_width=True)
 
-    tweet_search = TweetsSearch(bearer_token, stock)
+    tweet_search = TweetsSearch(stock)
 
     index_in_tweet_search = st.session_state["tweet_index_" + stock.symbol]
     tweets_widget(tweet_search, index_in_tweet_search, length_displayed_tweets)
@@ -83,7 +81,6 @@ def expander_widget(
 
 def expanders_widget(
     stocks: List[Stock],
-    bearer_token: str,
     index_in_stock_list: int,
     length_displayed_stocks: int,
     length_displayed_tweets: int,
@@ -94,7 +91,6 @@ def expanders_widget(
 
     Args:
         stocks (List[Stock]): list of stocks to display in expanders
-        bearer_token (str): token to connect to the Twitter API.
         index_in_stock_list (int): index of the first stock to display
         length_displayed_stocks (int): number of expander widgets displayed in the page
         length_displayed_tweets (int): number of tweet widgets displayed per stock
@@ -102,7 +98,8 @@ def expanders_widget(
         indicators_to_draw_beside (List): indicators to draw beside the OHLC chart
     """
     for index in range(
-        index_in_stock_list, index_in_stock_list + length_displayed_stocks,
+        index_in_stock_list,
+        index_in_stock_list + length_displayed_stocks,
     ):
         if index >= len(stocks):
             break
@@ -110,7 +107,6 @@ def expanders_widget(
         with st.expander(f"{stock.symbol} charts", expanded=False):
             expander_widget(
                 stock,
-                bearer_token,
                 length_displayed_tweets,
                 indicators_to_draw_above,
                 indicators_to_draw_beside,

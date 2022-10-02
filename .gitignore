@@ -1,6 +1,5 @@
 __pycache__/
 .vscode/
-# datasets/daily/
 
 .python-version
 *.ipynb

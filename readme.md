@@ -37,7 +37,6 @@ You can easily change the configuration of the app:
     * `path_to_financials`: path to the list of financial data
     * `fork_mode`: fork mode. One of ["fork", "spawn"]
     * `retrieve_mode`: retrieve mode, see later
-    * `bearer_token`: token for the Twitter API, sell later.
 
 
 
@@ -45,10 +44,6 @@ You can easily change the configuration of the app:
 
 To run the app, you will need a bearer token from the Twitter API. 
 You can follow this tutorial to obtain it: https://towardsdatascience.com/how-to-access-data-from-the-twitter-api-using-tweepy-python-e2d9e4d54978.
-
-You then need to copy it into the `config.toml` file. For now, you can use my token, but I will revoke it soon. 
-
-> **WARNING**: this method to store token is good only for local development. If you intend to deploy the app, it is better to store the token in the environment variables and load it with python.
 
 ## Add stock to watchlist
 
