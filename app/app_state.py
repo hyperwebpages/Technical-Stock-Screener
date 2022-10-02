@@ -22,14 +22,12 @@ def read_config_file(path: Path) -> Tuple:
     length_displayed_stocks = config["displaying"]["length_displayed_stocks"]
     length_displayed_tweets = config["displaying"]["length_displayed_tweets"]
 
-    fork_mode = config["data_access"]["fork_mode"]
     path_to_index_symbols = Path(config["data_access"]["path_to_index_symbols"])
     path_to_stock_symbols = Path(config["data_access"]["path_to_stock_symbols"])
     path_to_datasets = Path(config["data_access"]["path_to_datasets"])
     return (
         length_displayed_stocks,
         length_displayed_tweets,
-        fork_mode,
         path_to_index_symbols,
         path_to_stock_symbols,
         path_to_datasets,
@@ -60,7 +58,6 @@ def _initialize_variable_state(symbols: List[str], nb_indicators: int):
 def _load_asset_data(
     index_symbols: List[str],
     stock_symbols: List[str],
-    fork_mode: str,
     path_to_datasets: Path,
 ):
     """Loads the original stocks, without any indicators in it.
@@ -68,7 +65,6 @@ def _load_asset_data(
     Args:
         index_symbols (List[str]): list of symbols to create Index instances with
         stock_symbols (List[str]): list of symbols to create Stock instances with
-        fork_mode (str): fork mode. One of ["fork", "spawn"]
         retrieve_mode (str): Retrieve mode. One of ["get", "fetch"].
             * `fetch` will only retrieve data from online, and won't save them.
             * `get` will first try to retrieve data from the disk before trying online
@@ -91,7 +87,6 @@ def _load_asset_data(
             ) = load_stocks_indices(
                 index_symbols,
                 stock_symbols,
-                fork_mode=fork_mode,
                 path_to_datasets=path_to_datasets,
             )
 
@@ -100,7 +95,6 @@ def _download_asset_data(
     index_symbols: List,
     stock_symbols: List,
     path_to_datasets: Path,
-    fork_mode: str,
 ):
     with st.spinner(
         f"Downloading historical and financial data of {len(index_symbols+stock_symbols)} assets..."
@@ -109,7 +103,6 @@ def _download_asset_data(
             index_symbols,
             stock_symbols,
             path_to_datasets,
-            fork_mode,
         )
     for pb_index in problematic_ohlcv:
         st.warning(f"{pb_index.symbol} OHLCV cannot be found.", icon="⚠️")

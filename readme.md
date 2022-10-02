@@ -35,7 +35,6 @@ You can easily change the configuration of the app:
     * `path_to_symbols`: path to the list of symbols
     * `path_to_ohlcv`: path to the list of OHLCV data
     * `path_to_financials`: path to the list of financial data
-    * `fork_mode`: fork mode. One of ["fork", "spawn"]
     * `retrieve_mode`: retrieve mode, see later
 
 

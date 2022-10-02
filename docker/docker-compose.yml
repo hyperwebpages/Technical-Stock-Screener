@@ -12,11 +12,10 @@ services:
     volumes:
       - "../:/app"
     tty: true
-    # deploy:
-    #   resources:
-    #     limits:
-    #       cpus: "0.5"
-    #       memory: 512M
+    environments:
+      - TWITTER_BEARER=${TWITTER_BEARER}
+      - ALPACA_API=${ALPACA_API}
+      - ALPACA_API_SECRET=${ALPACA_API_SECRET}
 
   cronjob:
     container_name: cronjob
@@ -27,8 +26,7 @@ services:
     volumes:
       - "../:/app"
     tty: true
-    # deploy:
-    #   resources:
-    #     limits:
-    #       cpus: "0.5"
-    #       memory: 512M
+    environments:
+      - TWITTER_BEARER=${TWITTER_BEARER}
+      - ALPACA_API=${ALPACA_API}
+      - ALPACA_API_SECRET=${ALPACA_API_SECRET}

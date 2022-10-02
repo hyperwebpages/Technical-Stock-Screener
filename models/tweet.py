@@ -33,6 +33,7 @@ class TweetsSearch:
 
     def __init__(self, stock: Stock) -> None:
         bearer_token = os.environ.get("TWITTER_BEARER")
+
         self.client = tweepy.Client(bearer_token)
         self.stock = stock
         self.query = f"stocks #{stock.symbol} lang:en -is:retweet"

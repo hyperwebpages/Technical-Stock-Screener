@@ -24,7 +24,6 @@ def run_app():
     (
         length_displayed_stocks,
         length_displayed_tweets,
-        fork_mode,
         path_to_index_symbols,
         path_to_stock_symbols,
         path_to_datasets,
@@ -47,7 +46,6 @@ def run_app():
     app_state._load_asset_data(
         index_symbols,
         stock_symbols,
-        fork_mode,
         path_to_datasets,
     )
 
@@ -69,15 +67,11 @@ def run_app():
         ):
             start_time = time()
             st.session_state["indices"] = sorted(
-                compute_score(
-                    st.session_state["original_indices"], on_indicators, fork_mode
-                ),
+                compute_score(st.session_state["original_indices"], on_indicators),
                 key=lambda index: (np.abs(index.global_score), index.symbol),
             )
             st.session_state["stocks"] = sorted(
-                compute_score(
-                    st.session_state["original_stocks"], on_indicators, fork_mode
-                ),
+                compute_score(st.session_state["original_stocks"], on_indicators),
                 key=lambda stock: (np.abs(stock.global_score), stock.symbol),
             )
             st.session_state["elapsed_time"] = time() - start_time
@@ -177,7 +171,6 @@ def run_app():
             index_symbols,
             stock_symbols,
             path_to_datasets,
-            fork_mode,
         )
     st.write(f"Last update at: {st.session_state['updated_at']}")
 

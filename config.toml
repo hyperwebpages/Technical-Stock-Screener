@@ -6,5 +6,4 @@ length_displayed_tweets = 3
 path_to_index_symbols = "datasets/indices.csv"
 path_to_stock_symbols = "datasets/stocks.csv"
 path_to_datasets = "datasets/daily/"
-fork_mode = "fork"
 

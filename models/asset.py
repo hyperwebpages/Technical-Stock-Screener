@@ -129,14 +129,12 @@ class Stock(Index):
 def load_asset(
     symbols: List[str],
     loading_function: Callable,
-    fork_mode: int,
     path_to_datasets: Path,
 ) -> Tuple[List[Stock], datetime]:
     """Create `Stock` instances. Uses multiprocessing.
 
     Args:
         symbols (List[str]): list of symbols to create Stock instances with
-        fork_mode (str): fork mode. One of ["fork", "spawn"]
         retrieve_mode (str): Retrieve mode. One of ["get", "fetch"].
             * `fetch` will only retrieve data from online, and won't save them.
             * `get` will first try to retrieve data from the disk before trying online
@@ -150,22 +148,7 @@ def load_asset(
     """
 
     stocks = []
-
-    # with concurrent.futures.ThreadPoolExecutor(61) as executor:
-    #     future_proc = [
-    #         executor.submit(
-    #             loading_function,
-    #             symbol=symbol,
-    #             path_to_datasets=path_to_datasets,
-    #         )
-    #         for symbol in symbols
-    #     ]
-    #     for future in concurrent.futures.as_completed(future_proc):
-    #         result = future.result()
-    #         stocks.append(result)
-
-    stocks = []
-    with concurrent.futures.ProcessPoolExecutor() as executor:
+    with concurrent.futures.ProcessPoolExecutor(mp.get_context("spawn")) as executor:
         future_proc = [
             executor.submit(
                 loading_function,
@@ -205,7 +188,6 @@ def load_asset(
 def load_stocks_indices(
     index_symbols: List[str],
     stock_symbols: List[str],
-    fork_mode: int,
     path_to_datasets: Path,
 ) -> Tuple[List[Stock], datetime]:
     """Create `Stock` instances. Uses multiprocessing.
@@ -213,7 +195,6 @@ def load_stocks_indices(
     Args:
         index_symbols (List[str]): list of symbols to create Index instances with
         stock_symbols (List[str]): list of symbols to create Stock instances with
-        fork_mode (str): fork mode. One of ["fork", "spawn"]
         retrieve_mode (str): Retrieve mode. One of ["get", "fetch"].
             * `fetch` will only retrieve data from online, and won't save them.
             * `get` will first try to retrieve data from the disk before trying online
@@ -228,13 +209,11 @@ def load_stocks_indices(
     indices, index_updated_at = load_asset(
         index_symbols,
         Index.load_index,
-        fork_mode,
         path_to_datasets,
     )
     stocks, stock_updated_at = load_asset(
         stock_symbols,
         Stock.load_stock,
-        fork_mode,
         path_to_datasets,
     )
     return indices, stocks, min(index_updated_at, stock_updated_at)
@@ -257,19 +236,18 @@ def initialize_indicators(stock: Stock, indicators) -> Stock:
     return stock
 
 
-def compute_score(stocks: List[Stock], indicators, fork_mode: str) -> List[Stock]:
+def compute_score(stocks: List[Stock], indicators) -> List[Stock]:
     """Computes the global and detailed score of each stock in list. Uses multiprocessing.
 
     Args:
         stocks (List[Stock]): List of stocks to compute score
         indicators (List[Indicator]): List of indicators giving score
-        fork_mode (str): fork mode. One of ["fork", "spawn"]
 
     Returns:
         List[Stock]: list of updated stocks (no copy)
     """
     updated_stocks = []
-    with concurrent.futures.ProcessPoolExecutor() as executor:
+    with concurrent.futures.ProcessPoolExecutor(mp.get_context("spawn")) as executor:
         future_proc = [
             executor.submit(
                 initialize_indicators,
