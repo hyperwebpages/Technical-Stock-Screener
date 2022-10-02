@@ -9,7 +9,7 @@ path_to_datasets = "datasets/daily/"
 fork_mode = "fork"
 
 [twitter_api]
-bearer_token = "AAAAAAAAAAAAAAAAAAAAAG8AhQEAAAAA4EckVEMHWEyM3rfxgNyiFTCy5hg%3DgSiAHWLHyAKtt9erA7l3dDMCgnQgoYifatBNcoUNrJUSh24D4w"
+bearer_token = "AAAAAAAAAAAAAAAAAAAAACl9VgEAAAAAMxU%2BWGhrS6ll0n797Ri%2BknxWYbg%3DLahZpZU5F0rHUHcGmcJu2tqgkA2XO7hhD5ViCVhOIgAiz5RA44"
 
 
 

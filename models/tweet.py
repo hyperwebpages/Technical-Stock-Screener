@@ -1,3 +1,5 @@
+import os
+
 import requests
 import streamlit as st
 import streamlit.components.v1 as components
@@ -29,12 +31,15 @@ class Tweet(object):
 class TweetsSearch:
     """Contains the result of a tweet search."""
 
-    def __init__(self, bearer_token: str, stock: Stock) -> None:
+    def __init__(self, stock: Stock) -> None:
+        bearer_token = os.environ.get("TWITTER_BEARER")
         self.client = tweepy.Client(bearer_token)
         self.stock = stock
         self.query = f"stocks #{stock.symbol} lang:en -is:retweet"
         self.tweet_search = self.client.search_recent_tweets(
-            query=self.query, max_results=100, tweet_fields=["id", "public_metrics"],
+            query=self.query,
+            max_results=100,
+            tweet_fields=["id", "public_metrics"],
         )[0]
         if self.tweet_search is None:
             self.tweet_search = []

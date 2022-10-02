@@ -40,7 +40,7 @@ def fetch_sentiment(
     """
     news = []
 
-    api = os.getenv("ALPACA_API")
+    api = os.environ.get("ALPACA_API")
     api_secret = os.environ.get("ALPACA_API_SECRET")
     headers = {"Apca-Api-Key-Id": api, "Apca-Api-Secret-Key": api_secret}
     url = "https://data.alpaca.markets/v1beta1/news?"

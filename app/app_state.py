@@ -26,8 +26,6 @@ def read_config_file(path: Path) -> Tuple:
     path_to_index_symbols = Path(config["data_access"]["path_to_index_symbols"])
     path_to_stock_symbols = Path(config["data_access"]["path_to_stock_symbols"])
     path_to_datasets = Path(config["data_access"]["path_to_datasets"])
-
-    bearer_token = config["twitter_api"]["bearer_token"]
     return (
         length_displayed_stocks,
         length_displayed_tweets,
@@ -35,7 +33,6 @@ def read_config_file(path: Path) -> Tuple:
         path_to_index_symbols,
         path_to_stock_symbols,
         path_to_datasets,
-        bearer_token,
     )
 
 
