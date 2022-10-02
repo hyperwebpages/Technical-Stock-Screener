@@ -112,10 +112,11 @@ class Stock(Index):
             pd.concat([current_cls.klines, sentiments])
             .sort_index(inplace=False)
             .fillna(method="ffill")
+            .fillna(method="bfill")
         )
         current_cls.klines = current_cls.klines.groupby(
             [current_cls.klines.index.date]
-        ).sum()
+        ).max()
         current_cls.klines.index = pd.to_datetime(current_cls.klines.index, utc=True)
         current_cls.klines = current_cls.klines.loc[: sentiments.index[-1]]
 
@@ -148,7 +149,9 @@ def load_asset(
     """
 
     stocks = []
-    with concurrent.futures.ProcessPoolExecutor(mp.get_context("spawn")) as executor:
+    with concurrent.futures.ProcessPoolExecutor(
+        mp_context=mp.get_context("spawn")
+    ) as executor:
         future_proc = [
             executor.submit(
                 loading_function,
@@ -247,7 +250,9 @@ def compute_score(stocks: List[Stock], indicators) -> List[Stock]:
         List[Stock]: list of updated stocks (no copy)
     """
     updated_stocks = []
-    with concurrent.futures.ProcessPoolExecutor(mp.get_context("spawn")) as executor:
+    with concurrent.futures.ProcessPoolExecutor(
+        mp_context=mp.get_context("spawn")
+    ) as executor:
         future_proc = [
             executor.submit(
                 initialize_indicators,

@@ -38,7 +38,9 @@ def update_data(
         if hasattr(result, "financials") and len(result.financials) == 0:
             problematic_financials.append(result.symbol)
 
-    with concurrent.futures.ProcessPoolExecutor(mp.get_context("spawn")) as executor:
+    with concurrent.futures.ProcessPoolExecutor(
+        mp_context=mp.get_context("spawn")
+    ) as executor:
         future_financials = [
             executor.submit(
                 fetch_and_save_financials,

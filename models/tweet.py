@@ -33,10 +33,9 @@ class TweetsSearch:
 
     def __init__(self, stock: Stock) -> None:
         bearer_token = os.environ.get("TWITTER_BEARER")
-
         self.client = tweepy.Client(bearer_token)
         self.stock = stock
-        self.query = f"stocks #{stock.symbol} lang:en -is:retweet"
+        self.query = f"stock #{stock.symbol} lang:en -is:retweet"
         self.tweet_search = self.client.search_recent_tweets(
             query=self.query,
             max_results=100,
