@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  webapp:
+    container_name: webapp
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    restart: unless-stopped
+    ports:
+      - "8501:8501"
+    volumes:
+      - "../:/app"
+    tty: true
+    environment:
+      - TWITTER_BEARER=${TWITTER_BEARER}
+      - ALPACA_API=${ALPACA_API}
+      - ALPACA_API_SECRET=${ALPACA_API_SECRET}
+
+  cronjob:
+    container_name: cronjob
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile_cronjob
+    restart: unless-stopped
+    volumes:
+      - "../:/app"
+    tty: true
+    environment:
+      - TWITTER_BEARER=${TWITTER_BEARER}
+      - ALPACA_API=${ALPACA_API}
+      - ALPACA_API_SECRET=${ALPACA_API_SECRET}
