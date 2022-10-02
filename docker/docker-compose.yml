@@ -12,7 +12,7 @@ services:
     volumes:
       - "../:/app"
     tty: true
-    environments:
+    environment:
       - TWITTER_BEARER=${TWITTER_BEARER}
       - ALPACA_API=${ALPACA_API}
       - ALPACA_API_SECRET=${ALPACA_API_SECRET}
@@ -26,7 +26,7 @@ services:
     volumes:
       - "../:/app"
     tty: true
-    environments:
+    environment:
       - TWITTER_BEARER=${TWITTER_BEARER}
       - ALPACA_API=${ALPACA_API}
       - ALPACA_API_SECRET=${ALPACA_API_SECRET}
