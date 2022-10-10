@@ -1,9 +1,13 @@
-from datetime import datetime
+import os
+import re
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import pandas as pd
 import pytz
+import requests
 import yfinance as yf
+from requests.adapters import HTTPAdapter, Retry
 
 FORMAT = "%d-%m-%Y"
 """Expected datetime format"""
@@ -16,7 +20,76 @@ INDICES_TRANSLATIONS = {
 }
 
 
-def fetch_klines(
+def fetch_stock_klines(
+    symbol: str,
+    beginning_date: datetime,
+    interval: str,
+    **kwargs,
+) -> pd.DataFrame:
+    """Retrieve klines thanks to the Yahoo Finance API.
+
+    Args:
+        symbol (str): ticker to download eg `AAPL`
+        beginning_date (datetime): open time
+        interval (str): interval of klines, eg `6h`.
+
+    Returns:
+        pd.DataFrame: dataframe containing the klines fetched online.
+    """
+    symbol = INDICES_TRANSLATIONS.get(symbol, symbol)
+    interval = {"1d": "1Day"}[interval]
+    api = os.environ.get("ALPACA_API")
+    api_secret = os.environ.get("ALPACA_API_SECRET")
+    headers = {"Apca-Api-Key-Id": api, "Apca-Api-Secret-Key": api_secret}
+    url = f"https://data.alpaca.markets/v2/stocks/{symbol}/bars"
+
+    # Alpaca prevents from retrieving the last 15min
+    ending_date = datetime.now(timezone.utc) - timedelta(minutes=16)
+    beginning_date = pytz.utc.localize(beginning_date)
+    klines = []
+    while ending_date.day > (beginning_date + timedelta(days=3)).day:
+        querystring = {
+            "start": beginning_date.isoformat(),
+            "end": ending_date.isoformat(),
+            "timeframe": interval,
+            "limit": 10000,
+        }
+
+        request_session = requests.Session()
+        retries = Retry(total=7, backoff_factor=2, status_forcelist=[429])
+        request_session.mount("https://", HTTPAdapter(max_retries=retries))
+        request = request_session.get(url, headers=headers, params=querystring).json()
+
+        try:
+            if len(request["bars"]) == 0:
+                break
+        except Exception as e:
+            print(request)
+
+        _klines = pd.DataFrame.from_dict(request["bars"])
+        _klines = _klines.rename(
+            columns={
+                "c": "Close",
+                "h": "High",
+                "l": "Low",
+                "o": "Open",
+                "t": "Datetime",
+                "v": "Volume",
+                "vw": "Weighted Volume",
+            }
+        )
+        _klines = _klines.set_index("Datetime", drop=True)
+        _klines.index = pd.to_datetime(_klines.index).tz_convert(pytz.UTC)
+        klines.append(_klines)
+
+        ending_date = _klines.index[0]
+
+    klines = pd.concat(klines)
+    klines = klines.astype("float64")
+    return klines
+
+
+def fetch_index_klines(
     symbol: str,
     beginning_date: datetime,
     interval: str,
@@ -53,6 +126,38 @@ def fetch_klines(
     )
     klines = klines.astype("float64")
     return klines
+
+
+def fetch_klines(
+    symbol: str,
+    beginning_date: datetime,
+    interval: str,
+    **kwargs,
+) -> pd.DataFrame:
+    """Retrieve klines thanks to the Yahoo Finance API.
+
+    Args:
+        symbol (str): ticker to download eg `AAPL`
+        beginning_date (datetime): open time
+        interval (str): interval of klines, eg `6h`.
+
+    Returns:
+        pd.DataFrame: dataframe containing the klines fetched online.
+    """
+    if symbol in INDICES_TRANSLATIONS.keys():
+        return fetch_index_klines(
+            symbol,
+            beginning_date,
+            interval,
+            **kwargs,
+        )
+    else:
+        return fetch_stock_klines(
+            symbol,
+            beginning_date,
+            interval,
+            **kwargs,
+        )
 
 
 def save_klines(
