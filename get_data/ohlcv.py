@@ -60,13 +60,15 @@ def fetch_stock_klines(
         request_session.mount("https://", HTTPAdapter(max_retries=retries))
         request = request_session.get(url, headers=headers, params=querystring).json()
 
-        try:
-            if len(request["bars"]) == 0:
-                break
-        except Exception as e:
-            print(request)
+        if len(request["bars"]) == 0:
+            break
 
-        _klines = pd.DataFrame.from_dict(request["bars"])
+        _klines = pd.DataFrame.from_dict(request["bars"]).drop(
+            labels=[
+                "n",
+            ],
+            axis=1,
+        )
         _klines = _klines.rename(
             columns={
                 "c": "Close",
