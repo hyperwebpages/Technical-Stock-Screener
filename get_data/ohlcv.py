@@ -60,31 +60,35 @@ def fetch_stock_klines(
         request_session.mount("https://", HTTPAdapter(max_retries=retries))
         request = request_session.get(url, headers=headers, params=querystring).json()
 
-        if len(request["bars"]) == 0:
+        try:
+            if len(request["bars"]) == 0:
+                break
+
+            _klines = pd.DataFrame.from_dict(request["bars"]).drop(
+                labels=[
+                    "n",
+                ],
+                axis=1,
+            )
+            _klines = _klines.rename(
+                columns={
+                    "c": "Close",
+                    "h": "High",
+                    "l": "Low",
+                    "o": "Open",
+                    "t": "Datetime",
+                    "v": "Volume",
+                    "vw": "Weighted Volume",
+                }
+            )
+            _klines = _klines.set_index("Datetime", drop=True)
+            _klines.index = pd.to_datetime(_klines.index).tz_convert(pytz.UTC)
+            klines.append(_klines)
+
+            ending_date = _klines.index[0]
+        except Exception as e:
+            print(e)
             break
-
-        _klines = pd.DataFrame.from_dict(request["bars"]).drop(
-            labels=[
-                "n",
-            ],
-            axis=1,
-        )
-        _klines = _klines.rename(
-            columns={
-                "c": "Close",
-                "h": "High",
-                "l": "Low",
-                "o": "Open",
-                "t": "Datetime",
-                "v": "Volume",
-                "vw": "Weighted Volume",
-            }
-        )
-        _klines = _klines.set_index("Datetime", drop=True)
-        _klines.index = pd.to_datetime(_klines.index).tz_convert(pytz.UTC)
-        klines.append(_klines)
-
-        ending_date = _klines.index[0]
 
     klines = pd.concat(klines)
     klines = klines.astype("float64")
