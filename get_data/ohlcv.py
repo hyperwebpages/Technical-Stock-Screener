@@ -12,15 +12,23 @@ from requests.adapters import HTTPAdapter, Retry
 FORMAT = "%d-%m-%Y"
 """Expected datetime format"""
 INDICES_TRANSLATIONS = {
-    "BTC": "BTC-USD",
-    "DOW": "^DJI",
-    "EUR": "EURUSD=X",
-    "SP500": "^GSPC",
-    "Nasdaq": "^NDX",
+    "BTC": "BTCUSD",
+    "DOW": "DOW",
+    "SP500": "SPY",
+    "Nasdaq": "NDAQ",
 }
 
 
-def fetch_stock_klines(
+def get_asset_class(symbol):
+    api = os.environ.get("ALPACA_API")
+    api_secret = os.environ.get("ALPACA_API_SECRET")
+    headers = {"Apca-Api-Key-Id": api, "Apca-Api-Secret-Key": api_secret}
+    url = f"https://broker-api.alpaca.markets/v1/assets/{symbol}"
+    request = requests.get(url, headers=headers).json()
+    return request["class"], request["symbol"]
+
+
+def fetch_klines(
     symbol: str,
     beginning_date: datetime,
     interval: str,
@@ -41,35 +49,49 @@ def fetch_stock_klines(
     api = os.environ.get("ALPACA_API")
     api_secret = os.environ.get("ALPACA_API_SECRET")
     headers = {"Apca-Api-Key-Id": api, "Apca-Api-Secret-Key": api_secret}
-    url = f"https://data.alpaca.markets/v2/stocks/{symbol}/bars"
+
+    querystring = {}
+    symbol_class, symbol = get_asset_class(symbol)
+    if symbol_class in ["us_equity"]:
+        url = f"https://data.alpaca.markets/v2/stocks/{symbol}/bars"
+    if symbol_class in ["crypto"]:
+        url = f"https://data.alpaca.markets/v1beta2/crypto/bars"
+        querystring["symbols"] = symbol
 
     # Alpaca prevents from retrieving the last 15min
     ending_date = datetime.now(timezone.utc) - timedelta(minutes=16)
     beginning_date = pytz.utc.localize(beginning_date)
     klines = []
     while ending_date.day > (beginning_date + timedelta(days=3)).day:
-        querystring = {
-            "start": beginning_date.isoformat(),
-            "end": ending_date.isoformat(),
-            "timeframe": interval,
-            "limit": 10000,
-        }
+        querystring.update(
+            {
+                "start": beginning_date.isoformat(),
+                "end": ending_date.isoformat(),
+                "timeframe": interval,
+                "limit": 10000,
+            }
+        )
 
         request_session = requests.Session()
         retries = Retry(total=7, backoff_factor=2, status_forcelist=[429])
         request_session.mount("https://", HTTPAdapter(max_retries=retries))
         request = request_session.get(url, headers=headers, params=querystring).json()
 
+        if symbol_class in ["us_equity"]:
+            bars = request["bars"]
+        if symbol_class in ["crypto"]:
+            bars = request["bars"][symbol]
+
         try:
             if len(request["bars"]) == 0:
                 break
-
-            _klines = pd.DataFrame.from_dict(request["bars"]).drop(
+            _klines = pd.DataFrame.from_dict(bars).drop(
                 labels=[
                     "n",
                 ],
                 axis=1,
             )
+
             _klines = _klines.rename(
                 columns={
                     "c": "Close",
@@ -93,77 +115,6 @@ def fetch_stock_klines(
     klines = pd.concat(klines)
     klines = klines.astype("float64")
     return klines
-
-
-def fetch_index_klines(
-    symbol: str,
-    beginning_date: datetime,
-    interval: str,
-    **kwargs,
-) -> pd.DataFrame:
-    """Retrieve klines thanks to the Yahoo Finance API.
-
-    Args:
-        symbol (str): ticker to download eg `AAPL`
-        beginning_date (datetime): open time
-        interval (str): interval of klines, eg `6h`.
-
-    Returns:
-        pd.DataFrame: dataframe containing the klines fetched online.
-    """
-    symbol = INDICES_TRANSLATIONS.get(symbol, symbol)
-    klines = yf.download(
-        tickers=symbol,
-        start=beginning_date,
-        end=datetime.now(),
-        interval=interval,
-        progress=False,
-        show_errors=True,
-    )
-    try:
-        klines.index = klines.index.tz_convert(pytz.UTC).rename("Datetime")
-    except TypeError as e:
-        klines.index = klines.index.tz_localize(pytz.UTC).rename("Datetime")
-    except AttributeError as e:
-        pass
-    klines = klines.drop(
-        labels=["Adj Close"],
-        axis=1,
-    )
-    klines = klines.astype("float64")
-    return klines
-
-
-def fetch_klines(
-    symbol: str,
-    beginning_date: datetime,
-    interval: str,
-    **kwargs,
-) -> pd.DataFrame:
-    """Retrieve klines thanks to the Yahoo Finance API.
-
-    Args:
-        symbol (str): ticker to download eg `AAPL`
-        beginning_date (datetime): open time
-        interval (str): interval of klines, eg `6h`.
-
-    Returns:
-        pd.DataFrame: dataframe containing the klines fetched online.
-    """
-    if symbol in INDICES_TRANSLATIONS.keys():
-        return fetch_index_klines(
-            symbol,
-            beginning_date,
-            interval,
-            **kwargs,
-        )
-    else:
-        return fetch_stock_klines(
-            symbol,
-            beginning_date,
-            interval,
-            **kwargs,
-        )
 
 
 def save_klines(

@@ -163,29 +163,7 @@ def load_asset(
         for future in concurrent.futures.as_completed(future_proc):
             result = future.result()
             stocks.append(result)
-
-    modified_dates_ohlcv = pd.to_datetime(
-        [
-            1000 * x.lstat().st_mtime
-            for x in (path_to_datasets / "ohlc").glob("*")
-            if x.is_file()
-        ]
-        + [
-            1000 * x.lstat().st_mtime
-            for x in (path_to_datasets / "financial").glob("*")
-            if x.is_file()
-        ]
-        + [
-            1000 * x.lstat().st_mtime
-            for x in (path_to_datasets / "sentiment").glob("*")
-            if x.is_file()
-        ],
-        utc=True,
-        unit="ms",
-    )
-    LOCAL_TIMEZONE = datetime.now(timezone.utc).astimezone().tzinfo
-    updated_at = modified_dates_ohlcv.max().tz_convert(LOCAL_TIMEZONE)
-    return stocks, updated_at
+    return stocks
 
 
 def load_stocks_indices(
@@ -209,17 +187,39 @@ def load_stocks_indices(
     Returns:
         Tuple[List[Stock], datetime]: List of Stock instances and the time the data were lastly updated.
     """
-    indices, index_updated_at = load_asset(
+    indices = load_asset(
         index_symbols,
         Index.load_index,
         path_to_datasets,
     )
-    stocks, stock_updated_at = load_asset(
+    stocks = load_asset(
         stock_symbols,
         Stock.load_stock,
         path_to_datasets,
     )
-    return indices, stocks, min(index_updated_at, stock_updated_at)
+    # TODO: add financials last update
+    updated_at = modified_dates_ohlcv = pd.to_datetime(
+        [
+            1000 * x.lstat().st_mtime
+            for x in (path_to_datasets / "ohlc").glob("*")
+            if x.is_file()
+        ]
+        # + [
+        #     1000 * x.lstat().st_mtime
+        #     for x in (path_to_datasets / "financial").glob("*")
+        #     if x.is_file()
+        # ]
+        + [
+            1000 * x.lstat().st_mtime
+            for x in (path_to_datasets / "sentiment").glob("*")
+            if x.is_file()
+        ],
+        utc=True,
+        unit="ms",
+    )
+    LOCAL_TIMEZONE = datetime.now(timezone.utc).astimezone().tzinfo
+    updated_at = modified_dates_ohlcv.min().tz_convert(LOCAL_TIMEZONE)
+    return indices, stocks, updated_at
 
 
 def initialize_indicators(stock: Stock, indicators) -> Stock:

@@ -41,14 +41,15 @@ def update_data(
     with concurrent.futures.ProcessPoolExecutor(
         max_workers=4, mp_context=mp.get_context("spawn")
     ) as executor:
-        future_financials = [
-            executor.submit(
-                fetch_and_save_financials,
-                symbol=symbol,
-                directory=path_to_datasets / "financial",
-            )
-            for symbol in stock_symbols
-        ]
+        # TODO: add future financials
+        # future_financials = [
+        #     executor.submit(
+        #         fetch_and_save_financials,
+        #         symbol=symbol,
+        #         directory=path_to_datasets / "financial",
+        #     )
+        #     for symbol in stock_symbols
+        # ]
         future_sentiment = [
             executor.submit(
                 fetch_and_save_sentiment,
@@ -69,8 +70,11 @@ def update_data(
             )
             for symbol in stock_symbols + index_symbols
         ]
+        # TODO: add future financials
         for future in concurrent.futures.as_completed(
-            future_financials + future_sentiment + future_klines
+            # future_financials + future_sentiment + future_klines
+            future_sentiment
+            + future_klines
         ):
             health_check(future.result())
 
