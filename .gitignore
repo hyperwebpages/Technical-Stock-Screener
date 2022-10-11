@@ -3,3 +3,6 @@ __pycache__/
 
 .python-version
 *.ipynb
+
+datasets/daily/**/*.json
+datasets/daily/**/*.csv
