@@ -13,7 +13,7 @@ FORMAT = "%d-%m-%Y"
 """Expected datetime format"""
 INDICES_TRANSLATIONS = {
     "BTC": "BTCUSD",
-    "DOW": "DOW",
+    "Dow": "DOW",
     "SP500": "SPY",
     "Nasdaq": "NDAQ",
 }
@@ -85,13 +85,13 @@ def fetch_klines(
         try:
             if len(request["bars"]) == 0:
                 break
+
             _klines = pd.DataFrame.from_dict(bars).drop(
                 labels=[
                     "n",
                 ],
                 axis=1,
             )
-
             _klines = _klines.rename(
                 columns={
                     "c": "Close",

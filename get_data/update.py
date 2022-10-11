@@ -31,52 +31,40 @@ def update_data(
 
     pbar = tqdm(total=len(index_symbols) + 3 * len(stock_symbols))
 
-    def health_check(result):
-        pbar.update(1)
-        if hasattr(result, "klines") and len(result.klines) == 0:
-            problematic_ohlcv.append(result.symbol)
-        if hasattr(result, "financials") and len(result.financials) == 0:
-            problematic_financials.append(result.symbol)
-
-    with concurrent.futures.ProcessPoolExecutor(
-        max_workers=4, mp_context=mp.get_context("spawn")
-    ) as executor:
+    for symbol in stock_symbols:
+        try:
+            financials = fetch_and_save_financials(
+                symbol=symbol,
+                directory=path_to_datasets / "financial",
+            )
+        except Exception as e:
+            print(f"Problme fetching {symbol} financials")
+            print(e)
         # TODO: add future financials
-        # future_financials = [
-        #     executor.submit(
-        #         fetch_and_save_financials,
-        #         symbol=symbol,
-        #         directory=path_to_datasets / "financial",
-        #     )
-        #     for symbol in stock_symbols
-        # ]
-        future_sentiment = [
-            executor.submit(
-                fetch_and_save_sentiment,
+        pbar.update(1)
+        try:
+            sentiments = fetch_and_save_sentiment(
                 symbol=symbol,
                 beginning_date=datetime(2021, 1, 1),
                 interval="1d",
                 directory=path_to_datasets / "sentiment",
             )
-            for symbol in stock_symbols
-        ]
-        future_klines = [
-            executor.submit(
-                fetch_and_save_klines,
+        except Exception as e:
+            print(f"Problme fetching {symbol} sentiment")
+            print(e)
+        pbar.update(1)
+    for symbol in index_symbols + stock_symbols:
+        try:
+            klines = fetch_and_save_klines(
                 symbol=symbol,
                 beginning_date=datetime(2021, 1, 1),
                 interval="1d",
                 directory=path_to_datasets / "ohlcv",
             )
-            for symbol in stock_symbols + index_symbols
-        ]
-        # TODO: add future financials
-        for future in concurrent.futures.as_completed(
-            # future_financials + future_sentiment + future_klines
-            future_sentiment
-            + future_klines
-        ):
-            health_check(future.result())
+        except Exception as e:
+            print(f"Problme fetching {symbol} klines")
+            print(e)
+        pbar.update(1)
 
     pbar.close()
     return problematic_ohlcv, problematic_financials
