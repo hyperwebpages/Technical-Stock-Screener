@@ -32,14 +32,14 @@ def update_data(
     pbar = tqdm(total=len(index_symbols) + 3 * len(stock_symbols))
 
     for symbol in stock_symbols:
-        # try:
-        #     financials = fetch_and_save_financials(
-        #         symbol=symbol,
-        #         directory=path_to_datasets / "financial",
-        #     )
-        # except Exception as e:
-        #     print(f"Problme fetching {symbol} financials")
-        #     print(e)
+        try:
+            financials = fetch_and_save_financials(
+                symbol=symbol,
+                directory=path_to_datasets / "financial",
+            )
+        except Exception as e:
+            print(f"Problme fetching {symbol} financials")
+            print(e)
         # TODO: add future financials
         pbar.update(1)
         try:
