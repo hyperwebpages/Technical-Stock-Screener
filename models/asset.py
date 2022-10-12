@@ -201,17 +201,7 @@ def load_stocks_indices(
     updated_at = modified_dates_ohlcv = pd.to_datetime(
         [
             1000 * x.lstat().st_mtime
-            for x in (path_to_datasets / "ohlc").glob("*")
-            if x.is_file()
-        ]
-        # + [
-        #     1000 * x.lstat().st_mtime
-        #     for x in (path_to_datasets / "financial").glob("*")
-        #     if x.is_file()
-        # ]
-        + [
-            1000 * x.lstat().st_mtime
-            for x in (path_to_datasets / "sentiment").glob("*")
+            for x in path_to_datasets.glob("**/*")
             if x.is_file()
         ],
         utc=True,
