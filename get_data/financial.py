@@ -59,7 +59,7 @@ def save_financials(data: dict, symbol: str, directory: Path, **kwargs) -> str:
     filename = str(filename) + ".json"
     if len(data) > 0:
         with open(filename, "w") as outfile:
-            json.dump(data, outfile)
+            json.dump(data, outfile, indent=4)
     else:
         raise ValueError("Data is empty")
     return filename
