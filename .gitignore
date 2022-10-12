@@ -6,5 +6,6 @@ __pycache__/
 
 datasets/daily/ohlcv/*.csv
 datasets/daily/sentiment/*.csv
+datasets/daily/financials/*.json
 
 container.env
