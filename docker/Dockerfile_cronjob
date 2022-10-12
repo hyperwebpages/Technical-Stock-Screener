@@ -13,12 +13,9 @@ RUN pip3 install --editable .
 COPY docker/crontab /etc/cron.d/crontab
 
 RUN chmod 0644 /etc/cron.d/crontab
-# RUN chmod a+x test.py run-cron.py
 
 RUN /usr/bin/crontab /etc/cron.d/crontab
 
 # run crond as main process of container
 RUN touch /var/log/cron.log
-CMD ["/run-cron.py"]    
-# CMD cron && tail -f /var/log/cron.log
-
+CMD declare -p | grep -Ev 'BASHOPTS|BASH_VERSINFO|EUID|PPID|SHELLOPTS|UID' > /container.env && cron && tail -f /var/log/cron.log
