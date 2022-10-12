@@ -1,13 +1,10 @@
 import os
-import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from pprint import pprint
 
 import pandas as pd
 import pytz
 import requests
-import yfinance as yf
 from requests.adapters import HTTPAdapter, Retry
 
 FORMAT = "%d-%m-%Y"
@@ -26,7 +23,6 @@ def get_asset_class(symbol):
     headers = {"Apca-Api-Key-Id": api, "Apca-Api-Secret-Key": api_secret}
     url = f"https://broker-api.alpaca.markets/v1/assets/{symbol}"
     request = requests.get(url, headers=headers).json()
-    pprint(request)
     return request["class"], request["symbol"]
 
 
