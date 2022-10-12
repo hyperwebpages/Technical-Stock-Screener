@@ -1,2 +1,6 @@
 #Update financial and OHLCV data every day of the week at 21:05 (market's close time at UTC)
-20 7 * * 1-5 cd /app && /usr/local/bin/python /app/get_data/update.py > /proc/1/fd/1 2>/proc/1/fd/2
+TWITTER_BEARER=TWITTER_BEARER
+ALPACA_API=ALPACA_API
+ALPACA_API_SECRET=ALPACA_API_SECRET
+#
+30 8 * * 1-5 cd /app && /usr/local/bin/python /app/get_data/update.py > /proc/1/fd/1 2>/proc/1/fd/2

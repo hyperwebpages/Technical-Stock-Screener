@@ -53,7 +53,18 @@ def update_data(
             print(f"Problme fetching {symbol} sentiment")
             print(e)
         pbar.update(1)
-    for symbol in index_symbols + stock_symbols:
+        try:
+            klines = fetch_and_save_klines(
+                symbol=symbol,
+                beginning_date=datetime(2021, 1, 1),
+                interval="1d",
+                directory=path_to_datasets / "ohlcv",
+            )
+        except Exception as e:
+            print(f"Problme fetching {symbol} klines")
+            print(e)
+        pbar.update(1)
+    for symbol in index_symbols:
         try:
             klines = fetch_and_save_klines(
                 symbol=symbol,
