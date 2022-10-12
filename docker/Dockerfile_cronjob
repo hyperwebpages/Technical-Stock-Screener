@@ -18,4 +18,5 @@ RUN /usr/bin/crontab /etc/cron.d/crontab
 
 # run crond as main process of container
 RUN touch /var/log/cron.log
-CMD declare -p | grep -Ev 'BASHOPTS|BASH_VERSINFO|EUID|PPID|SHELLOPTS|UID' > /container.env && cron && tail -f /var/log/cron.log
+
+CMD docker/env_script.sh && cron && tail -f /var/log/cron.log
