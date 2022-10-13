@@ -197,7 +197,6 @@ def load_stocks_indices(
         Stock.load_stock,
         path_to_datasets,
     )
-    # TODO: add financials last update
     updated_at = modified_dates_ohlcv = pd.to_datetime(
         [
             1000 * x.lstat().st_mtime
@@ -208,7 +207,7 @@ def load_stocks_indices(
         unit="ms",
     )
     LOCAL_TIMEZONE = datetime.now(timezone.utc).astimezone().tzinfo
-    updated_at = modified_dates_ohlcv.min().tz_convert(LOCAL_TIMEZONE)
+    updated_at = modified_dates_ohlcv.max().tz_convert(LOCAL_TIMEZONE)
     return indices, stocks, updated_at
 
 
