@@ -20,7 +20,7 @@ def fetch_financials(symbol: str, **kwargs) -> dict:
     Returns:
         dict: dict containing selected financials.
     """
-    stats = yf.Ticker(symbol).stats()
+    stats = yf.Ticker(symbol.replace(".", "-")).stats()
     financial_keys = [
         ["price", "longName"],
         ["price", "shortName"],

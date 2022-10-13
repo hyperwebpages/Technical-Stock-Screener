@@ -1,12 +1,10 @@
 import os
-import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import pandas as pd
 import pytz
 import requests
-import yfinance as yf
 from requests.adapters import HTTPAdapter, Retry
 
 FORMAT = "%d-%m-%Y"

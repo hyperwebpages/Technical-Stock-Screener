@@ -4,5 +4,8 @@ __pycache__/
 .python-version
 *.ipynb
 
-datasets/daily/**/*.json
-datasets/daily/**/*.csv
+datasets/daily/ohlcv/*.csv
+datasets/daily/sentiment/*.csv
+datasets/daily/financials/*.json
+
+container.env

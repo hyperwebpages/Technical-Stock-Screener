@@ -10,16 +10,8 @@ import yfinance as yf
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from requests.adapters import HTTPAdapter, Retry
 
-PATH_TO_DATASETS = Path("../datasets/daily")
 FORMAT = "%Y-%m-%d"
 """Expected datetime format"""
-INDICES_TRANSLATIONS = {
-    "BTC": "BTC-USD",
-    "DOW": "^DJI",
-    "EUR": "EURUSD=X",
-    "SP500": "^GSPC",
-    "Nasdaq": "^NDX",
-}
 
 
 def fetch_sentiment(
