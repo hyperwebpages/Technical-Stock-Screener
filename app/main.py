@@ -1,6 +1,7 @@
 import os
 import sys
 from pathlib import Path
+from re import A
 
 sys.path.append(Path("/app/stock-screener"))
 sys.path.append(os.getcwd())
@@ -108,12 +109,21 @@ def run_app():
             options=stocks[0].klines.columns,
             default=["Volume"],
         )
+        # A bug may occur when:
+        # 1) the user uses indicator A
+        # 2) he draws indicator A
+        # 3) he unselects indicator A, whithout a new scan.
+        # => the indicator flag column is not part of multiselect columns anymore
+        options_draw_beside = stocks[0].klines.columns
+        default_draw_beside = [
+            ind.flag_column
+            for ind in on_indicators
+            if ind.flag_column is not None and ind.flag_column in options_draw_beside
+        ]
         indicators_to_draw_beside = st.multiselect(
             "Indicators to draw beside the ohlc chart",
-            options=stocks[0].klines.columns,
-            default=[
-                ind.flag_column for ind in on_indicators if ind.flag_column is not None
-            ],
+            options=options_draw_beside,
+            default=default_draw_beside,
         )
 
         agreed_indicators = st.slider(
