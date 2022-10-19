@@ -118,7 +118,6 @@ class Stock(Index):
             [current_cls.klines.index.date]
         ).max()
         current_cls.klines.index = pd.to_datetime(current_cls.klines.index, utc=True)
-        current_cls.klines = current_cls.klines.loc[: sentiments.index[-1]]
 
         current_cls.financials = select_financials(
             symbol=current_cls.symbol,
