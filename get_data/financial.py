@@ -34,9 +34,13 @@ def fetch_financials(symbol: str, **kwargs) -> dict:
         ["price", "averageDailyVolume10Day"],
         ["price", "regularMarketChangePercent"],
     ]
-    return {
-        keys[1]: stats.get(keys[0], {}).get(keys[1], None) for keys in financial_keys
-    }
+    financials = {}
+    for keys in financial_keys:
+        item = stats.get(keys[0], {})
+        if item == None:
+            item = {}
+        financials[keys[1]] = item.get(keys[1], None)
+    return financials
 
 
 def save_financials(data: dict, symbol: str, directory: Path, **kwargs) -> str:

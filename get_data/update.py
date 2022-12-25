@@ -80,43 +80,43 @@ def update_data(
             problematic_financials.append(symbol)
         # TODO: add future financials
         pbar.update(1)
-        try:
-            sentiments = fetch_and_save_sentiment(
-                symbol=symbol,
-                beginning_date=datetime(2021, 1, 1),
-                interval="1d",
-                directory=path_to_datasets / "sentiment",
-            )
-        except Exception as e:
-            print(f"Problem fetching {symbol} sentiment")
-            print(e)
-            problematic_sentiment.append(symbol)
-        pbar.update(1)
-        try:
-            klines = fetch_and_save_klines(
-                symbol=symbol,
-                beginning_date=datetime(2021, 1, 1),
-                interval="1d",
-                directory=path_to_datasets / "ohlcv",
-            )
-        except Exception as e:
-            print(f"Problem fetching {symbol} klines")
-            print(e)
-            problematic_ohlcv.append(symbol)
-        pbar.update(1)
-    for symbol in index_symbols:
-        try:
-            klines = fetch_and_save_klines(
-                symbol=symbol,
-                beginning_date=datetime(2021, 1, 1),
-                interval="1d",
-                directory=path_to_datasets / "ohlcv",
-            )
-        except Exception as e:
-            print(f"Problem fetching {symbol} klines")
-            print(e)
-            problematic_ohlcv.append(symbol)
-        pbar.update(1)
+    #     try:
+    #         sentiments = fetch_and_save_sentiment(
+    #             symbol=symbol,
+    #             beginning_date=datetime(2021, 1, 1),
+    #             interval="1d",
+    #             directory=path_to_datasets / "sentiment",
+    #         )
+    #     except Exception as e:
+    #         print(f"Problem fetching {symbol} sentiment")
+    #         print(e)
+    #         problematic_sentiment.append(symbol)
+    #     pbar.update(1)
+    #     try:
+    #         klines = fetch_and_save_klines(
+    #             symbol=symbol,
+    #             beginning_date=datetime(2021, 1, 1),
+    #             interval="1d",
+    #             directory=path_to_datasets / "ohlcv",
+    #         )
+    #     except Exception as e:
+    #         print(f"Problem fetching {symbol} klines")
+    #         print(e)
+    #         problematic_ohlcv.append(symbol)
+    #     pbar.update(1)
+    # for symbol in index_symbols:
+    #     try:
+    #         klines = fetch_and_save_klines(
+    #             symbol=symbol,
+    #             beginning_date=datetime(2021, 1, 1),
+    #             interval="1d",
+    #             directory=path_to_datasets / "ohlcv",
+    #         )
+    #     except Exception as e:
+    #         print(f"Problem fetching {symbol} klines")
+    #         print(e)
+    #         problematic_ohlcv.append(symbol)
+    #     pbar.update(1)
 
     pbar.close()
     return problematic_ohlcv, problematic_sentiment, problematic_financials
