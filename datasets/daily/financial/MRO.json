@@ -1,1 +1,13 @@
-{"longName": "Marathon Oil Corporation", "shortName": "Marathon Oil Corporation", "industry": "Oil & Gas E&P", "marketCap": 21425338368, "totalRevenue": 6205000192, "targetMeanPrice": 33.12, "regularMarketDayLow": 27.235, "regularMarketDayHigh": 28.615, "52WeekChange": null, "averageDailyVolume10Day": 15807880, "regularMarketChangePercent": -0.015032199}
+{
+    "longName": "Marathon Oil Corporation",
+    "shortName": "Marathon Oil Corporation",
+    "industry": "Oil & Gas E&P",
+    "marketCap": 21363056640,
+    "totalRevenue": 7125000192,
+    "targetMeanPrice": 32.21,
+    "regularMarketDayLow": 26.86,
+    "regularMarketDayHigh": 27.51,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 13206490,
+    "regularMarketChangePercent": 0.027715348
+}

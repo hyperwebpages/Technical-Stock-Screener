@@ -1,1 +1,13 @@
-{"longName": "MSCI Inc.", "shortName": "MSCI Inc", "industry": "Financial Data & Stock Exchanges", "marketCap": 33549213696, "totalRevenue": 2178692096, "targetMeanPrice": 492.64, "regularMarketDayLow": 403.93, "regularMarketDayHigh": 419.2, "52WeekChange": null, "averageDailyVolume10Day": 407640, "regularMarketChangePercent": -0.030773599}
+{
+    "longName": "MSCI Inc.",
+    "shortName": "MSCI Inc",
+    "industry": "Financial Data & Stock Exchanges",
+    "marketCap": 38240432128,
+    "totalRevenue": null,
+    "targetMeanPrice": 492.91,
+    "regularMarketDayLow": 459.8101,
+    "regularMarketDayHigh": 467.595,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 565190,
+    "regularMarketChangePercent": 0.0032445057
+}

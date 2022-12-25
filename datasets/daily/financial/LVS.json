@@ -1,1 +1,13 @@
-{"longName": "Las Vegas Sands Corp.", "shortName": "Las Vegas Sands Corp.", "industry": "Resorts & Casinos", "marketCap": 30017169408, "totalRevenue": 3852999936, "targetMeanPrice": 46.85, "regularMarketDayLow": 38.26, "regularMarketDayHigh": 41.45, "52WeekChange": null, "averageDailyVolume10Day": 9734920, "regularMarketChangePercent": -0.0755294}
+{
+    "longName": "Las Vegas Sands Corp.",
+    "shortName": "Las Vegas Sands Corp.",
+    "industry": "Resorts & Casinos",
+    "marketCap": 35540815872,
+    "totalRevenue": 4000999936,
+    "targetMeanPrice": 47.71,
+    "regularMarketDayLow": 45.9,
+    "regularMarketDayHigh": 46.735,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 4153460,
+    "regularMarketChangePercent": 0
+}

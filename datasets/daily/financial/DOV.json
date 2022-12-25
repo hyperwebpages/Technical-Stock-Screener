@@ -1,1 +1,13 @@
-{"longName": "Dover Corporation", "shortName": "Dover Corporation", "industry": "Specialty Industrial Machinery", "marketCap": 17367470080, "totalRevenue": 8218120192, "targetMeanPrice": 153.23, "regularMarketDayLow": 119.06, "regularMarketDayHigh": 122.1, "52WeekChange": null, "averageDailyVolume10Day": 917620, "regularMarketChangePercent": -0.0008283505}
+{
+    "longName": "Dover Corporation",
+    "shortName": "Dover Corporation",
+    "industry": "Specialty Industrial Machinery",
+    "marketCap": 19397658624,
+    "totalRevenue": 8358141952,
+    "targetMeanPrice": 143.14,
+    "regularMarketDayLow": 133.28,
+    "regularMarketDayHigh": 134.91,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 935590,
+    "regularMarketChangePercent": 0.0074030175
+}

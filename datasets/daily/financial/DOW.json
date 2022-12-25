@@ -1,1 +1,13 @@
-{"longName": "Dow Inc.", "shortName": "Dow Inc.", "industry": "Chemicals", "marketCap": 33193877504, "totalRevenue": 60129001472, "targetMeanPrice": 60.41, "regularMarketDayLow": 44.56, "regularMarketDayHigh": 45.44, "52WeekChange": null, "averageDailyVolume10Day": 6011940, "regularMarketChangePercent": 0.010583229}
+{
+    "longName": "Dow Inc.",
+    "shortName": "Dow Inc.",
+    "industry": "Chemicals",
+    "marketCap": 37616771072,
+    "totalRevenue": 59406999552,
+    "targetMeanPrice": 49.43,
+    "regularMarketDayLow": 49.95,
+    "regularMarketDayHigh": 50.9112,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 4780830,
+    "regularMarketChangePercent": 0.013753289
+}

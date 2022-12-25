@@ -1,1 +1,13 @@
-{"longName": "Apple Inc.", "shortName": "Apple Inc.", "industry": "Consumer Electronics", "marketCap": 2256661643264, "totalRevenue": 387541991424, "targetMeanPrice": 183.5, "regularMarketDayLow": 138.5729, "regularMarketDayHigh": 141.89, "52WeekChange": -0.019046307, "averageDailyVolume10Day": 101319120, "regularMarketChangePercent": 0.0023556417}
+{
+    "longName": "Apple Inc.",
+    "shortName": "Apple Inc.",
+    "industry": "Consumer Electronics",
+    "marketCap": 2097642078208,
+    "totalRevenue": 394328014848,
+    "targetMeanPrice": 176.45,
+    "regularMarketDayLow": 129.64,
+    "regularMarketDayHigh": 132.41,
+    "52WeekChange": -0.268785,
+    "averageDailyVolume10Day": 89022860,
+    "regularMarketChangePercent": -0.002798118
+}

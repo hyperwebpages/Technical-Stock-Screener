@@ -1,1 +1,13 @@
-{"longName": "Norfolk Southern Corporation", "shortName": "Norfolk Southern Corporation", "industry": "Railroads", "marketCap": 51647541248, "totalRevenue": 11868999680, "targetMeanPrice": 264.26, "regularMarketDayLow": 212.1, "regularMarketDayHigh": 216.97, "52WeekChange": null, "averageDailyVolume10Day": 1084380, "regularMarketChangePercent": -0.010858901}
+{
+    "longName": "Norfolk Southern Corporation",
+    "shortName": "Norfolk Southern Corporation",
+    "industry": "Railroads",
+    "marketCap": 60227887104,
+    "totalRevenue": 12359999488,
+    "targetMeanPrice": 241.84,
+    "regularMarketDayLow": 244.9,
+    "regularMarketDayHigh": 248.5,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 1323050,
+    "regularMarketChangePercent": 0.008352019
+}

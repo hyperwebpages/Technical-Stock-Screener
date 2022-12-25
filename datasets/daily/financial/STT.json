@@ -1,1 +1,13 @@
-{"longName": "State Street Corporation", "shortName": "State Street Corporation", "industry": "Asset Management", "marketCap": 22530058240, "totalRevenue": 12076000256, "targetMeanPrice": 80.21, "regularMarketDayLow": 61.35, "regularMarketDayHigh": 62.945, "52WeekChange": null, "averageDailyVolume10Day": 2205980, "regularMarketChangePercent": -0.00788926}
+{
+    "longName": "State Street Corporation",
+    "shortName": "State Street Corporation",
+    "industry": "Asset Management",
+    "marketCap": 28332589056,
+    "totalRevenue": 12042999808,
+    "targetMeanPrice": 77,
+    "regularMarketDayLow": 76.85,
+    "regularMarketDayHigh": 77.89,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 2759790,
+    "regularMarketChangePercent": -0.0046242853
+}

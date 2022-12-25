@@ -1,1 +1,13 @@
-{"longName": "Merck & Co., Inc.", "shortName": "Merck & Company, Inc.", "industry": "Drug Manufacturers\u2014General", "marketCap": 228547051520, "totalRevenue": 57168998400, "targetMeanPrice": 99.52, "regularMarketDayLow": 89.71, "regularMarketDayHigh": 91.5857, "52WeekChange": null, "averageDailyVolume10Day": 7736740, "regularMarketChangePercent": 0.0328768}
+{
+    "longName": "Merck & Co., Inc.",
+    "shortName": "Merck & Company, Inc.",
+    "industry": "Drug Manufacturers\u2014General",
+    "marketCap": 282551648256,
+    "totalRevenue": 57168998400,
+    "targetMeanPrice": 104.59,
+    "regularMarketDayLow": 110.87,
+    "regularMarketDayHigh": 112.13,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 11145160,
+    "regularMarketChangePercent": 0.0055735596
+}

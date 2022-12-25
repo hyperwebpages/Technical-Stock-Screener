@@ -1,1 +1,13 @@
-{"longName": "Copart, Inc.", "shortName": "Copart, Inc.", "industry": "Auto & Truck Dealerships", "marketCap": 26297034752, "totalRevenue": 3366162944, "targetMeanPrice": 156.43, "regularMarketDayLow": 109.52, "regularMarketDayHigh": 111.84, "52WeekChange": null, "averageDailyVolume10Day": 1342560, "regularMarketChangePercent": 0.010849768}
+{
+    "longName": "Copart, Inc.",
+    "shortName": "Copart, Inc.",
+    "industry": "Auto & Truck Dealerships",
+    "marketCap": 14352245760,
+    "totalRevenue": 3500921088,
+    "targetMeanPrice": 149.71,
+    "regularMarketDayLow": 59.434,
+    "regularMarketDayHigh": 60.75,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 2159400,
+    "regularMarketChangePercent": 0.008836258
+}

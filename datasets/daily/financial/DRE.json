@@ -1,1 +1,13 @@
-{"longName": "Duke Realty Corporation", "shortName": "Duke Realty Corporation", "industry": "REIT\u2014Industrial", "marketCap": 18356969472, "totalRevenue": 1122221056, "targetMeanPrice": null, "regularMarketDayLow": 48.11, "regularMarketDayHigh": 49.26, "52WeekChange": null, "averageDailyVolume10Day": 7688276, "regularMarketChangePercent": 0.00479466}
+{
+    "longName": "Duke Realty Corporation",
+    "shortName": "Duke Realty Corporation",
+    "industry": "REIT\u2014Industrial",
+    "marketCap": 18356969472,
+    "totalRevenue": 1122221056,
+    "targetMeanPrice": null,
+    "regularMarketDayLow": 48.11,
+    "regularMarketDayHigh": 49.26,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 0,
+    "regularMarketChangePercent": 0.00479466
+}

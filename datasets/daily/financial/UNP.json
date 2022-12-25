@@ -1,1 +1,13 @@
-{"longName": "Union Pacific Corporation", "shortName": "Union Pacific Corporation", "industry": "Railroads", "marketCap": 124750094336, "totalRevenue": 23427999744, "targetMeanPrice": 240.85, "regularMarketDayLow": 193.71, "regularMarketDayHigh": 198.065, "52WeekChange": null, "averageDailyVolume10Day": 3171280, "regularMarketChangePercent": -0.00802572}
+{
+    "longName": "Union Pacific Corporation",
+    "shortName": "Union Pacific Corporation",
+    "industry": "Railroads",
+    "marketCap": 134946111488,
+    "totalRevenue": 24427999232,
+    "targetMeanPrice": 216.43,
+    "regularMarketDayLow": 208.2,
+    "regularMarketDayHigh": 210.745,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 3115110,
+    "regularMarketChangePercent": 0.0059906067
+}

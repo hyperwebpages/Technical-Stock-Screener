@@ -1,1 +1,13 @@
-{"longName": "A. O. Smith Corporation", "shortName": "A.O. Smith Corporation", "industry": "Specialty Industrial Machinery", "marketCap": 7603474944, "totalRevenue": 3853700096, "targetMeanPrice": 64.3, "regularMarketDayLow": 48.95, "regularMarketDayHigh": 49.91, "52WeekChange": -0.21872044, "averageDailyVolume10Day": 1010740, "regularMarketChangePercent": -0.007059344}
+{
+    "longName": "A. O. Smith Corporation",
+    "shortName": "A.O. Smith Corporation",
+    "industry": "Specialty Industrial Machinery",
+    "marketCap": 8692955136,
+    "totalRevenue": 3813299968,
+    "targetMeanPrice": 59.11,
+    "regularMarketDayLow": 55.84,
+    "regularMarketDayHigh": 56.94,
+    "52WeekChange": -0.3282172,
+    "averageDailyVolume10Day": 1159050,
+    "regularMarketChangePercent": 0.011915383
+}

@@ -1,1 +1,13 @@
-{"longName": "Bath & Body Works, Inc.", "shortName": "Bath & Body Works, Inc.", "industry": "Specialty Retail", "marketCap": 7778418688, "totalRevenue": 7776000000, "targetMeanPrice": null, "regularMarketDayLow": 33.19, "regularMarketDayHigh": 35.73, "52WeekChange": -0.43202174, "averageDailyVolume10Day": 2941650, "regularMarketChangePercent": -0.040833484}
+{
+    "longName": "Bath & Body Works, Inc.",
+    "shortName": "Bath & Body Works, Inc.",
+    "industry": "Specialty Retail",
+    "marketCap": 9579724800,
+    "totalRevenue": 7699999744,
+    "targetMeanPrice": 49.79,
+    "regularMarketDayLow": 40.15,
+    "regularMarketDayHigh": 41.95,
+    "52WeekChange": -0.39914042,
+    "averageDailyVolume10Day": 3187910,
+    "regularMarketChangePercent": 0.039662827
+}

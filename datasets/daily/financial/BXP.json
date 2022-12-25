@@ -1,1 +1,13 @@
-{"longName": "Boston Properties, Inc.", "shortName": "Boston Properties, Inc.", "industry": "REIT\u2014Office", "marketCap": 11001230336, "totalRevenue": 2975720960, "targetMeanPrice": 98.37, "regularMarketDayLow": 70.13, "regularMarketDayHigh": 71.63, "52WeekChange": -0.37818277, "averageDailyVolume10Day": 1768400, "regularMarketChangePercent": -0.015706005}
+{
+    "longName": "Boston Properties, Inc.",
+    "shortName": "Boston Properties, Inc.",
+    "industry": "REIT\u2014Office",
+    "marketCap": 10722042880,
+    "totalRevenue": 3037533952,
+    "targetMeanPrice": 84.47,
+    "regularMarketDayLow": 67.4,
+    "regularMarketDayHigh": 68.5,
+    "52WeekChange": -0.40983605,
+    "averageDailyVolume10Day": 1980400,
+    "regularMarketChangePercent": 0.0021978247
+}

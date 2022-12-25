@@ -1,1 +1,13 @@
-{"longName": "Northrop Grumman Corporation", "shortName": "Northrop Grumman Corporation", "industry": "Aerospace & Defense", "marketCap": 79271600128, "totalRevenue": 34957000704, "targetMeanPrice": 494.87, "regularMarketDayLow": 498, "regularMarketDayHigh": 509, "52WeekChange": null, "averageDailyVolume10Day": 889430, "regularMarketChangePercent": 0.015602}
+{
+    "longName": "Northrop Grumman Corporation",
+    "shortName": "Northrop Grumman Corporation",
+    "industry": "Aerospace & Defense",
+    "marketCap": 84139646976,
+    "totalRevenue": 34957000704,
+    "targetMeanPrice": 520.79,
+    "regularMarketDayLow": 529.875,
+    "regularMarketDayHigh": 536.25,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 673690,
+    "regularMarketChangePercent": 0.0063986005
+}

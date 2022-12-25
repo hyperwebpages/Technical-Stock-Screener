@@ -1,1 +1,13 @@
-{"longName": "L3Harris Technologies, Inc.", "shortName": "L3Harris Technologies, Inc.", "industry": "Aerospace & Defense", "marketCap": 45218086912, "totalRevenue": 16817000448, "targetMeanPrice": null, "regularMarketDayLow": 225.6794, "regularMarketDayHigh": 231.69, "52WeekChange": null, "averageDailyVolume10Day": 929540, "regularMarketChangePercent": 0.0272824}
+{
+    "longName": "L3Harris Technologies, Inc.",
+    "shortName": "L3Harris Technologies, Inc.",
+    "industry": "Aerospace & Defense",
+    "marketCap": 40469442560,
+    "totalRevenue": 16817000448,
+    "targetMeanPrice": null,
+    "regularMarketDayLow": 204,
+    "regularMarketDayHigh": 206.55,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 1473430,
+    "regularMarketChangePercent": 0.0069821198
+}

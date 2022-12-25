@@ -1,1 +1,13 @@
-{"longName": "CF Industries Holdings, Inc.", "shortName": "CF Industries Holdings, Inc.", "industry": "Agricultural Inputs", "marketCap": 22848022528, "totalRevenue": 8358000128, "targetMeanPrice": 107.32, "regularMarketDayLow": 103.775, "regularMarketDayHigh": 108.28, "52WeekChange": null, "averageDailyVolume10Day": 2657110, "regularMarketChangePercent": 0.016507592}
+{
+    "longName": "CF Industries Holdings, Inc.",
+    "shortName": "CF Industries Holdings, Inc.",
+    "industry": "Agricultural Inputs",
+    "marketCap": 17802188800,
+    "totalRevenue": 11118000128,
+    "targetMeanPrice": 116.89,
+    "regularMarketDayLow": 90,
+    "regularMarketDayHigh": 91.43,
+    "52WeekChange": 0.22854054,
+    "averageDailyVolume10Day": 2565520,
+    "regularMarketChangePercent": 0.009343674
+}

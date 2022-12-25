@@ -1,1 +1,13 @@
-{"longName": "Bio-Techne Corporation", "shortName": "Bio-Techne Corp", "industry": "Biotechnology", "marketCap": 11158436864, "totalRevenue": 1105598976, "targetMeanPrice": 473.45, "regularMarketDayLow": 284.39, "regularMarketDayHigh": 296.73, "52WeekChange": -0.38102508, "averageDailyVolume10Day": 387810, "regularMarketChangePercent": -0.03888517}
+{
+    "longName": "Bio-Techne Corporation",
+    "shortName": "Bio-Techne Corp",
+    "industry": "Biotechnology",
+    "marketCap": 3250900224,
+    "totalRevenue": 1105598976,
+    "targetMeanPrice": 465.26,
+    "regularMarketDayLow": 81.91,
+    "regularMarketDayHigh": 83.115,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 899380,
+    "regularMarketChangePercent": -0.0026521229
+}

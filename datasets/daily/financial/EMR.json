@@ -1,1 +1,13 @@
-{"longName": "Emerson Electric Co.", "shortName": "Emerson Electric Company", "industry": "Specialty Industrial Machinery", "marketCap": 46684934144, "totalRevenue": 18908000256, "targetMeanPrice": 100.5, "regularMarketDayLow": 77.365, "regularMarketDayHigh": 78.9, "52WeekChange": null, "averageDailyVolume10Day": 3346660, "regularMarketChangePercent": 0.00693821}
+{
+    "longName": "Emerson Electric Co.",
+    "shortName": "Emerson Electric Company",
+    "industry": "Specialty Industrial Machinery",
+    "marketCap": 56913084416,
+    "totalRevenue": 19215998976,
+    "targetMeanPrice": 98.73,
+    "regularMarketDayLow": 94.59,
+    "regularMarketDayHigh": 96.04,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 3924720,
+    "regularMarketChangePercent": 0.0048380215
+}

@@ -1,1 +1,13 @@
-{"longName": "Delta Air Lines, Inc.", "shortName": "Delta Air Lines, Inc.", "industry": "Airlines", "marketCap": 18829211648, "totalRevenue": 41796001792, "targetMeanPrice": 48.03, "regularMarketDayLow": 28.975, "regularMarketDayHigh": 29.72, "52WeekChange": null, "averageDailyVolume10Day": 11391290, "regularMarketChangePercent": 0.0010207788}
+{
+    "longName": "Delta Air Lines, Inc.",
+    "shortName": "Delta Air Lines, Inc.",
+    "industry": "Airlines",
+    "marketCap": 21222864896,
+    "totalRevenue": 46617001984,
+    "targetMeanPrice": 48.13,
+    "regularMarketDayLow": 32.37,
+    "regularMarketDayHigh": 33.17,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 10558440,
+    "regularMarketChangePercent": 0.0072904523
+}

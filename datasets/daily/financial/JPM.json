@@ -1,1 +1,13 @@
-{"longName": "JPMorgan Chase & Co.", "shortName": "JP Morgan Chase & Co.", "industry": "Banks\u2014Diversified", "marketCap": 317945413632, "totalRevenue": 120579997696, "targetMeanPrice": 139.04, "regularMarketDayLow": 104.52, "regularMarketDayHigh": 107.31, "52WeekChange": null, "averageDailyVolume10Day": 13237910, "regularMarketChangePercent": -0.00934144}
+{
+    "longName": "JPMorgan Chase & Co.",
+    "shortName": "JP Morgan Chase & Co.",
+    "industry": "Banks\u2014Diversified",
+    "marketCap": 397560479744,
+    "totalRevenue": 120585003008,
+    "targetMeanPrice": 137.46,
+    "regularMarketDayLow": 129.64,
+    "regularMarketDayHigh": 131.44,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 10140490,
+    "regularMarketChangePercent": 0.0047451025
+}

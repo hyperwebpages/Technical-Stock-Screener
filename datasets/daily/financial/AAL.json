@@ -1,1 +1,13 @@
-{"longName": "American Airlines Group Inc.", "shortName": "American Airlines Group, Inc.", "industry": "Airlines", "marketCap": 7830644736, "totalRevenue": 40717000704, "targetMeanPrice": 16.68, "regularMarketDayLow": 11.86, "regularMarketDayHigh": 12.32, "52WeekChange": -0.39493293, "averageDailyVolume10Day": 36648880, "regularMarketChangePercent": -0.010673244}
+{
+    "longName": "American Airlines Group Inc.",
+    "shortName": "American Airlines Group, Inc.",
+    "industry": "Airlines",
+    "marketCap": 8260241408,
+    "totalRevenue": 45210001408,
+    "targetMeanPrice": 15.57,
+    "regularMarketDayLow": 12.3298,
+    "regularMarketDayHigh": 12.71,
+    "52WeekChange": -0.30049533,
+    "averageDailyVolume10Day": 27576580,
+    "regularMarketChangePercent": 0.011942644
+}

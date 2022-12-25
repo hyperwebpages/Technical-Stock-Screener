@@ -1,1 +1,13 @@
-{"longName": "PVH Corp.", "shortName": "PVH Corp.", "industry": "Apparel Manufacturing", "marketCap": 3274951680, "totalRevenue": 9198100480, "targetMeanPrice": 85.19, "regularMarketDayLow": 46.07, "regularMarketDayHigh": 48.125, "52WeekChange": null, "averageDailyVolume10Day": 1295580, "regularMarketChangePercent": -0.017425999}
+{
+    "longName": "PVH Corp.",
+    "shortName": "PVH Corp.",
+    "industry": "Apparel Manufacturing",
+    "marketCap": 4902630400,
+    "totalRevenue": 9016899584,
+    "targetMeanPrice": 71,
+    "regularMarketDayLow": 68.47,
+    "regularMarketDayHigh": 70.065,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 1085190,
+    "regularMarketChangePercent": 0.013746199
+}

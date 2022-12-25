@@ -1,1 +1,13 @@
-{"longName": "Abbott Laboratories", "shortName": "Abbott Laboratories", "industry": "Medical Devices", "marketCap": 177906434048, "totalRevenue": 45547999232, "targetMeanPrice": 124.17, "regularMarketDayLow": 100.095, "regularMarketDayHigh": 102.74, "52WeekChange": -0.13799864, "averageDailyVolume10Day": 6022230, "regularMarketChangePercent": 0.004548592}
+{
+    "longName": "Abbott Laboratories",
+    "shortName": "Abbott Laboratories",
+    "industry": "Medical Devices",
+    "marketCap": 188619407360,
+    "totalRevenue": 45029998592,
+    "targetMeanPrice": 117.56,
+    "regularMarketDayLow": 107.1,
+    "regularMarketDayHigh": 108.4,
+    "52WeekChange": -0.23526084,
+    "averageDailyVolume10Day": 4672040,
+    "regularMarketChangePercent": 0.0013885173
+}

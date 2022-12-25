@@ -1,1 +1,13 @@
-{"longName": "Costco Wholesale Corporation", "shortName": "Costco Wholesale Corporation", "industry": "Discount Stores", "marketCap": 206776778752, "totalRevenue": 217538002944, "targetMeanPrice": 553.92, "regularMarketDayLow": 461.61, "regularMarketDayHigh": 470.25, "52WeekChange": null, "averageDailyVolume10Day": 2433240, "regularMarketChangePercent": -0.0039303564}
+{
+    "longName": "Costco Wholesale Corporation",
+    "shortName": "Costco Wholesale Corporation",
+    "industry": "Discount Stores",
+    "marketCap": 205153812480,
+    "totalRevenue": 226954002432,
+    "targetMeanPrice": 565.17,
+    "regularMarketDayLow": 454.88,
+    "regularMarketDayHigh": 463.175,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 2392350,
+    "regularMarketChangePercent": 0.008589311
+}

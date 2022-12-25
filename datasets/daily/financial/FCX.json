@@ -1,1 +1,13 @@
-{"longName": "Freeport-McMoRan Inc.", "shortName": "Freeport-McMoRan, Inc.", "industry": "Copper", "marketCap": 42967433216, "totalRevenue": 24266000384, "targetMeanPrice": 38.51, "regularMarketDayLow": 29.115, "regularMarketDayHigh": 30.11, "52WeekChange": null, "averageDailyVolume10Day": 15889760, "regularMarketChangePercent": 0.010708098}
+{
+    "longName": "Freeport-McMoRan Inc.",
+    "shortName": "Freeport-McMoRan, Inc.",
+    "industry": "Copper",
+    "marketCap": 55948705792,
+    "totalRevenue": 23185999872,
+    "targetMeanPrice": 36.38,
+    "regularMarketDayLow": 37.32,
+    "regularMarketDayHigh": 38.12,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 11540760,
+    "regularMarketChangePercent": 0.011414927
+}

@@ -1,1 +1,13 @@
-{"longName": "Principal Financial Group, Inc.", "shortName": "Principal Financial Group Inc", "industry": "Insurance\u2014Diversified", "marketCap": 20177051648, "totalRevenue": 14164200448, "targetMeanPrice": 68.38, "regularMarketDayLow": 75.45, "regularMarketDayHigh": 77.09, "52WeekChange": null, "averageDailyVolume10Day": 1615520, "regularMarketChangePercent": 0.001052102}
+{
+    "longName": "Principal Financial Group, Inc.",
+    "shortName": "Principal Financial Group Inc",
+    "industry": "Asset Management",
+    "marketCap": 22679302144,
+    "totalRevenue": 17283500032,
+    "targetMeanPrice": 74.15,
+    "regularMarketDayLow": 84.83,
+    "regularMarketDayHigh": 85.7,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 1721870,
+    "regularMarketChangePercent": 0.0056416984
+}

@@ -1,1 +1,13 @@
-{"longName": "Tesla, Inc.", "shortName": "Tesla, Inc.", "industry": "Auto Manufacturers", "marketCap": 223909806080, "totalRevenue": 67165999104, "targetMeanPrice": 879.36, "regularMarketDayLow": 218.3582, "regularMarketDayHigh": 226.99, "52WeekChange": null, "averageDailyVolume10Day": 76762070, "regularMarketChangePercent": -0.00049312145}
+{
+    "longName": "Tesla, Inc.",
+    "shortName": "Tesla, Inc.",
+    "industry": "Auto Manufacturers",
+    "marketCap": 123674615808,
+    "totalRevenue": 74863001600,
+    "targetMeanPrice": 272,
+    "regularMarketDayLow": 121.02,
+    "regularMarketDayHigh": 128.6173,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 150799130,
+    "regularMarketChangePercent": -0.017550834
+}

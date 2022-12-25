@@ -1,1 +1,13 @@
-{"longName": "Campbell Soup Company", "shortName": "Campbell Soup Company", "industry": "Packaged Foods", "marketCap": 14285650944, "totalRevenue": 8561999872, "targetMeanPrice": 48, "regularMarketDayLow": 46.81, "regularMarketDayHigh": 47.85, "52WeekChange": 0.11368525, "averageDailyVolume10Day": 2330750, "regularMarketChangePercent": 0.023375511}
+{
+    "longName": "Campbell Soup Company",
+    "shortName": "Campbell Soup Company",
+    "industry": "Packaged Foods",
+    "marketCap": 17283551232,
+    "totalRevenue": 8561999872,
+    "targetMeanPrice": 48.12,
+    "regularMarketDayLow": 56.48,
+    "regularMarketDayHigh": 57.295,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 2557220,
+    "regularMarketChangePercent": 0.0080957245
+}

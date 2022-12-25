@@ -1,1 +1,13 @@
-{"longName": "Starbucks Corporation", "shortName": "Starbucks Corporation", "industry": "Restaurants", "marketCap": null, "totalRevenue": 31329099776, "targetMeanPrice": 94.21, "regularMarketDayLow": 86.13, "regularMarketDayHigh": 87.57, "52WeekChange": null, "averageDailyVolume10Day": 7288180, "regularMarketChangePercent": 0.0003446947}
+{
+    "longName": "Starbucks Corporation",
+    "shortName": "Starbucks Corporation",
+    "industry": "Restaurants",
+    "marketCap": null,
+    "totalRevenue": 31982800896,
+    "targetMeanPrice": 96.55,
+    "regularMarketDayLow": 96.89,
+    "regularMarketDayHigh": 98.29,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 6416200,
+    "regularMarketChangePercent": 0.005216801
+}

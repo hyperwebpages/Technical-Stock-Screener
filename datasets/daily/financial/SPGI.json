@@ -1,1 +1,13 @@
-{"longName": "S&P Global Inc.", "shortName": "S&P Global Inc.", "industry": "Financial Data & Stock Exchanges", "marketCap": 71991517184, "totalRevenue": 8670000128, "targetMeanPrice": 410.06, "regularMarketDayLow": 297.73, "regularMarketDayHigh": 307.17, "52WeekChange": null, "averageDailyVolume10Day": 2034390, "regularMarketChangePercent": -0.019078601}
+{
+    "longName": "S&P Global Inc.",
+    "shortName": "S&P Global Inc.",
+    "industry": "Financial Data & Stock Exchanges",
+    "marketCap": 80238542848,
+    "totalRevenue": 9557999616,
+    "targetMeanPrice": 383.71,
+    "regularMarketDayLow": 328.44,
+    "regularMarketDayHigh": 332.96,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 1819540,
+    "regularMarketChangePercent": 0.0024992235
+}

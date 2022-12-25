@@ -1,1 +1,13 @@
-{"longName": "3M Company", "shortName": "3M Company", "industry": "Conglomerates", "marketCap": 60244275200, "totalRevenue": 35085000704, "targetMeanPrice": 135.74, "regularMarketDayLow": 107.95, "regularMarketDayHigh": 110.45, "52WeekChange": -0.38209993, "averageDailyVolume10Day": 3191510, "regularMarketChangePercent": 0.0033192018}
+{
+    "longName": "3M Company",
+    "shortName": "3M Company",
+    "industry": "Conglomerates",
+    "marketCap": 69231034368,
+    "totalRevenue": null,
+    "targetMeanPrice": 131.13,
+    "regularMarketDayLow": 117.8,
+    "regularMarketDayHigh": 121,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 3388560,
+    "regularMarketChangePercent": -0.011925298
+}

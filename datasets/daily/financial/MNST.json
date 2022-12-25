@@ -1,1 +1,13 @@
-{"longName": "Monster Beverage Corporation", "shortName": "Monster Beverage Corporation", "industry": "Beverages\u2014Non-Alcoholic", "marketCap": 48162230272, "totalRevenue": 5816110080, "targetMeanPrice": 102.72, "regularMarketDayLow": 89.99, "regularMarketDayHigh": 91.405, "52WeekChange": null, "averageDailyVolume10Day": 2620070, "regularMarketChangePercent": 0.0080850115}
+{
+    "longName": "Monster Beverage Corporation",
+    "shortName": "Monster Beverage Corporation",
+    "industry": "Beverages\u2014Non-Alcoholic",
+    "marketCap": 53580615680,
+    "totalRevenue": 6009434112,
+    "targetMeanPrice": 100.58,
+    "regularMarketDayLow": 100.47,
+    "regularMarketDayHigh": 101.52,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 2073220,
+    "regularMarketChangePercent": 0.0044638882
+}

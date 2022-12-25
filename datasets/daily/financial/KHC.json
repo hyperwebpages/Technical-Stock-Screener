@@ -1,1 +1,13 @@
-{"longName": "The Kraft Heinz Company", "shortName": "The Kraft Heinz Company", "industry": "Packaged Foods", "marketCap": 41703038976, "totalRevenue": 25632000000, "targetMeanPrice": 42.4, "regularMarketDayLow": 33.55, "regularMarketDayHigh": 34.47, "52WeekChange": null, "averageDailyVolume10Day": 7307420, "regularMarketChangePercent": 0.031486556}
+{
+    "longName": "The Kraft Heinz Company",
+    "shortName": "The Kraft Heinz Company",
+    "industry": "Packaged Foods",
+    "marketCap": 49598099456,
+    "totalRevenue": 25632000000,
+    "targetMeanPrice": 42.18,
+    "regularMarketDayLow": 40.37,
+    "regularMarketDayHigh": 40.67,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 6400610,
+    "regularMarketChangePercent": 0.0039643175
+}

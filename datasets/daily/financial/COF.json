@@ -1,1 +1,13 @@
-{"longName": "Capital One Financial Corporation", "shortName": "Capital One Financial Corporati", "industry": "Credit Services", "marketCap": 35714265088, "totalRevenue": 30552000512, "targetMeanPrice": 132.96, "regularMarketDayLow": 92.69, "regularMarketDayHigh": 95.12, "52WeekChange": -0.4351306, "averageDailyVolume10Day": 2671750, "regularMarketChangePercent": -0.008735482}
+{
+    "longName": "Capital One Financial Corporation",
+    "shortName": "Capital One Financial Corporati",
+    "industry": "Credit Services",
+    "marketCap": 38599663616,
+    "totalRevenue": 29515999232,
+    "targetMeanPrice": 126.91,
+    "regularMarketDayLow": 89.11,
+    "regularMarketDayHigh": 90.76,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 4012560,
+    "regularMarketChangePercent": 0.013409371
+}

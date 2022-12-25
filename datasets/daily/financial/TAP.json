@@ -1,1 +1,13 @@
-{"longName": "Molson Coors Beverage Company", "shortName": "Molson Coors Beverage Company", "industry": "Beverages\u2014Brewers", "marketCap": 10287418368, "totalRevenue": 10595900416, "targetMeanPrice": 55.6, "regularMarketDayLow": 46.91, "regularMarketDayHigh": 47.44, "52WeekChange": null, "averageDailyVolume10Day": 1190500, "regularMarketChangePercent": 0.00616761}
+{
+    "longName": "Molson Coors Beverage Company",
+    "shortName": "Molson Coors Beverage Company",
+    "industry": "Beverages\u2014Brewers",
+    "marketCap": 11292022784,
+    "totalRevenue": 10578199552,
+    "targetMeanPrice": 54,
+    "regularMarketDayLow": 51.275,
+    "regularMarketDayHigh": 51.93,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 1155310,
+    "regularMarketChangePercent": 0.009525694
+}

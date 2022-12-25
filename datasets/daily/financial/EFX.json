@@ -1,1 +1,13 @@
-{"longName": "Equifax Inc.", "shortName": "Equifax, Inc.", "industry": "Consulting Services", "marketCap": 20563437568, "totalRevenue": 5156100096, "targetMeanPrice": 224.58, "regularMarketDayLow": 165.93, "regularMarketDayHigh": 169.97, "52WeekChange": null, "averageDailyVolume10Day": 828930, "regularMarketChangePercent": -0.0015993618}
+{
+    "longName": "Equifax Inc.",
+    "shortName": "Equifax, Inc.",
+    "industry": "Consulting Services",
+    "marketCap": 23879450624,
+    "totalRevenue": 5177500160,
+    "targetMeanPrice": 184.94,
+    "regularMarketDayLow": 192.79,
+    "regularMarketDayHigh": 196.39,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 789320,
+    "regularMarketChangePercent": 0.0077746604
+}

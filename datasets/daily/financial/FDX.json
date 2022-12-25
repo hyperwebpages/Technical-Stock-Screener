@@ -1,1 +1,13 @@
-{"longName": "FedEx Corporation", "shortName": "FedEx Corporation", "industry": "Integrated Freight & Logistics", "marketCap": 40595902464, "totalRevenue": 93511999488, "targetMeanPrice": 290.79, "regularMarketDayLow": 152.15, "regularMarketDayHigh": 156.45, "52WeekChange": null, "averageDailyVolume10Day": 5595840, "regularMarketChangePercent": -0.0077714976}
+{
+    "longName": "FedEx Corporation",
+    "shortName": "FedEx Corporation",
+    "industry": "Integrated Freight & Logistics",
+    "marketCap": 46615994368,
+    "totalRevenue": 94750998528,
+    "targetMeanPrice": 191.46,
+    "regularMarketDayLow": 175.51,
+    "regularMarketDayHigh": 179.06,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 3630880,
+    "regularMarketChangePercent": 0.0013659869
+}

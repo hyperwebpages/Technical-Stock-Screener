@@ -1,1 +1,13 @@
-{"longName": "Stanley Black & Decker, Inc.", "shortName": "Stanley Black & Decker, Inc.", "industry": "Tools & Accessories", "marketCap": 12592667648, "totalRevenue": 16938500096, "targetMeanPrice": 136.71, "regularMarketDayLow": 76.3, "regularMarketDayHigh": 78.43, "52WeekChange": null, "averageDailyVolume10Day": 1640280, "regularMarketChangePercent": -0.0036119602}
+{
+    "longName": "Stanley Black & Decker, Inc.",
+    "shortName": "Stanley Black & Decker, Inc.",
+    "industry": "Tools & Accessories",
+    "marketCap": 12054660096,
+    "totalRevenue": null,
+    "targetMeanPrice": 100,
+    "regularMarketDayLow": 72.6,
+    "regularMarketDayHigh": 74.14,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 1776920,
+    "regularMarketChangePercent": 0.008868897
+}

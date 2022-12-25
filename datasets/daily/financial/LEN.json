@@ -1,1 +1,13 @@
-{"longName": "Lennar Corporation", "shortName": "Lennar Corporation", "industry": "Residential Construction", "marketCap": 23688148992, "totalRevenue": 29937174528, "targetMeanPrice": 91.65, "regularMarketDayLow": 77.3601, "regularMarketDayHigh": 79.165, "52WeekChange": null, "averageDailyVolume10Day": 2426450, "regularMarketChangePercent": 0.000896168}
+{
+    "longName": "Lennar Corporation",
+    "shortName": "Lennar Corporation",
+    "industry": "Residential Construction",
+    "marketCap": 27457409024,
+    "totalRevenue": 31930202112,
+    "targetMeanPrice": 95,
+    "regularMarketDayLow": 89.69,
+    "regularMarketDayHigh": 90.8399,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 3038920,
+    "regularMarketChangePercent": -0.0046133366
+}

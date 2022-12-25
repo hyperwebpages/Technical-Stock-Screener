@@ -1,1 +1,13 @@
-{"longName": "Sysco Corporation", "shortName": "Sysco Corporation", "industry": "Food Distribution", "marketCap": 37321359360, "totalRevenue": 65815781376, "targetMeanPrice": 95.27, "regularMarketDayLow": 71.87, "regularMarketDayHigh": 73.3954, "52WeekChange": null, "averageDailyVolume10Day": 2496850, "regularMarketChangePercent": 0.00844993}
+{
+    "longName": "Sysco Corporation",
+    "shortName": "Sysco Corporation",
+    "industry": "Food Distribution",
+    "marketCap": 40033304576,
+    "totalRevenue": 68636147712,
+    "targetMeanPrice": 91.38,
+    "regularMarketDayLow": 76.875,
+    "regularMarketDayHigh": 78.14,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 2526550,
+    "regularMarketChangePercent": 0.011266448
+}

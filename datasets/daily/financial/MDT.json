@@ -1,1 +1,13 @@
-{"longName": "Medtronic plc", "shortName": "Medtronic plc.", "industry": "Medical Devices", "marketCap": 110038786048, "totalRevenue": 31686000640, "targetMeanPrice": 111.32, "regularMarketDayLow": 81.57, "regularMarketDayHigh": 83.06, "52WeekChange": null, "averageDailyVolume10Day": 5408020, "regularMarketChangePercent": -0.00703715}
+{
+    "longName": "Medtronic plc",
+    "shortName": "Medtronic plc.",
+    "industry": "Medical Devices",
+    "marketCap": 104203403264,
+    "totalRevenue": 31069999104,
+    "targetMeanPrice": 105.47,
+    "regularMarketDayLow": 76.46,
+    "regularMarketDayHigh": 77.754,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 8918170,
+    "regularMarketChangePercent": 0.0046668476
+}

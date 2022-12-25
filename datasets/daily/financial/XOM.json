@@ -1,1 +1,13 @@
-{"longName": "Exxon Mobil Corporation", "shortName": "Exxon Mobil Corporation", "industry": "Oil & Gas Integrated", "marketCap": 421125586944, "totalRevenue": 358272991232, "targetMeanPrice": 103.36, "regularMarketDayLow": 98.72, "regularMarketDayHigh": 102.03, "52WeekChange": null, "averageDailyVolume10Day": 23262980, "regularMarketChangePercent": -0.021676801}
+{
+    "longName": "Exxon Mobil Corporation",
+    "shortName": "Exxon Mobil Corporation",
+    "industry": "Oil & Gas Integrated",
+    "marketCap": 463050702848,
+    "totalRevenue": 354955984896,
+    "targetMeanPrice": 109.88,
+    "regularMarketDayLow": 106.9,
+    "regularMarketDayHigh": 108.74,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 19888050,
+    "regularMarketChangePercent": 0.02644506
+}

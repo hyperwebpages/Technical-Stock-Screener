@@ -1,1 +1,13 @@
-{"longName": "Invesco Ltd.", "shortName": "Invesco Ltd", "industry": "Asset Management", "marketCap": 6655217152, "totalRevenue": 6673200128, "targetMeanPrice": null, "regularMarketDayLow": 14.255, "regularMarketDayHigh": 14.655, "52WeekChange": null, "averageDailyVolume10Day": 4968960, "regularMarketChangePercent": 0.00417539}
+{
+    "longName": "Invesco Ltd.",
+    "shortName": "Invesco Ltd",
+    "industry": "Asset Management",
+    "marketCap": 8476984320,
+    "totalRevenue": 6368900096,
+    "targetMeanPrice": null,
+    "regularMarketDayLow": 18.105,
+    "regularMarketDayHigh": 18.41,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 4178780,
+    "regularMarketChangePercent": 0.0060207304
+}

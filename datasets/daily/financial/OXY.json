@@ -1,1 +1,13 @@
-{"longName": "Occidental Petroleum Corporation", "shortName": "Occidental Petroleum Corporatio", "industry": "Oil & Gas E&P", "marketCap": 61297168384, "totalRevenue": 29012000768, "targetMeanPrice": 75.21, "regularMarketDayLow": 65.59, "regularMarketDayHigh": 70.28, "52WeekChange": null, "averageDailyVolume10Day": 25407970, "regularMarketChangePercent": -0.059742197}
+{
+    "longName": "Occidental Petroleum Corporation",
+    "shortName": "Occidental Petroleum Corporatio",
+    "industry": "Oil & Gas E&P",
+    "marketCap": 59728084992,
+    "totalRevenue": 33730000896,
+    "targetMeanPrice": 75.45,
+    "regularMarketDayLow": 62.375,
+    "regularMarketDayHigh": 63.98,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 12597140,
+    "regularMarketChangePercent": 0.03478967
+}

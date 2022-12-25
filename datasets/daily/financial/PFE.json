@@ -1,1 +1,13 @@
-{"longName": "Pfizer Inc.", "shortName": "Pfizer, Inc.", "industry": "Drug Manufacturers\u2014General", "marketCap": 234337320960, "totalRevenue": 101275000832, "targetMeanPrice": 58.49, "regularMarketDayLow": 41.75, "regularMarketDayHigh": 42.62, "52WeekChange": null, "averageDailyVolume10Day": 20216010, "regularMarketChangePercent": -0.013468799}
+{
+    "longName": "Pfizer Inc.",
+    "shortName": "Pfizer, Inc.",
+    "industry": "Drug Manufacturers\u2014General",
+    "marketCap": 290915057664,
+    "totalRevenue": 101275000832,
+    "targetMeanPrice": null,
+    "regularMarketDayLow": 51.24,
+    "regularMarketDayHigh": 51.95,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 23849350,
+    "regularMarketChangePercent": 0.0036793656
+}

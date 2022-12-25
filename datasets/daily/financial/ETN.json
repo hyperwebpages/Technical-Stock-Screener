@@ -1,1 +1,13 @@
-{"longName": "Eaton Corporation plc", "shortName": "Eaton Corporation, PLC", "industry": "Specialty Industrial Machinery", "marketCap": 54361071616, "totalRevenue": 19779000320, "targetMeanPrice": 157.3, "regularMarketDayLow": 134.82, "regularMarketDayHigh": 137.78, "52WeekChange": null, "averageDailyVolume10Day": 2212920, "regularMarketChangePercent": -0.00328873}
+{
+    "longName": "Eaton Corporation plc",
+    "shortName": "Eaton Corporation, PLC",
+    "industry": "Specialty Industrial Machinery",
+    "marketCap": 62500483072,
+    "totalRevenue": 19775000576,
+    "targetMeanPrice": 159.16,
+    "regularMarketDayLow": 155.22,
+    "regularMarketDayHigh": 157.01,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 1671500,
+    "regularMarketChangePercent": 0.004419976
+}

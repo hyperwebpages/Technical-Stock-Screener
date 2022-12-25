@@ -1,1 +1,13 @@
-{"longName": "Equity Residential", "shortName": "Equity Residential", "industry": "REIT\u2014Residential", "marketCap": 23288492032, "totalRevenue": 2608713984, "targetMeanPrice": 81.9, "regularMarketDayLow": 62.01, "regularMarketDayHigh": 63.09, "52WeekChange": null, "averageDailyVolume10Day": 1994810, "regularMarketChangePercent": -0.0068767043}
+{
+    "longName": "Equity Residential",
+    "shortName": "Equity Residential",
+    "industry": "REIT\u2014Residential",
+    "marketCap": 22290950144,
+    "totalRevenue": 2680606976,
+    "targetMeanPrice": 76.71,
+    "regularMarketDayLow": 58.64,
+    "regularMarketDayHigh": 59.82,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 2970690,
+    "regularMarketChangePercent": 0.007116201
+}

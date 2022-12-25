@@ -1,1 +1,13 @@
-{"longName": "Newmont Corporation", "shortName": "Newmont Corporation", "industry": "Gold", "marketCap": 33715550208, "totalRevenue": 12366000128, "targetMeanPrice": 114.41, "regularMarketDayLow": 42.0562, "regularMarketDayHigh": 42.89, "52WeekChange": null, "averageDailyVolume10Day": 9762760, "regularMarketChangePercent": -0.0075117303}
+{
+    "longName": "Newmont Corporation",
+    "shortName": "Newmont Corporation",
+    "industry": "Gold",
+    "marketCap": 38157262848,
+    "totalRevenue": 12366000128,
+    "targetMeanPrice": 65.51,
+    "regularMarketDayLow": 47.02,
+    "regularMarketDayHigh": 48.38,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 6964670,
+    "regularMarketChangePercent": 0.0073683886
+}

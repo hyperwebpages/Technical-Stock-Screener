@@ -1,1 +1,13 @@
-{"longName": "Caterpillar Inc.", "shortName": "Caterpillar, Inc.", "industry": "Farm & Heavy Construction Machinery", "marketCap": 94321500160, "totalRevenue": 54030999552, "targetMeanPrice": null, "regularMarketDayLow": 176.07, "regularMarketDayHigh": 181.16, "52WeekChange": -0.0795272, "averageDailyVolume10Day": 3183580, "regularMarketChangePercent": 0.0063080504}
+{
+    "longName": "Caterpillar Inc.",
+    "shortName": "Caterpillar, Inc.",
+    "industry": "Farm & Heavy Construction Machinery",
+    "marketCap": 124830498816,
+    "totalRevenue": 56627998720,
+    "targetMeanPrice": 228.38,
+    "regularMarketDayLow": 236.5,
+    "regularMarketDayHigh": 240.54,
+    "52WeekChange": 0.16227353,
+    "averageDailyVolume10Day": 3423720,
+    "regularMarketChangePercent": 0.009808882
+}

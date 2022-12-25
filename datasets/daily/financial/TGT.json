@@ -1,1 +1,13 @@
-{"longName": "Target Corporation", "shortName": "Target Corporation", "industry": "Discount Stores", "marketCap": 73353887744, "totalRevenue": 106978000896, "targetMeanPrice": 186.79, "regularMarketDayLow": 150.48, "regularMarketDayHigh": 153.87, "52WeekChange": null, "averageDailyVolume10Day": 3240400, "regularMarketChangePercent": 0.00498891}
+{
+    "longName": "Target Corporation",
+    "shortName": "Target Corporation",
+    "industry": "Discount Stores",
+    "marketCap": 68586598400,
+    "totalRevenue": 107855003648,
+    "targetMeanPrice": 191.89,
+    "regularMarketDayLow": 139.88,
+    "regularMarketDayHigh": 143.27,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 4332550,
+    "regularMarketChangePercent": 0.01273426
+}

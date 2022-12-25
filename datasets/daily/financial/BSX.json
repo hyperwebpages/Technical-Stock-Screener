@@ -1,1 +1,13 @@
-{"longName": "Boston Scientific Corporation", "shortName": "Boston Scientific Corporation", "industry": "Medical Devices", "marketCap": 56749019136, "totalRevenue": 12328999936, "targetMeanPrice": 48.49, "regularMarketDayLow": 39.52, "regularMarketDayHigh": 40.235, "52WeekChange": -0.05647838, "averageDailyVolume10Day": 6808520, "regularMarketChangePercent": -0.003018082}
+{
+    "longName": "Boston Scientific Corporation",
+    "shortName": "Boston Scientific Corporation",
+    "industry": "Medical Devices",
+    "marketCap": 65972199424,
+    "totalRevenue": 12567000064,
+    "targetMeanPrice": 50.11,
+    "regularMarketDayLow": 45.78,
+    "regularMarketDayHigh": 46.18,
+    "52WeekChange": 0.06818187,
+    "averageDailyVolume10Day": 6789310,
+    "regularMarketChangePercent": -0.0019501657
+}

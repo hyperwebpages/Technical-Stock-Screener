@@ -1,1 +1,13 @@
-{"longName": "International Paper Company", "shortName": "International Paper Company", "industry": "Packaging & Containers", "marketCap": 12225893376, "totalRevenue": 20625999872, "targetMeanPrice": 47.17, "regularMarketDayLow": 31.3581, "regularMarketDayHigh": 31.94, "52WeekChange": null, "averageDailyVolume10Day": 5179850, "regularMarketChangePercent": 0.000316864}
+{
+    "longName": "International Paper Company",
+    "shortName": "International Paper Company",
+    "industry": "Packaging & Containers",
+    "marketCap": 13449644032,
+    "totalRevenue": 20625999872,
+    "targetMeanPrice": 35.59,
+    "regularMarketDayLow": 34.29,
+    "regularMarketDayHigh": 34.88,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 3771550,
+    "regularMarketChangePercent": 0.008713309
+}

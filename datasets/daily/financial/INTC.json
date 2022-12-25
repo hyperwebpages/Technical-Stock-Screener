@@ -1,1 +1,13 @@
-{"longName": "Intel Corporation", "shortName": "Intel Corporation", "industry": "Semiconductors", "marketCap": 102488408064, "totalRevenue": 73394003968, "targetMeanPrice": 48.33, "regularMarketDayLow": 25.09, "regularMarketDayHigh": 25.98, "52WeekChange": null, "averageDailyVolume10Day": 42264350, "regularMarketChangePercent": -0.020217674}
+{
+    "longName": "Intel Corporation",
+    "shortName": "Intel Corporation",
+    "industry": "Semiconductors",
+    "marketCap": 106108035072,
+    "totalRevenue": 73394003968,
+    "targetMeanPrice": 34.27,
+    "regularMarketDayLow": 25.6835,
+    "regularMarketDayHigh": 26.185,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 42626190,
+    "regularMarketChangePercent": 0.0046207486
+}

@@ -1,1 +1,13 @@
-{"longName": "CDW Corporation", "shortName": "CDW Corporation", "industry": "Information Technology Services", "marketCap": 21502595072, "totalRevenue": 21932400640, "targetMeanPrice": 218.79, "regularMarketDayLow": 156.74, "regularMarketDayHigh": 160.26, "52WeekChange": null, "averageDailyVolume10Day": 614230, "regularMarketChangePercent": -0.007455222}
+{
+    "longName": "CDW Corporation",
+    "shortName": "CDW Corporation",
+    "industry": "Information Technology Services",
+    "marketCap": 24118554624,
+    "totalRevenue": 23847299072,
+    "targetMeanPrice": 207.59,
+    "regularMarketDayLow": 176.4,
+    "regularMarketDayHigh": 178.61,
+    "52WeekChange": -0.13950342,
+    "averageDailyVolume10Day": 625670,
+    "regularMarketChangePercent": 0.0017995279
+}

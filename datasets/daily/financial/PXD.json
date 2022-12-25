@@ -1,1 +1,13 @@
-{"longName": "Pioneer Natural Resources Company", "shortName": "Pioneer Natural Resources Compa", "industry": "Oil & Gas E&P", "marketCap": 60935847936, "totalRevenue": 20952999936, "targetMeanPrice": 294.67, "regularMarketDayLow": 247.11, "regularMarketDayHigh": 260.0505, "52WeekChange": null, "averageDailyVolume10Day": 2850980, "regularMarketChangePercent": -0.0283401}
+{
+    "longName": "Pioneer Natural Resources Company",
+    "shortName": "Pioneer Natural Resources Compa",
+    "industry": "Oil & Gas E&P",
+    "marketCap": 55933542400,
+    "totalRevenue": 23690000384,
+    "targetMeanPrice": 282.22,
+    "regularMarketDayLow": 222,
+    "regularMarketDayHigh": 229.19,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 2231550,
+    "regularMarketChangePercent": 0.040699556
+}

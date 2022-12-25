@@ -1,1 +1,13 @@
-{"longName": "American Express Company", "shortName": "American Express Company", "industry": "Credit Services", "marketCap": 103097835520, "totalRevenue": 47964000256, "targetMeanPrice": 175.3, "regularMarketDayLow": 136.65, "regularMarketDayHigh": 140.38, "52WeekChange": -0.19866252, "averageDailyVolume10Day": 3016850, "regularMarketChangePercent": -0.010719464}
+{
+    "longName": "American Express Company",
+    "shortName": "American Express Company",
+    "industry": "Credit Services",
+    "marketCap": 109858201600,
+    "totalRevenue": 49622999040,
+    "targetMeanPrice": 168.24,
+    "regularMarketDayLow": 144.52,
+    "regularMarketDayHigh": 147.1391,
+    "52WeekChange": -0.10566336,
+    "averageDailyVolume10Day": 2906720,
+    "regularMarketChangePercent": 0.011767991
+}

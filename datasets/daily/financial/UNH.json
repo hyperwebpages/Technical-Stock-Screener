@@ -1,1 +1,13 @@
-{"longName": "UnitedHealth Group Incorporated", "shortName": "UnitedHealth Group Incorporated", "industry": "Healthcare Plans", "marketCap": 469851766784, "totalRevenue": 306560991232, "targetMeanPrice": 572.87, "regularMarketDayLow": 495.02, "regularMarketDayHigh": 506.31, "52WeekChange": null, "averageDailyVolume10Day": 2747760, "regularMarketChangePercent": -0.011864999}
+{
+    "longName": "UnitedHealth Group Incorporated",
+    "shortName": "UnitedHealth Group Incorporated",
+    "industry": "Healthcare Plans",
+    "marketCap": 500414840832,
+    "totalRevenue": 315117993984,
+    "targetMeanPrice": 594.64,
+    "regularMarketDayLow": 522.895,
+    "regularMarketDayHigh": 531.31,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 2802990,
+    "regularMarketChangePercent": 0.008006167
+}

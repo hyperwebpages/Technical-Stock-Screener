@@ -1,1 +1,13 @@
-{"longName": "International Business Machines Corporation", "shortName": "International Business Machines", "industry": "Information Technology Services", "marketCap": 105541681152, "totalRevenue": 59679997952, "targetMeanPrice": 142.79, "regularMarketDayLow": 117.04, "regularMarketDayHigh": 119.93, "52WeekChange": null, "averageDailyVolume10Day": 4387740, "regularMarketChangePercent": -0.00900522}
+{
+    "longName": "International Business Machines Corporation",
+    "shortName": "International Business Machines",
+    "industry": "Information Technology Services",
+    "marketCap": 126963720192,
+    "totalRevenue": 60532998144,
+    "targetMeanPrice": 139.96,
+    "regularMarketDayLow": 139.6,
+    "regularMarketDayHigh": 141.8565,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 5323210,
+    "regularMarketChangePercent": 0.0054655657
+}

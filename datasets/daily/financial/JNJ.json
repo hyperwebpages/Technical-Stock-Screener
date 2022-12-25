@@ -1,1 +1,13 @@
-{"longName": "Johnson & Johnson", "shortName": "Johnson & Johnson", "industry": "Drug Manufacturers\u2014General", "marketCap": 422295371776, "totalRevenue": 95587999744, "targetMeanPrice": 187.84, "regularMarketDayLow": 159.19, "regularMarketDayHigh": 161.28, "52WeekChange": null, "averageDailyVolume10Day": 7375790, "regularMarketChangePercent": 0.0013109}
+{
+    "longName": "Johnson & Johnson",
+    "shortName": "Johnson & Johnson",
+    "industry": "Drug Manufacturers\u2014General",
+    "marketCap": 467233832960,
+    "totalRevenue": 96041000960,
+    "targetMeanPrice": 183.8,
+    "regularMarketDayLow": 175.81,
+    "regularMarketDayHigh": 177.52,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 7680920,
+    "regularMarketChangePercent": 0.0025419248
+}

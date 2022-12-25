@@ -1,1 +1,13 @@
-{"longName": "Mastercard Incorporated", "shortName": "Mastercard Incorporated", "industry": "Credit Services", "marketCap": 286690476032, "totalRevenue": 20864999424, "targetMeanPrice": 419.62, "regularMarketDayLow": 289.555, "regularMarketDayHigh": 297.25, "52WeekChange": null, "averageDailyVolume10Day": 3734770, "regularMarketChangePercent": -0.0108147}
+{
+    "longName": "Mastercard Incorporated",
+    "shortName": "Mastercard Incorporated",
+    "industry": "Credit Services",
+    "marketCap": 337606574080,
+    "totalRevenue": null,
+    "targetMeanPrice": 402.69,
+    "regularMarketDayLow": 337.69,
+    "regularMarketDayHigh": 344.54,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 2743930,
+    "regularMarketChangePercent": 0.006090469
+}

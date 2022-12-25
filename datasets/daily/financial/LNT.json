@@ -1,1 +1,13 @@
-{"longName": "Alliant Energy Corporation", "shortName": "Alliant Energy Corporation", "industry": "Utilities\u2014Regulated Electric", "marketCap": 12622832640, "totalRevenue": 3963000064, "targetMeanPrice": 64.11, "regularMarketDayLow": 49.58, "regularMarketDayHigh": 50.97, "52WeekChange": -0.09310782, "averageDailyVolume10Day": 2059580, "regularMarketChangePercent": 0.008722707}
+{
+    "longName": "Alliant Energy Corporation",
+    "shortName": "Alliant Energy Corporation",
+    "industry": "Utilities\u2014Regulated Electric",
+    "marketCap": 13844962304,
+    "totalRevenue": 3963000064,
+    "targetMeanPrice": 57.63,
+    "regularMarketDayLow": 54.63,
+    "regularMarketDayHigh": 55.37,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 1463450,
+    "regularMarketChangePercent": 0.009676808
+}

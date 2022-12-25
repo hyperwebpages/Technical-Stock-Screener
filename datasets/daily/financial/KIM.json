@@ -1,1 +1,13 @@
-{"longName": "Kimco Realty Corporation", "shortName": "Kimco Realty Corporation", "industry": "REIT\u2014Retail", "marketCap": 11490217984, "totalRevenue": 1647708032, "targetMeanPrice": 23.93, "regularMarketDayLow": 18.525, "regularMarketDayHigh": 18.9, "52WeekChange": null, "averageDailyVolume10Day": 5113880, "regularMarketChangePercent": 0.000536781}
+{
+    "longName": "Kimco Realty Corporation",
+    "shortName": "Kimco Realty Corporation",
+    "industry": "REIT\u2014Retail",
+    "marketCap": 13111425024,
+    "totalRevenue": 1647708032,
+    "targetMeanPrice": 23.3,
+    "regularMarketDayLow": 20.77,
+    "regularMarketDayHigh": 21.28,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 4476820,
+    "regularMarketChangePercent": 0.01770339
+}

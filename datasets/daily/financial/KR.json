@@ -1,1 +1,13 @@
-{"longName": "The Kroger Co.", "shortName": "Kroger Company (The)", "industry": "Grocery Stores", "marketCap": 32542429184, "totalRevenue": 141190004736, "targetMeanPrice": 54.88, "regularMarketDayLow": 43.445, "regularMarketDayHigh": 44.34, "52WeekChange": null, "averageDailyVolume10Day": 5272070, "regularMarketChangePercent": 0.029302299}
+{
+    "longName": "The Kroger Co.",
+    "shortName": "Kroger Company (The)",
+    "industry": "Grocery Stores",
+    "marketCap": 33740898304,
+    "totalRevenue": 144146006016,
+    "targetMeanPrice": 53.46,
+    "regularMarketDayLow": 45.25,
+    "regularMarketDayHigh": 46.065,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 5782760,
+    "regularMarketChangePercent": 0.014143633
+}

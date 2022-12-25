@@ -1,1 +1,13 @@
-{"longName": "Constellation Energy Corporation", "shortName": "Constellation Energy Corporatio", "industry": "Utilities\u2014Renewable", "marketCap": null, "totalRevenue": 19680999424, "targetMeanPrice": 68.27, "regularMarketDayLow": 83.95, "regularMarketDayHigh": 85.63, "52WeekChange": null, "averageDailyVolume10Day": 1957310, "regularMarketChangePercent": 0.0039104377}
+{
+    "longName": "Constellation Energy Corporation",
+    "shortName": "Constellation Energy Corporatio",
+    "industry": "Utilities\u2014Renewable",
+    "marketCap": 28790663168,
+    "totalRevenue": 22638999552,
+    "targetMeanPrice": 101.23,
+    "regularMarketDayLow": 87.13,
+    "regularMarketDayHigh": 88.23,
+    "52WeekChange": 1.0961905,
+    "averageDailyVolume10Day": 1800500,
+    "regularMarketChangePercent": 0.008130071
+}

@@ -1,1 +1,13 @@
-{"longName": "Salesforce, Inc.", "shortName": "Salesforce, Inc.", "industry": "Software\u2014Application", "marketCap": 143455404032, "totalRevenue": 27939999744, "targetMeanPrice": 244.57, "regularMarketDayLow": 144.6, "regularMarketDayHigh": 150.9626, "52WeekChange": null, "averageDailyVolume10Day": 6789240, "regularMarketChangePercent": -0.0309401}
+{
+    "longName": "Salesforce, Inc.",
+    "shortName": "Salesforce, Inc.",
+    "industry": "Software\u2014Application",
+    "marketCap": 127498403840,
+    "totalRevenue": 29319999488,
+    "targetMeanPrice": 220.18,
+    "regularMarketDayLow": 127.59,
+    "regularMarketDayHigh": 129.86,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 10331390,
+    "regularMarketChangePercent": 0.0019351342
+}

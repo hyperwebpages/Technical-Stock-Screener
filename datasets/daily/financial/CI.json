@@ -1,1 +1,13 @@
-{"longName": "Cigna Corporation", "shortName": "Cigna Corporation", "industry": "Healthcare Plans", "marketCap": 94698930176, "totalRevenue": 176987996160, "targetMeanPrice": 294.5, "regularMarketDayLow": 283.79, "regularMarketDayHigh": 289.68, "52WeekChange": null, "averageDailyVolume10Day": 1865230, "regularMarketChangePercent": -0.0091892425}
+{
+    "longName": "Cigna Corporation",
+    "shortName": "Cigna Corporation",
+    "industry": "Healthcare Plans",
+    "marketCap": 102211608576,
+    "totalRevenue": 180025999360,
+    "targetMeanPrice": 355.82,
+    "regularMarketDayLow": 331.76,
+    "regularMarketDayHigh": 335.81,
+    "52WeekChange": 0.46717286,
+    "averageDailyVolume10Day": 1480570,
+    "regularMarketChangePercent": 0.0030904906
+}

@@ -1,1 +1,13 @@
-{"longName": "Humana Inc.", "shortName": "Humana Inc.", "industry": "Healthcare Plans", "marketCap": 63886540800, "totalRevenue": 90511998976, "targetMeanPrice": 525.71, "regularMarketDayLow": 490.1, "regularMarketDayHigh": 506.88, "52WeekChange": null, "averageDailyVolume10Day": 931570, "regularMarketChangePercent": -0.012751699}
+{
+    "longName": "Humana Inc.",
+    "shortName": "Humana Inc.",
+    "industry": "Healthcare Plans",
+    "marketCap": 66061336576,
+    "totalRevenue": 90511998976,
+    "targetMeanPrice": 554.86,
+    "regularMarketDayLow": 509.581,
+    "regularMarketDayHigh": 516,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 1081450,
+    "regularMarketChangePercent": 0.002985831
+}

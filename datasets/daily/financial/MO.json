@@ -1,1 +1,13 @@
-{"longName": "Altria Group, Inc.", "shortName": "Altria Group, Inc.", "industry": "Tobacco", "marketCap": 79632261120, "totalRevenue": 20726999040, "targetMeanPrice": 48.57, "regularMarketDayLow": 43.96, "regularMarketDayHigh": 45.07, "52WeekChange": -0.0782609, "averageDailyVolume10Day": 8736420, "regularMarketChangePercent": 0.017487394}
+{
+    "longName": "Altria Group, Inc.",
+    "shortName": "Altria Group, Inc.",
+    "industry": "Tobacco",
+    "marketCap": 84942422016,
+    "totalRevenue": 20726999040,
+    "targetMeanPrice": 48.83,
+    "regularMarketDayLow": 45.505,
+    "regularMarketDayHigh": 46.24,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 8957650,
+    "regularMarketChangePercent": 0.010048118
+}

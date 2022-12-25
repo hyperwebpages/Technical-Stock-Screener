@@ -1,1 +1,13 @@
-{"longName": "AT&T Inc.", "shortName": "AT&T Inc.", "industry": "Telecom Services", "marketCap": 106177396736, "totalRevenue": 156602007552, "targetMeanPrice": 20.93, "regularMarketDayLow": 14.76, "regularMarketDayHigh": 15.13, "52WeekChange": -0.24008608, "averageDailyVolume10Day": 49687200, "regularMarketChangePercent": -0.00267737}
+{
+    "longName": "AT&T Inc.",
+    "shortName": "AT&T Inc.",
+    "industry": "Telecom Services",
+    "marketCap": 130751709184,
+    "totalRevenue": 155318992896,
+    "targetMeanPrice": 20.15,
+    "regularMarketDayLow": 18.1001,
+    "regularMarketDayHigh": 18.32,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 45641500,
+    "regularMarketChangePercent": 0.0021893273
+}

@@ -1,1 +1,13 @@
-{"longName": "Walmart Inc.", "shortName": "Walmart Inc.", "industry": "Discount Stores", "marketCap": 358718177280, "totalRevenue": 576013008896, "targetMeanPrice": 141.88, "regularMarketDayLow": 128.2817, "regularMarketDayHigh": 129.9188, "52WeekChange": null, "averageDailyVolume10Day": 5711720, "regularMarketChangePercent": 0.00591171}
+{
+    "longName": "Walmart Inc.",
+    "shortName": "Walmart Inc.",
+    "industry": "Discount Stores",
+    "marketCap": 398800748544,
+    "totalRevenue": 587823972352,
+    "targetMeanPrice": 152.67,
+    "regularMarketDayLow": 142.28,
+    "regularMarketDayHigh": 143.8,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 6315470,
+    "regularMarketChangePercent": 0.0020212473
+}

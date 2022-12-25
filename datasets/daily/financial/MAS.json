@@ -1,1 +1,13 @@
-{"longName": "Masco Corporation", "shortName": "Masco Corporation", "industry": "Building Products & Equipment", "marketCap": 11948059648, "totalRevenue": 8778999808, "targetMeanPrice": 64.81, "regularMarketDayLow": 48.15, "regularMarketDayHigh": 49.11, "52WeekChange": null, "averageDailyVolume10Day": 2115370, "regularMarketChangePercent": 0.00678737}
+{
+    "longName": "Masco Corporation",
+    "shortName": "Masco Corporation",
+    "industry": "Building Products & Equipment",
+    "marketCap": 11503820800,
+    "totalRevenue": 8778999808,
+    "targetMeanPrice": 54.12,
+    "regularMarketDayLow": 46.45,
+    "regularMarketDayHigh": 47.16,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 1983900,
+    "regularMarketChangePercent": 0.0042616827
+}

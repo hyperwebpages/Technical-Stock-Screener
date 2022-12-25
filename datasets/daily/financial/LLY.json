@@ -1,1 +1,13 @@
-{"longName": "Eli Lilly and Company", "shortName": "Eli Lilly and Company", "industry": "Drug Manufacturers\u2014General", "marketCap": 309830582272, "totalRevenue": 29322799104, "targetMeanPrice": 304.28, "regularMarketDayLow": 320.2703, "regularMarketDayHigh": 327.0068, "52WeekChange": null, "averageDailyVolume10Day": 3947850, "regularMarketChangePercent": -0.00847973}
+{
+    "longName": "Eli Lilly and Company",
+    "shortName": "Eli Lilly and Company",
+    "industry": "Drug Manufacturers\u2014General",
+    "marketCap": 351930187776,
+    "totalRevenue": 29070700544,
+    "targetMeanPrice": null,
+    "regularMarketDayLow": 362.47,
+    "regularMarketDayHigh": 367.9,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 3295060,
+    "regularMarketChangePercent": 0.007089859
+}

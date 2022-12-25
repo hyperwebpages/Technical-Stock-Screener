@@ -1,1 +1,13 @@
-{"longName": "The Boeing Company", "shortName": "Boeing Company (The)", "industry": "Aerospace & Defense", "marketCap": 78323671040, "totalRevenue": 60743000064, "targetMeanPrice": null, "regularMarketDayLow": 130.2007, "regularMarketDayHigh": 135.74, "52WeekChange": -0.4268492, "averageDailyVolume10Day": 7230010, "regularMarketChangePercent": 0.016257036}
+{
+    "longName": "The Boeing Company",
+    "shortName": "Boeing Company (The)",
+    "industry": "Aerospace & Defense",
+    "marketCap": 112676536320,
+    "totalRevenue": 61420998656,
+    "targetMeanPrice": 197.6,
+    "regularMarketDayLow": 184.72,
+    "regularMarketDayHigh": 189.43,
+    "52WeekChange": -0.069449246,
+    "averageDailyVolume10Day": 7097680,
+    "regularMarketChangePercent": 0.004302776
+}

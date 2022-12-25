@@ -1,1 +1,13 @@
-{"longName": "The Coca-Cola Company", "shortName": "Coca-Cola Company (The)", "industry": "Beverages\u2014Non-Alcoholic", "marketCap": 234933239808, "totalRevenue": 41322000384, "targetMeanPrice": 69.21, "regularMarketDayLow": 54.015, "regularMarketDayHigh": 54.955, "52WeekChange": null, "averageDailyVolume10Day": 17280400, "regularMarketChangePercent": -0.00220141}
+{
+    "longName": "The Coca-Cola Company",
+    "shortName": "Coca-Cola Company (The)",
+    "industry": "Beverages\u2014Non-Alcoholic",
+    "marketCap": 275665387520,
+    "totalRevenue": 42342998016,
+    "targetMeanPrice": 66.77,
+    "regularMarketDayLow": 63.2,
+    "regularMarketDayHigh": 63.87,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 13558080,
+    "regularMarketChangePercent": 0.0075781425
+}

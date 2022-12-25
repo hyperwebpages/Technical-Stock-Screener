@@ -1,1 +1,13 @@
-{"longName": "Hilton Worldwide Holdings Inc.", "shortName": "Hilton Worldwide Holdings Inc.", "industry": "Lodging", "marketCap": 33538617344, "totalRevenue": 3160000000, "targetMeanPrice": 145.29, "regularMarketDayLow": 118.83, "regularMarketDayHigh": 122.805, "52WeekChange": null, "averageDailyVolume10Day": 1847280, "regularMarketChangePercent": -0.00856885}
+{
+    "longName": "Hilton Worldwide Holdings Inc.",
+    "shortName": "Hilton Worldwide Holdings Inc.",
+    "industry": "Lodging",
+    "marketCap": 35238821888,
+    "totalRevenue": 3440999936,
+    "targetMeanPrice": 145.41,
+    "regularMarketDayLow": 125.04,
+    "regularMarketDayHigh": 127.09,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 1935280,
+    "regularMarketChangePercent": 0.0038907244
+}

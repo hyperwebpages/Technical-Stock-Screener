@@ -1,1 +1,13 @@
-{"longName": "PACCAR Inc", "shortName": "PACCAR Inc.", "industry": "Farm & Heavy Construction Machinery", "marketCap": 30509914112, "totalRevenue": 25464199168, "targetMeanPrice": 92.82, "regularMarketDayLow": 87.21, "regularMarketDayHigh": 88.77, "52WeekChange": null, "averageDailyVolume10Day": 1992420, "regularMarketChangePercent": 0.002280987}
+{
+    "longName": "PACCAR Inc",
+    "shortName": "PACCAR Inc.",
+    "industry": "Farm & Heavy Construction Machinery",
+    "marketCap": 34908647424,
+    "totalRevenue": 27376300032,
+    "targetMeanPrice": 97.22,
+    "regularMarketDayLow": 99.3,
+    "regularMarketDayHigh": 101.085,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 2483610,
+    "regularMarketChangePercent": 0.0073131975
+}

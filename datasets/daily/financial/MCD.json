@@ -1,1 +1,13 @@
-{"longName": "McDonald's Corporation", "shortName": "McDonald's Corporation", "industry": "Restaurants", "marketCap": 175565209600, "totalRevenue": 23594399744, "targetMeanPrice": 279.68, "regularMarketDayLow": 233.6, "regularMarketDayHigh": 236.2625, "52WeekChange": null, "averageDailyVolume10Day": 3355600, "regularMarketChangePercent": 0.00754747}
+{
+    "longName": "McDonald's Corporation",
+    "shortName": "McDonald's Corporation",
+    "industry": "Restaurants",
+    "marketCap": 199940341760,
+    "totalRevenue": null,
+    "targetMeanPrice": 283,
+    "regularMarketDayLow": 264.79,
+    "regularMarketDayHigh": 268.345,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 2789330,
+    "regularMarketChangePercent": 0.006772843
+}

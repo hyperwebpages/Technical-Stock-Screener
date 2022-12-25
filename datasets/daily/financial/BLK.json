@@ -1,1 +1,13 @@
-{"longName": "BlackRock, Inc.", "shortName": "BlackRock, Inc.", "industry": "Asset Management", "marketCap": 82250514432, "totalRevenue": 19381000192, "targetMeanPrice": 684, "regularMarketDayLow": 541.3347, "regularMarketDayHigh": 558.135, "52WeekChange": -0.3445512, "averageDailyVolume10Day": 755290, "regularMarketChangePercent": -0.008830026}
+{
+    "longName": "BlackRock, Inc.",
+    "shortName": "BlackRock, Inc.",
+    "industry": "Asset Management",
+    "marketCap": 105728974848,
+    "totalRevenue": 18641999872,
+    "targetMeanPrice": 693.23,
+    "regularMarketDayLow": 700.2,
+    "regularMarketDayHigh": 710.095,
+    "52WeekChange": -0.2369793,
+    "averageDailyVolume10Day": 729930,
+    "regularMarketChangePercent": 0.00086728187
+}
