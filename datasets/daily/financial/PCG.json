@@ -2,12 +2,12 @@
     "longName": "PG&E Corporation",
     "shortName": "Pacific Gas & Electric Co.",
     "industry": "Utilities\u2014Regulated Electric",
-    "marketCap": 36130824192,
-    "totalRevenue": null,
-    "targetMeanPrice": 16.71,
+    "marketCap": 34090561536,
+    "totalRevenue": 21556000768,
+    "targetMeanPrice": 18,
     "regularMarketDayLow": 15.89,
     "regularMarketDayHigh": 16.09,
-    "52WeekChange": null,
+    "52WeekChange": 0.34844673,
     "averageDailyVolume10Day": 20346630,
     "regularMarketChangePercent": 0.0068965303
 }
