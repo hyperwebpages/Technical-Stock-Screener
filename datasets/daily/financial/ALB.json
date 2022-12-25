@@ -1,1 +1,13 @@
-{"longName": "Albemarle Corporation", "shortName": "Albemarle Corporation", "industry": "Specialty Chemicals", "marketCap": 31710918656, "totalRevenue": 4332090880, "targetMeanPrice": 304.35, "regularMarketDayLow": 267.55, "regularMarketDayHigh": 275.865, "52WeekChange": 0.28233504, "averageDailyVolume10Day": 1175870, "regularMarketChangePercent": -0.026483355}
+{
+    "longName": "Albemarle Corporation",
+    "shortName": "Albemarle Corporation",
+    "industry": "Specialty Chemicals",
+    "marketCap": 26589044736,
+    "totalRevenue": 5593330176,
+    "targetMeanPrice": 312.44,
+    "regularMarketDayLow": 221.24,
+    "regularMarketDayHigh": 227.16,
+    "52WeekChange": -0.026340604,
+    "averageDailyVolume10Day": 1423110,
+    "regularMarketChangePercent": 0.0043367157
+}

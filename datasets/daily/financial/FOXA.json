@@ -1,1 +1,13 @@
-{"longName": "Fox Corporation", "shortName": "Fox Corporation", "industry": "Entertainment", "marketCap": 17156396032, "totalRevenue": 13831000064, "targetMeanPrice": 42.98, "regularMarketDayLow": 31.075, "regularMarketDayHigh": 31.8, "52WeekChange": null, "averageDailyVolume10Day": 2741800, "regularMarketChangePercent": -0.0073318915}
+{
+    "longName": "Fox Corporation",
+    "shortName": "Fox Corporation",
+    "industry": "Entertainment",
+    "marketCap": 16947037184,
+    "totalRevenue": 13973999616,
+    "targetMeanPrice": 38.87,
+    "regularMarketDayLow": 30.43,
+    "regularMarketDayHigh": 30.84,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 2464910,
+    "regularMarketChangePercent": 0.008524598
+}

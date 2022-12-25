@@ -1,1 +1,13 @@
-{"longName": "Devon Energy Corporation", "shortName": "Devon Energy Corporation", "industry": "Oil & Gas E&P", "marketCap": 47626948608, "totalRevenue": 14936999936, "targetMeanPrice": 76.93, "regularMarketDayLow": 69.91, "regularMarketDayHigh": 73.46, "52WeekChange": null, "averageDailyVolume10Day": 12427210, "regularMarketChangePercent": -0.023459222}
+{
+    "longName": "Devon Energy Corporation",
+    "shortName": "Devon Energy Corporation",
+    "industry": "Oil & Gas E&P",
+    "marketCap": 42319269888,
+    "totalRevenue": 17478000640,
+    "targetMeanPrice": 80.65,
+    "regularMarketDayLow": 60.44,
+    "regularMarketDayHigh": 62.52,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 8972820,
+    "regularMarketChangePercent": 0.039926764
+}

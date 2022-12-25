@@ -1,1 +1,13 @@
-{"longName": "Ross Stores, Inc.", "shortName": "Ross Stores, Inc.", "industry": "Apparel Retail", "marketCap": 30340446208, "totalRevenue": 18733264896, "targetMeanPrice": 96.35, "regularMarketDayLow": 84.1, "regularMarketDayHigh": 87.63, "52WeekChange": null, "averageDailyVolume10Day": 2274540, "regularMarketChangePercent": -0.011397627}
+{
+    "longName": "Ross Stores, Inc.",
+    "shortName": "Ross Stores, Inc.",
+    "industry": "Apparel Retail",
+    "marketCap": 40802549760,
+    "totalRevenue": 18511298560,
+    "targetMeanPrice": 100.64,
+    "regularMarketDayLow": 112.92,
+    "regularMarketDayHigh": 115.66,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 2540900,
+    "regularMarketChangePercent": 0.013338051
+}

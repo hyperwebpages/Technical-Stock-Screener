@@ -1,1 +1,13 @@
-{"longName": "Cincinnati Financial Corporation", "shortName": "Cincinnati Financial Corporatio", "industry": "Insurance\u2014Property & Casualty", "marketCap": 15429250048, "totalRevenue": 7143000064, "targetMeanPrice": 118.5, "regularMarketDayLow": 94.5, "regularMarketDayHigh": 96, "52WeekChange": null, "averageDailyVolume10Day": 758340, "regularMarketChangePercent": 0.01926759}
+{
+    "longName": "Cincinnati Financial Corporation",
+    "shortName": "Cincinnati Financial Corporatio",
+    "industry": "Insurance\u2014Property & Casualty",
+    "marketCap": 16419440640,
+    "totalRevenue": 6766000128,
+    "targetMeanPrice": 108.6,
+    "regularMarketDayLow": 103.1085,
+    "regularMarketDayHigh": 104.52,
+    "52WeekChange": -0.084647715,
+    "averageDailyVolume10Day": 667650,
+    "regularMarketChangePercent": 0.006843365
+}

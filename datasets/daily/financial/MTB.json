@@ -1,1 +1,13 @@
-{"longName": "M&T Bank Corporation", "shortName": "M&T Bank Corporation", "industry": "Banks\u2014Regional", "marketCap": 23328016384, "totalRevenue": 5989839872, "targetMeanPrice": 201.51, "regularMarketDayLow": 179.81, "regularMarketDayHigh": 184.47, "52WeekChange": null, "averageDailyVolume10Day": 913720, "regularMarketChangePercent": -0.0042843}
+{
+    "longName": "M&T Bank Corporation",
+    "shortName": "M&T Bank Corporation",
+    "industry": "Banks\u2014Regional",
+    "marketCap": 18602702848,
+    "totalRevenue": 6770078208,
+    "targetMeanPrice": 198.22,
+    "regularMarketDayLow": 144.08,
+    "regularMarketDayHigh": 145.6,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 1524140,
+    "regularMarketChangePercent": -0.0013815761
+}

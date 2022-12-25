@@ -1,1 +1,13 @@
-{"longName": "Comerica Incorporated", "shortName": "Comerica Incorporated", "industry": "Banks\u2014Regional", "marketCap": 9337808896, "totalRevenue": 3102000128, "targetMeanPrice": 93.11, "regularMarketDayLow": 70.8, "regularMarketDayHigh": 73.39, "52WeekChange": null, "averageDailyVolume10Day": 1297320, "regularMarketChangePercent": -0.01711769}
+{
+    "longName": "Comerica Incorporated",
+    "shortName": "Comerica Incorporated",
+    "industry": "Banks\u2014Regional",
+    "marketCap": 8653307904,
+    "totalRevenue": 3262000128,
+    "targetMeanPrice": 81.7,
+    "regularMarketDayLow": 65.14,
+    "regularMarketDayHigh": 66.1,
+    "52WeekChange": -0.23695153,
+    "averageDailyVolume10Day": 1690640,
+    "regularMarketChangePercent": 0.007931731
+}

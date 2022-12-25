@@ -1,1 +1,13 @@
-{"longName": "Linde plc", "shortName": "Linde plc", "industry": "Specialty Chemicals", "marketCap": 139327815680, "totalRevenue": 32633999360, "targetMeanPrice": 326.56, "regularMarketDayLow": 270.17, "regularMarketDayHigh": 274.77, "52WeekChange": null, "averageDailyVolume10Day": 2122740, "regularMarketChangePercent": -0.00501473}
+{
+    "longName": "Linde plc",
+    "shortName": "Linde plc",
+    "industry": "Specialty Chemicals",
+    "marketCap": 168799731712,
+    "totalRevenue": 32633999360,
+    "targetMeanPrice": 329.04,
+    "regularMarketDayLow": 325.58,
+    "regularMarketDayHigh": 329.61,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 1691140,
+    "regularMarketChangePercent": 0.0050966945
+}

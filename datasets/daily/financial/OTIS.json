@@ -1,1 +1,13 @@
-{"longName": "Otis Worldwide Corporation", "shortName": "Otis Worldwide Corporation", "industry": "Specialty Industrial Machinery", "marketCap": 27614232576, "totalRevenue": 14090999808, "targetMeanPrice": 80.67, "regularMarketDayLow": 64.48, "regularMarketDayHigh": 65.99, "52WeekChange": null, "averageDailyVolume10Day": 2000630, "regularMarketChangePercent": -0.0038308299}
+{
+    "longName": "Otis Worldwide Corporation",
+    "shortName": "Otis Worldwide Corporation",
+    "industry": "Specialty Industrial Machinery",
+    "marketCap": 33284898816,
+    "totalRevenue": 14090999808,
+    "targetMeanPrice": 77.62,
+    "regularMarketDayLow": 77.74,
+    "regularMarketDayHigh": 78.63,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 2069850,
+    "regularMarketChangePercent": 0.0028154748
+}

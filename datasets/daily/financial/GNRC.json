@@ -1,1 +1,13 @@
-{"longName": "Generac Holdings Inc.", "shortName": "Generac Holdlings Inc.", "industry": "Specialty Industrial Machinery", "marketCap": 9724692480, "totalRevenue": 4065605888, "targetMeanPrice": 373.84, "regularMarketDayLow": 151.18, "regularMarketDayHigh": 157.93, "52WeekChange": null, "averageDailyVolume10Day": 2377920, "regularMarketChangePercent": -0.000777876}
+{
+    "longName": "Generac Holdings Inc.",
+    "shortName": "Generac Holdlings Inc.",
+    "industry": "Specialty Industrial Machinery",
+    "marketCap": 5816267264,
+    "totalRevenue": 4437016064,
+    "targetMeanPrice": 192.9,
+    "regularMarketDayLow": 89.21,
+    "regularMarketDayHigh": 92.24,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 2101810,
+    "regularMarketChangePercent": 0.026729053
+}

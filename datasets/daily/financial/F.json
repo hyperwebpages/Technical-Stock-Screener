@@ -1,1 +1,13 @@
-{"longName": "Ford Motor Company", "shortName": "Ford Motor Company", "industry": "Auto Manufacturers", "marketCap": 45397282816, "totalRevenue": 148026998784, "targetMeanPrice": 15.98, "regularMarketDayLow": 11.2, "regularMarketDayHigh": 11.55, "52WeekChange": null, "averageDailyVolume10Day": 76778540, "regularMarketChangePercent": -0.06885247}
+{
+    "longName": "Ford Motor Company",
+    "shortName": "Ford Motor Company",
+    "industry": "Auto Manufacturers",
+    "marketCap": 45397282816,
+    "totalRevenue": 148026998784,
+    "targetMeanPrice": 14.91,
+    "regularMarketDayLow": 11.22,
+    "regularMarketDayHigh": 11.4,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 65121160,
+    "regularMarketChangePercent": 0.0044207987
+}

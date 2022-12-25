@@ -1,1 +1,13 @@
-{"longName": "Netflix, Inc.", "shortName": "Netflix, Inc.", "industry": "Entertainment", "marketCap": 101870100480, "totalRevenue": 31030693888, "targetMeanPrice": 254.49, "regularMarketDayLow": 224.23, "regularMarketDayHigh": 233.83, "52WeekChange": null, "averageDailyVolume10Day": 11679540, "regularMarketChangePercent": 0.023270281}
+{
+    "longName": "Netflix, Inc.",
+    "shortName": "Netflix, Inc.",
+    "industry": "Entertainment",
+    "marketCap": 130655338496,
+    "totalRevenue": 31472814080,
+    "targetMeanPrice": 278.97,
+    "regularMarketDayLow": 291.91,
+    "regularMarketDayHigh": 298.4614,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 9180590,
+    "regularMarketChangePercent": -0.009353497
+}

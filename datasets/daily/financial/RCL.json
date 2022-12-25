@@ -1,1 +1,13 @@
-{"longName": "Royal Caribbean Cruises Ltd.", "shortName": "D/B/A Royal Caribbean Cruises L", "industry": "Travel Services", "marketCap": 10446390272, "totalRevenue": 4682677760, "targetMeanPrice": 76.14, "regularMarketDayLow": 40.21, "regularMarketDayHigh": 43.855, "52WeekChange": null, "averageDailyVolume10Day": 10220580, "regularMarketChangePercent": -0.059633}
+{
+    "longName": "Royal Caribbean Cruises Ltd.",
+    "shortName": "D/B/A Royal Caribbean Cruises L",
+    "industry": "Travel Services",
+    "marketCap": 12685993984,
+    "totalRevenue": 4682677760,
+    "targetMeanPrice": 64.57,
+    "regularMarketDayLow": 48.4,
+    "regularMarketDayHigh": 50.03,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 3803160,
+    "regularMarketChangePercent": 0.0058586043
+}

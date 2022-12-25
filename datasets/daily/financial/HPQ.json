@@ -1,1 +1,13 @@
-{"longName": "HP Inc.", "shortName": "HP Inc.", "industry": "Computer Hardware", "marketCap": 27057172480, "totalRevenue": 65481998336, "targetMeanPrice": 37.4, "regularMarketDayLow": 24.6, "regularMarketDayHigh": 25.455, "52WeekChange": null, "averageDailyVolume10Day": 8348240, "regularMarketChangePercent": -0.0019968501}
+{
+    "longName": "HP Inc.",
+    "shortName": "HP Inc.",
+    "industry": "Computer Hardware",
+    "marketCap": 28973586432,
+    "totalRevenue": 64857001984,
+    "targetMeanPrice": 30.24,
+    "regularMarketDayLow": 26.36,
+    "regularMarketDayHigh": 26.8,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 7506900,
+    "regularMarketChangePercent": 0.003750952
+}

@@ -1,1 +1,13 @@
-{"longName": "Morgan Stanley", "shortName": "Morgan Stanley", "industry": "Capital Markets", "marketCap": 140699697152, "totalRevenue": 57026998272, "targetMeanPrice": null, "regularMarketDayLow": 77.82, "regularMarketDayHigh": 79.7136, "52WeekChange": null, "averageDailyVolume10Day": 7164330, "regularMarketChangePercent": -0.0065880697}
+{
+    "longName": "Morgan Stanley",
+    "shortName": "Morgan Stanley",
+    "industry": "Capital Markets",
+    "marketCap": 154516652032,
+    "totalRevenue": 55443001344,
+    "targetMeanPrice": null,
+    "regularMarketDayLow": 85.35,
+    "regularMarketDayHigh": 86.58,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 7629860,
+    "regularMarketChangePercent": -0.003010329
+}

@@ -1,1 +1,13 @@
-{"longName": "The Southern Company", "shortName": "Southern Company (The)", "industry": "Utilities\u2014Regulated Electric", "marketCap": 67816603648, "totalRevenue": 25859000320, "targetMeanPrice": 74.12, "regularMarketDayLow": 63.95, "regularMarketDayHigh": 64.94, "52WeekChange": null, "averageDailyVolume10Day": 4759520, "regularMarketChangePercent": -0.00202747}
+{
+    "longName": "The Southern Company",
+    "shortName": "Southern Company (The)",
+    "industry": "Utilities\u2014Regulated Electric",
+    "marketCap": 76030050304,
+    "totalRevenue": 25859000320,
+    "targetMeanPrice": 68.63,
+    "regularMarketDayLow": 70.64,
+    "regularMarketDayHigh": 71.75,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 6230770,
+    "regularMarketChangePercent": 0.01384957
+}

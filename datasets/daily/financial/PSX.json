@@ -1,1 +1,13 @@
-{"longName": "Phillips 66", "shortName": "Phillips 66", "industry": "Oil & Gas Refining & Marketing", "marketCap": 39924584448, "totalRevenue": 147602997248, "targetMeanPrice": 115.46, "regularMarketDayLow": 90.815, "regularMarketDayHigh": 93.88, "52WeekChange": null, "averageDailyVolume10Day": 4190200, "regularMarketChangePercent": -0.015027}
+{
+    "longName": "Phillips 66",
+    "shortName": "Phillips 66",
+    "industry": "Oil & Gas Refining & Marketing",
+    "marketCap": 45546717184,
+    "totalRevenue": 147602997248,
+    "targetMeanPrice": 112.21,
+    "regularMarketDayLow": 101.05,
+    "regularMarketDayHigh": 104.02,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 3087310,
+    "regularMarketChangePercent": 0.03392026
+}

@@ -1,1 +1,13 @@
-{"longName": "CME Group Inc.", "shortName": "CME Group Inc.", "industry": "Financial Data & Stock Exchanges", "marketCap": 60903759872, "totalRevenue": 4830600192, "targetMeanPrice": 226, "regularMarketDayLow": 168.485, "regularMarketDayHigh": 171.09, "52WeekChange": null, "averageDailyVolume10Day": 1738960, "regularMarketChangePercent": -0.002707106}
+{
+    "longName": "CME Group Inc.",
+    "shortName": "CME Group Inc.",
+    "industry": "Financial Data & Stock Exchanges",
+    "marketCap": 62351654912,
+    "totalRevenue": 4947999744,
+    "targetMeanPrice": 206.59,
+    "regularMarketDayLow": 172.35,
+    "regularMarketDayHigh": 173.85,
+    "52WeekChange": -0.24451905,
+    "averageDailyVolume10Day": 1961300,
+    "regularMarketChangePercent": 0.0009239687
+}

@@ -1,1 +1,13 @@
-{"longName": "Brown & Brown, Inc.", "shortName": "Brown & Brown, Inc.", "industry": "Insurance Brokers", "marketCap": 17531920384, "totalRevenue": 3252198912, "targetMeanPrice": 70.89, "regularMarketDayLow": 61.36, "regularMarketDayHigh": 62.3, "52WeekChange": 0.016099572, "averageDailyVolume10Day": 1462350, "regularMarketChangePercent": 0.013884326}
+{
+    "longName": "Brown & Brown, Inc.",
+    "shortName": "Brown & Brown, Inc.",
+    "industry": "Insurance Brokers",
+    "marketCap": 16126661632,
+    "totalRevenue": 3408498944,
+    "targetMeanPrice": 65.22,
+    "regularMarketDayLow": 56.14,
+    "regularMarketDayHigh": 57,
+    "52WeekChange": -0.1802476,
+    "averageDailyVolume10Day": 1117920,
+    "regularMarketChangePercent": 0.0051191016
+}

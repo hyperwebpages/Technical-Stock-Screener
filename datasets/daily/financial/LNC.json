@@ -1,1 +1,13 @@
-{"longName": "Lincoln National Corporation", "shortName": "Lincoln National Corporation", "industry": "Insurance\u2014Life", "marketCap": 8285507072, "totalRevenue": 19382999040, "targetMeanPrice": 60.79, "regularMarketDayLow": 45.36, "regularMarketDayHigh": 47.49, "52WeekChange": null, "averageDailyVolume10Day": 2040050, "regularMarketChangePercent": -0.020299202}
+{
+    "longName": "Lincoln National Corporation",
+    "shortName": "Lincoln National Corporation",
+    "industry": "Insurance\u2014Life",
+    "marketCap": 5444761600,
+    "totalRevenue": 19634999296,
+    "targetMeanPrice": 57,
+    "regularMarketDayLow": 29.38,
+    "regularMarketDayHigh": 30.17,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 3799480,
+    "regularMarketChangePercent": 0.018593619
+}

@@ -1,1 +1,13 @@
-{"longName": "Moody's Corporation", "shortName": "Moody's Corporation", "industry": "Financial Data & Stock Exchanges", "marketCap": 45186715648, "totalRevenue": 5968000000, "targetMeanPrice": 306.33, "regularMarketDayLow": 240.985, "regularMarketDayHigh": 246.56, "52WeekChange": null, "averageDailyVolume10Day": 826100, "regularMarketChangePercent": -0.00973682}
+{
+    "longName": "Moody's Corporation",
+    "shortName": "Moody's Corporation",
+    "industry": "Financial Data & Stock Exchanges",
+    "marketCap": 51832639488,
+    "totalRevenue": 5717000192,
+    "targetMeanPrice": 281.44,
+    "regularMarketDayLow": 276.87,
+    "regularMarketDayHigh": 280.6258,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 724110,
+    "regularMarketChangePercent": -0.0013252449
+}

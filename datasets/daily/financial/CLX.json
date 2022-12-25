@@ -1,1 +1,13 @@
-{"longName": "The Clorox Company", "shortName": "Clorox Company (The)", "industry": "Household & Personal Products", "marketCap": 15465994240, "totalRevenue": 7107999744, "targetMeanPrice": 135.27, "regularMarketDayLow": 124.58, "regularMarketDayHigh": 126.795, "52WeekChange": null, "averageDailyVolume10Day": 1042910, "regularMarketChangePercent": 0.00095415965}
+{
+    "longName": "The Clorox Company",
+    "shortName": "Clorox Company (The)",
+    "industry": "Household & Personal Products",
+    "marketCap": 17781012480,
+    "totalRevenue": 7040999936,
+    "targetMeanPrice": 135.07,
+    "regularMarketDayLow": 143.56,
+    "regularMarketDayHigh": 145.42,
+    "52WeekChange": -0.15670902,
+    "averageDailyVolume10Day": 882710,
+    "regularMarketChangePercent": -0.008872031
+}

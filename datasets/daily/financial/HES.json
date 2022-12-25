@@ -1,1 +1,13 @@
-{"longName": "Hess Corporation", "shortName": "Hess Corporation", "industry": "Oil & Gas E&P", "marketCap": 39267188736, "totalRevenue": 9045000192, "targetMeanPrice": 133.43, "regularMarketDayLow": 125.5, "regularMarketDayHigh": 130.79, "52WeekChange": null, "averageDailyVolume10Day": 2505450, "regularMarketChangePercent": -0.0110764}
+{
+    "longName": "Hess Corporation",
+    "shortName": "Hess Corporation",
+    "industry": "Oil & Gas E&P",
+    "marketCap": 43882119168,
+    "totalRevenue": 10378000384,
+    "targetMeanPrice": 144.41,
+    "regularMarketDayLow": 136.52,
+    "regularMarketDayHigh": 141.72,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 1439180,
+    "regularMarketChangePercent": 0.047154393
+}

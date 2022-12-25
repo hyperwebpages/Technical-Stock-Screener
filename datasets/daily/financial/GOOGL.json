@@ -1,1 +1,13 @@
-{"longName": "Alphabet Inc.", "shortName": "Alphabet Inc.", "industry": "Internet Content & Information", "marketCap": 1269278703616, "totalRevenue": 278139011072, "targetMeanPrice": 141.94, "regularMarketDayLow": 96.32, "regularMarketDayHigh": 99.245, "52WeekChange": -0.28280896, "averageDailyVolume10Day": 27351640, "regularMarketChangePercent": -0.009707714}
+{
+    "longName": "Alphabet Inc.",
+    "shortName": "Alphabet Inc.",
+    "industry": "Internet Content & Information",
+    "marketCap": 59230965760,
+    "totalRevenue": 278139011072,
+    "targetMeanPrice": 132.22,
+    "regularMarketDayLow": 87.08,
+    "regularMarketDayHigh": 89.54,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 32519960,
+    "regularMarketChangePercent": 0.01675024
+}

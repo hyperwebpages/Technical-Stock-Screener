@@ -1,1 +1,13 @@
-{"longName": "General Electric Company", "shortName": "General Electric Company", "industry": "Specialty Industrial Machinery", "marketCap": 71357145088, "totalRevenue": 74558996480, "targetMeanPrice": 89.88, "regularMarketDayLow": 64.06, "regularMarketDayHigh": 65.62, "52WeekChange": null, "averageDailyVolume10Day": 6989940, "regularMarketChangePercent": 0.0065056663}
+{
+    "longName": "General Electric Company",
+    "shortName": "General Electric Company",
+    "industry": "Specialty Industrial Machinery",
+    "marketCap": 89816875008,
+    "totalRevenue": 75071995904,
+    "targetMeanPrice": 83.83,
+    "regularMarketDayLow": 80.96,
+    "regularMarketDayHigh": 82.39,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 6797540,
+    "regularMarketChangePercent": 0.00024464075
+}

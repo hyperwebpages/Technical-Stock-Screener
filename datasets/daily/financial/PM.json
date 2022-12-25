@@ -1,1 +1,13 @@
-{"longName": "Philip Morris International Inc.", "shortName": "Philip Morris International Inc", "industry": "Tobacco", "marketCap": 130773712896, "totalRevenue": 31804000256, "targetMeanPrice": 109.17, "regularMarketDayLow": 84, "regularMarketDayHigh": 85.59, "52WeekChange": null, "averageDailyVolume10Day": 5441420, "regularMarketChangePercent": -0.00767869}
+{
+    "longName": "Philip Morris International Inc.",
+    "shortName": "Philip Morris International Inc",
+    "industry": "Tobacco",
+    "marketCap": 158314037248,
+    "totalRevenue": 31714000896,
+    "targetMeanPrice": 101.21,
+    "regularMarketDayLow": 100.31,
+    "regularMarketDayHigh": 101.79,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 6064730,
+    "regularMarketChangePercent": 0.008229246
+}

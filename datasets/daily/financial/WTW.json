@@ -1,1 +1,13 @@
-{"longName": "Willis Towers Watson Public Limited Company", "shortName": "Willis Towers Watson Public Lim", "industry": "Insurance Brokers", "marketCap": null, "totalRevenue": 8869999616, "targetMeanPrice": null, "regularMarketDayLow": 204.89, "regularMarketDayHigh": 206.91, "52WeekChange": null, "averageDailyVolume10Day": 588070, "regularMarketChangePercent": 0.004830945}
+{
+    "longName": "Willis Towers Watson Public Limited Company",
+    "shortName": "Willis Towers Watson Public Lim",
+    "industry": "Insurance Brokers",
+    "marketCap": null,
+    "totalRevenue": null,
+    "targetMeanPrice": null,
+    "regularMarketDayLow": 241.99,
+    "regularMarketDayHigh": 244.7,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 605130,
+    "regularMarketChangePercent": 0.008625655
+}

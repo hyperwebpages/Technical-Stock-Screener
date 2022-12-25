@@ -1,1 +1,13 @@
-{"longName": "Bank of America Corporation", "shortName": "Bank of America Corporation", "industry": "Banks\u2014Diversified", "marketCap": 246360457216, "totalRevenue": 91302002688, "targetMeanPrice": 41.15, "regularMarketDayLow": 30.35, "regularMarketDayHigh": 31.045, "52WeekChange": -0.29762447, "averageDailyVolume10Day": 40294640, "regularMarketChangePercent": -0.0029268342}
+{
+    "longName": "Bank of America Corporation",
+    "shortName": "Bank of America Corporation",
+    "industry": "Banks\u2014Diversified",
+    "marketCap": 260488314880,
+    "totalRevenue": 91516002304,
+    "targetMeanPrice": 40.99,
+    "regularMarketDayLow": 32.19,
+    "regularMarketDayHigh": 32.58,
+    "52WeekChange": -0.27262545,
+    "averageDailyVolume10Day": 41357290,
+    "regularMarketChangePercent": 0.0024699548
+}

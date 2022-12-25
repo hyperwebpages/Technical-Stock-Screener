@@ -1,1 +1,13 @@
-{"longName": "eBay Inc.", "shortName": "eBay Inc.", "industry": "Internet Retail", "marketCap": 23512709120, "totalRevenue": 10264999936, "targetMeanPrice": 56.24, "regularMarketDayLow": 37.295, "regularMarketDayHigh": 38.08, "52WeekChange": null, "averageDailyVolume10Day": 6309730, "regularMarketChangePercent": 0.00026636847}
+{
+    "longName": "eBay Inc.",
+    "shortName": "eBay Inc.",
+    "industry": "Internet Retail",
+    "marketCap": 25146578944,
+    "totalRevenue": 10019000320,
+    "targetMeanPrice": 49.05,
+    "regularMarketDayLow": 39.54,
+    "regularMarketDayHigh": 40.33,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 5777480,
+    "regularMarketChangePercent": 0.0012462422
+}

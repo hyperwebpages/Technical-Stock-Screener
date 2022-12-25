@@ -1,1 +1,13 @@
-{"longName": "Pool Corporation", "shortName": "Pool Corporation", "industry": "Industrial Distribution", "marketCap": 12938401792, "totalRevenue": 5915472896, "targetMeanPrice": 414.75, "regularMarketDayLow": 319.82, "regularMarketDayHigh": 324.395, "52WeekChange": null, "averageDailyVolume10Day": 497400, "regularMarketChangePercent": 0.0035758517}
+{
+    "longName": "Pool Corporation",
+    "shortName": "Pool Corporation",
+    "industry": "Industrial Distribution",
+    "marketCap": 12250893312,
+    "totalRevenue": 6119364096,
+    "targetMeanPrice": 349.78,
+    "regularMarketDayLow": 302.77,
+    "regularMarketDayHigh": 306.7,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 471000,
+    "regularMarketChangePercent": 0.001704535
+}

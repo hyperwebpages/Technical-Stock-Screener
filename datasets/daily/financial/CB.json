@@ -1,1 +1,13 @@
-{"longName": "Chubb Limited", "shortName": "Chubb Limited", "industry": "Insurance\u2014Property & Casualty", "marketCap": 79652626432, "totalRevenue": 40861999104, "targetMeanPrice": null, "regularMarketDayLow": 184.44, "regularMarketDayHigh": 187.5, "52WeekChange": null, "averageDailyVolume10Day": 1619800, "regularMarketChangePercent": 0.001299575}
+{
+    "longName": "Chubb Limited",
+    "shortName": "Chubb Limited",
+    "industry": "Insurance\u2014Property & Casualty",
+    "marketCap": 91165728768,
+    "totalRevenue": 41684000768,
+    "targetMeanPrice": 239.29,
+    "regularMarketDayLow": 217.075,
+    "regularMarketDayHigh": 219.71,
+    "52WeekChange": 0.13525951,
+    "averageDailyVolume10Day": 1791410,
+    "regularMarketChangePercent": 0.010396037
+}

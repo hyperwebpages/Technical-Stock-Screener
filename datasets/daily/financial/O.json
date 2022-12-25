@@ -1,1 +1,13 @@
-{"longName": "Realty Income Corporation", "shortName": "Realty Income Corporation", "industry": "REIT\u2014Retail", "marketCap": 32446621696, "totalRevenue": 2447611904, "targetMeanPrice": 75.19, "regularMarketDayLow": 57.34, "regularMarketDayHigh": 58.8228, "52WeekChange": null, "averageDailyVolume10Day": 4947460, "regularMarketChangePercent": -0.0117181}
+{
+    "longName": "Realty Income Corporation",
+    "shortName": "Realty Income Corporation",
+    "industry": "REIT\u2014Retail",
+    "marketCap": 36440924160,
+    "totalRevenue": 2788105984,
+    "targetMeanPrice": 70.1,
+    "regularMarketDayLow": 63.24,
+    "regularMarketDayHigh": 64.41,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 4639710,
+    "regularMarketChangePercent": 0.015130069
+}

@@ -1,1 +1,13 @@
-{"longName": "Franklin Resources, Inc.", "shortName": "Franklin Resources, Inc.", "industry": "Asset Management", "marketCap": 10898987008, "totalRevenue": 8517300224, "targetMeanPrice": 24.11, "regularMarketDayLow": 21.6, "regularMarketDayHigh": 22.13, "52WeekChange": null, "averageDailyVolume10Day": 3106450, "regularMarketChangePercent": -0.0059497054}
+{
+    "longName": "Franklin Resources, Inc.",
+    "shortName": "Franklin Resources, Inc.",
+    "industry": "Asset Management",
+    "marketCap": 13413159936,
+    "totalRevenue": 8275299840,
+    "targetMeanPrice": 22.83,
+    "regularMarketDayLow": 26.43,
+    "regularMarketDayHigh": 26.875,
+    "52WeekChange": -0.21145374,
+    "averageDailyVolume10Day": 3697630,
+    "regularMarketChangePercent": 0.009778121
+}

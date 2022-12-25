@@ -1,1 +1,13 @@
-{"longName": "Citigroup Inc.", "shortName": "Citigroup, Inc.", "industry": "Banks\u2014Diversified", "marketCap": 82545623040, "totalRevenue": 72120000512, "targetMeanPrice": 60.46, "regularMarketDayLow": 41.525, "regularMarketDayHigh": 42.61, "52WeekChange": null, "averageDailyVolume10Day": 20194780, "regularMarketChangePercent": -0.013984361}
+{
+    "longName": "Citigroup Inc.",
+    "shortName": "Citigroup, Inc.",
+    "industry": "Banks\u2014Diversified",
+    "marketCap": 85724979200,
+    "totalRevenue": 70747996160,
+    "targetMeanPrice": 56.89,
+    "regularMarketDayLow": 43.88,
+    "regularMarketDayHigh": 44.36,
+    "52WeekChange": -0.27023906,
+    "averageDailyVolume10Day": 20298730,
+    "regularMarketChangePercent": 0.006137682
+}

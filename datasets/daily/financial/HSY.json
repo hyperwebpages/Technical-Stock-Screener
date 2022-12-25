@@ -1,1 +1,13 @@
-{"longName": "The Hershey Company", "shortName": "The Hershey Company", "industry": "Confectioners", "marketCap": 46052196352, "totalRevenue": 9724770304, "targetMeanPrice": 231.89, "regularMarketDayLow": 221.2135, "regularMarketDayHigh": 224.239, "52WeekChange": null, "averageDailyVolume10Day": 935560, "regularMarketChangePercent": 0.0137402}
+{
+    "longName": "The Hershey Company",
+    "shortName": "The Hershey Company",
+    "industry": "Confectioners",
+    "marketCap": 48592224256,
+    "totalRevenue": 9724770304,
+    "targetMeanPrice": 236.85,
+    "regularMarketDayLow": 233.815,
+    "regularMarketDayHigh": 235.97,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 786250,
+    "regularMarketChangePercent": 0.0040438096
+}

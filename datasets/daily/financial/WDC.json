@@ -1,1 +1,13 @@
-{"longName": "Western Digital Corporation", "shortName": "Western Digital Corporation", "industry": "Computer Hardware", "marketCap": 10800852992, "totalRevenue": 19185000448, "targetMeanPrice": null, "regularMarketDayLow": 34.39, "regularMarketDayHigh": 35.98, "52WeekChange": null, "averageDailyVolume10Day": 6345570, "regularMarketChangePercent": -0.030218292}
+{
+    "longName": "Western Digital Corporation",
+    "shortName": "Western Digital Corporation",
+    "industry": "Computer Hardware",
+    "marketCap": 9532548096,
+    "totalRevenue": null,
+    "targetMeanPrice": 71.09,
+    "regularMarketDayLow": 30.23,
+    "regularMarketDayHigh": 30.78,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 5728650,
+    "regularMarketChangePercent": -0.001631829
+}

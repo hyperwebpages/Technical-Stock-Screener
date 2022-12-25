@@ -1,1 +1,13 @@
-{"longName": "News Corporation", "shortName": "News Corporation", "industry": "Entertainment", "marketCap": 9213328384, "totalRevenue": 10202999808, "targetMeanPrice": 27.55, "regularMarketDayLow": 15.4, "regularMarketDayHigh": 15.74, "52WeekChange": null, "averageDailyVolume10Day": 2471080, "regularMarketChangePercent": -0.0025723448}
+{
+    "longName": "News Corporation",
+    "shortName": "News Corporation",
+    "industry": "Entertainment",
+    "marketCap": 10876598272,
+    "totalRevenue": 10385000448,
+    "targetMeanPrice": 23.2,
+    "regularMarketDayLow": 17.915,
+    "regularMarketDayHigh": 18.54,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 2505170,
+    "regularMarketChangePercent": 0.028074117
+}

@@ -1,1 +1,13 @@
-{"longName": "Chipotle Mexican Grill, Inc.", "shortName": "Chipotle Mexican Grill, Inc.", "industry": "Restaurants", "marketCap": 41523064832, "totalRevenue": 8146826240, "targetMeanPrice": 1742.34, "regularMarketDayLow": 1472.91, "regularMarketDayHigh": 1496.17, "52WeekChange": null, "averageDailyVolume10Day": 260850, "regularMarketChangePercent": -0.0019746704}
+{
+    "longName": "Chipotle Mexican Grill, Inc.",
+    "shortName": "Chipotle Mexican Grill, Inc.",
+    "industry": "Restaurants",
+    "marketCap": 39152173056,
+    "totalRevenue": 8414686208,
+    "targetMeanPrice": 1784.41,
+    "regularMarketDayLow": 1385.01,
+    "regularMarketDayHigh": 1417.39,
+    "52WeekChange": -0.2003578,
+    "averageDailyVolume10Day": 267990,
+    "regularMarketChangePercent": 0.0032390512
+}

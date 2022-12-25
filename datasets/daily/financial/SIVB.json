@@ -1,1 +1,13 @@
-{"longName": "SVB Financial Group", "shortName": "SVB Financial Group", "industry": "Banks\u2014Regional", "marketCap": 19985408000, "totalRevenue": 5846000128, "targetMeanPrice": 511.11, "regularMarketDayLow": 335.69, "regularMarketDayHigh": 348.65, "52WeekChange": null, "averageDailyVolume10Day": 522630, "regularMarketChangePercent": -0.0027234973}
+{
+    "longName": "SVB Financial Group",
+    "shortName": "SVB Financial Group",
+    "industry": "Banks\u2014Regional",
+    "marketCap": 12726363136,
+    "totalRevenue": 5827999744,
+    "targetMeanPrice": 331.71,
+    "regularMarketDayLow": 211.635,
+    "regularMarketDayHigh": 216.97,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 1024170,
+    "regularMarketChangePercent": 0.0048656305
+}

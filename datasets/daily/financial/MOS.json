@@ -1,1 +1,13 @@
-{"longName": "The Mosaic Company", "shortName": "Mosaic Company (The)", "industry": "Agricultural Inputs", "marketCap": 19516901376, "totalRevenue": 13982600192, "targetMeanPrice": 70.95, "regularMarketDayLow": 50.95, "regularMarketDayHigh": 53.2782, "52WeekChange": null, "averageDailyVolume10Day": 4463640, "regularMarketChangePercent": 0.0319232}
+{
+    "longName": "The Mosaic Company",
+    "shortName": "Mosaic Company (The)",
+    "industry": "Agricultural Inputs",
+    "marketCap": 16720306176,
+    "totalRevenue": 16554999808,
+    "targetMeanPrice": 65.31,
+    "regularMarketDayLow": 44.79,
+    "regularMarketDayHigh": 45.44,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 3886860,
+    "regularMarketChangePercent": 0.009166105
+}

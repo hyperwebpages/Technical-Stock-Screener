@@ -1,1 +1,13 @@
-{"longName": "Seagate Technology Holdings plc", "shortName": "Seagate Technology Holdings PLC", "industry": "Computer Hardware", "marketCap": 11628277760, "totalRevenue": 11660999680, "targetMeanPrice": null, "regularMarketDayLow": 51.59, "regularMarketDayHigh": 54.05, "52WeekChange": null, "averageDailyVolume10Day": 3047900, "regularMarketChangePercent": -0.028459799}
+{
+    "longName": "Seagate Technology Holdings plc",
+    "shortName": "Seagate Technology Holdings PLC",
+    "industry": "Computer Hardware",
+    "marketCap": 11245343744,
+    "totalRevenue": 10581000192,
+    "targetMeanPrice": null,
+    "regularMarketDayLow": 49.67,
+    "regularMarketDayHigh": 50.53,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 2644200,
+    "regularMarketChangePercent": 0.00597489
+}

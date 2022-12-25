@@ -1,1 +1,13 @@
-{"longName": "Tyson Foods, Inc.", "shortName": "Tyson Foods, Inc.", "industry": "Farm Products", "marketCap": 23273490432, "totalRevenue": 51339001856, "targetMeanPrice": 97.82, "regularMarketDayLow": 63.86, "regularMarketDayHigh": 64.84, "52WeekChange": null, "averageDailyVolume10Day": 2677110, "regularMarketChangePercent": 0.00328689}
+{
+    "longName": "Tyson Foods, Inc.",
+    "shortName": "Tyson Foods, Inc.",
+    "industry": "Farm Products",
+    "marketCap": 22275018752,
+    "totalRevenue": 52356001792,
+    "targetMeanPrice": 88.35,
+    "regularMarketDayLow": 60.76,
+    "regularMarketDayHigh": 61.4,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 3070520,
+    "regularMarketChangePercent": 0.0077200625
+}

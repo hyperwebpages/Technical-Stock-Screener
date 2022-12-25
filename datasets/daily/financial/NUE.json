@@ -1,1 +1,13 @@
-{"longName": "Nucor Corporation", "shortName": "Nucor Corporation", "industry": "Steel", "marketCap": 33744289792, "totalRevenue": 42965389312, "targetMeanPrice": 120.35, "regularMarketDayLow": 116.16, "regularMarketDayHigh": 118.59, "52WeekChange": null, "averageDailyVolume10Day": 1920450, "regularMarketChangePercent": 0.0266064}
+{
+    "longName": "Nucor Corporation",
+    "shortName": "Nucor Corporation",
+    "industry": "Steel",
+    "marketCap": 38891528192,
+    "totalRevenue": 43152924672,
+    "targetMeanPrice": 123.05,
+    "regularMarketDayLow": 134.835,
+    "regularMarketDayHigh": 138,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 2246540,
+    "regularMarketChangePercent": -0.00606239
+}

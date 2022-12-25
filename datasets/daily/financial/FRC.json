@@ -1,1 +1,13 @@
-{"longName": "First Republic Bank", "shortName": "FIRST REPUBLIC BANK", "industry": "Banks\u2014Regional", "marketCap": 24061974528, "totalRevenue": 5475999744, "targetMeanPrice": 180.19, "regularMarketDayLow": 133.41, "regularMarketDayHigh": 138.35, "52WeekChange": null, "averageDailyVolume10Day": 1054760, "regularMarketChangePercent": -0.020579375}
+{
+    "longName": "First Republic Bank",
+    "shortName": "FIRST REPUBLIC BANK",
+    "industry": "Banks\u2014Regional",
+    "marketCap": 21406748672,
+    "totalRevenue": 5694000128,
+    "targetMeanPrice": 140.86,
+    "regularMarketDayLow": 117.945,
+    "regularMarketDayHigh": 119.81,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 1717440,
+    "regularMarketChangePercent": 0.0018459576
+}

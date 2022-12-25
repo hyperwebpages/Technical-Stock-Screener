@@ -1,1 +1,13 @@
-{"longName": "CBRE Group, Inc.", "shortName": "CBRE Group Inc", "industry": "Real Estate Services", "marketCap": 23245899776, "totalRevenue": 29140090880, "targetMeanPrice": 101.83, "regularMarketDayLow": 69.09, "regularMarketDayHigh": 70.46, "52WeekChange": null, "averageDailyVolume10Day": 2145780, "regularMarketChangePercent": 0.0004320723}
+{
+    "longName": "CBRE Group, Inc.",
+    "shortName": "CBRE Group Inc",
+    "industry": "Real Estate Services",
+    "marketCap": 24223809536,
+    "totalRevenue": 31183974400,
+    "targetMeanPrice": 93.14,
+    "regularMarketDayLow": 75.15,
+    "regularMarketDayHigh": 76.67,
+    "52WeekChange": -0.28870952,
+    "averageDailyVolume10Day": 1807150,
+    "regularMarketChangePercent": 0.013081367
+}

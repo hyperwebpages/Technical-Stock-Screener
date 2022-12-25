@@ -1,1 +1,13 @@
-{"longName": "Eastman Chemical Company", "shortName": "Eastman Chemical Company", "industry": "Specialty Chemicals", "marketCap": 9650103296, "totalRevenue": 10912000000, "targetMeanPrice": 116.95, "regularMarketDayLow": 71.26, "regularMarketDayHigh": 73.04, "52WeekChange": null, "averageDailyVolume10Day": 1290270, "regularMarketChangePercent": -0.008426587}
+{
+    "longName": "Eastman Chemical Company",
+    "shortName": "Eastman Chemical Company",
+    "industry": "Specialty Chemicals",
+    "marketCap": 11048279040,
+    "totalRevenue": 10912000000,
+    "targetMeanPrice": 96.64,
+    "regularMarketDayLow": 80.8847,
+    "regularMarketDayHigh": 82.28,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 962150,
+    "regularMarketChangePercent": 0.009706363
+}

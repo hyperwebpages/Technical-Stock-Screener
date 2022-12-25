@@ -1,1 +1,13 @@
-{"longName": "APA Corporation", "shortName": "APA Corporation", "industry": "Oil & Gas E&P", "marketCap": 13443238912, "totalRevenue": 11169999872, "targetMeanPrice": 53.46, "regularMarketDayLow": 41.03, "regularMarketDayHigh": 43.26, "52WeekChange": 0.7411958, "averageDailyVolume10Day": 10280630, "regularMarketChangePercent": -0.03174982}
+{
+    "longName": "APA Corporation",
+    "shortName": "APA Corporation",
+    "industry": "Oil & Gas E&P",
+    "marketCap": 15191442432,
+    "totalRevenue": 10874000384,
+    "targetMeanPrice": 55.58,
+    "regularMarketDayLow": 45.14,
+    "regularMarketDayHigh": 47.305,
+    "52WeekChange": 0.68930995,
+    "averageDailyVolume10Day": 6985720,
+    "regularMarketChangePercent": 0.05728354
+}

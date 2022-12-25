@@ -1,1 +1,13 @@
-{"longName": "Kellogg Company", "shortName": "Kellogg Company", "industry": "Packaged Foods", "marketCap": 24168564736, "totalRevenue": 14268999680, "targetMeanPrice": 71.89, "regularMarketDayLow": 69.84, "regularMarketDayHigh": 70.92, "52WeekChange": null, "averageDailyVolume10Day": 2021660, "regularMarketChangePercent": 0.017229}
+{
+    "longName": "Kellogg Company",
+    "shortName": "Kellogg Company",
+    "industry": "Packaged Foods",
+    "marketCap": 24622258176,
+    "totalRevenue": 14577999872,
+    "targetMeanPrice": 73.94,
+    "regularMarketDayLow": 71.59,
+    "regularMarketDayHigh": 72.19,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 1985610,
+    "regularMarketChangePercent": 0.007115978
+}

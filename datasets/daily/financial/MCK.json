@@ -1,1 +1,13 @@
-{"longName": "McKesson Corporation", "shortName": "McKesson Corporation", "industry": "Medical Distribution", "marketCap": 53029515264, "totalRevenue": 263965999104, "targetMeanPrice": 369.92, "regularMarketDayLow": 346.66, "regularMarketDayHigh": 350.72, "52WeekChange": null, "averageDailyVolume10Day": 767780, "regularMarketChangePercent": 0.00184613}
+{
+    "longName": "McKesson Corporation",
+    "shortName": "McKesson Corporation",
+    "industry": "Medical Distribution",
+    "marketCap": 58579505152,
+    "totalRevenue": 268446007296,
+    "targetMeanPrice": 386.85,
+    "regularMarketDayLow": 380.36,
+    "regularMarketDayHigh": 385.22,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 1271800,
+    "regularMarketChangePercent": 0.0049241856
+}

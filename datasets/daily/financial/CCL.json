@@ -1,1 +1,13 @@
-{"longName": "Carnival Corporation & plc", "shortName": "Carnival Corporation", "industry": "Travel Services", "marketCap": 8286471680, "totalRevenue": 9617000448, "targetMeanPrice": 30.8, "regularMarketDayLow": 6.15, "regularMarketDayHigh": 6.82, "52WeekChange": -0.71691793, "averageDailyVolume10Day": 95351650, "regularMarketChangePercent": -0.056213032}
+{
+    "longName": "Carnival Corporation & plc",
+    "shortName": "Carnival Corporation",
+    "industry": "Travel Services",
+    "marketCap": 10153859072,
+    "totalRevenue": 12167999488,
+    "targetMeanPrice": 10.47,
+    "regularMarketDayLow": 7.53,
+    "regularMarketDayHigh": 7.94,
+    "52WeekChange": -0.62720764,
+    "averageDailyVolume10Day": 53339020,
+    "regularMarketChangePercent": -0.00888327
+}

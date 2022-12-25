@@ -1,1 +1,13 @@
-{"longName": "Hasbro, Inc.", "shortName": "Hasbro, Inc.", "industry": "Leisure", "marketCap": 9296248832, "totalRevenue": 6485700096, "targetMeanPrice": 102.45, "regularMarketDayLow": 66.55, "regularMarketDayHigh": 69.45, "52WeekChange": null, "averageDailyVolume10Day": 1677390, "regularMarketChangePercent": -0.022908537}
+{
+    "longName": "Hasbro, Inc.",
+    "shortName": "Hasbro, Inc.",
+    "industry": "Leisure",
+    "marketCap": 8029895168,
+    "totalRevenue": 6191600128,
+    "targetMeanPrice": 89.25,
+    "regularMarketDayLow": 57.45,
+    "regularMarketDayHigh": 58.255,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 2144560,
+    "regularMarketChangePercent": 0.008838792
+}

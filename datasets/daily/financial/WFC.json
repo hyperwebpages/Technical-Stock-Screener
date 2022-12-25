@@ -1,1 +1,13 @@
-{"longName": "Wells Fargo & Company", "shortName": "Wells Fargo & Company", "industry": "Banks\u2014Diversified", "marketCap": 165270683648, "totalRevenue": 76665004032, "targetMeanPrice": 53.08, "regularMarketDayLow": 41.15, "regularMarketDayHigh": 42.11, "52WeekChange": null, "averageDailyVolume10Day": 17510440, "regularMarketChangePercent": -0.00813592}
+{
+    "longName": "Wells Fargo & Company",
+    "shortName": "Wells Fargo & Company",
+    "industry": "Banks\u2014Diversified",
+    "marketCap": 163396681728,
+    "totalRevenue": 75156996096,
+    "targetMeanPrice": 53.04,
+    "regularMarketDayLow": 40.45,
+    "regularMarketDayHigh": 40.995,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 20914970,
+    "regularMarketChangePercent": 0.0073746126
+}

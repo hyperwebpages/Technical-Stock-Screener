@@ -1,1 +1,13 @@
-{"longName": "Crown Castle Inc.", "shortName": "Crown Castle Inc.", "industry": "REIT\u2014Specialty", "marketCap": 57323085824, "totalRevenue": 6748000256, "targetMeanPrice": 196.72, "regularMarketDayLow": 131.99, "regularMarketDayHigh": 136.065, "52WeekChange": null, "averageDailyVolume10Day": 2077430, "regularMarketChangePercent": -0.012802389}
+{
+    "longName": "Crown Castle Inc.",
+    "shortName": "Crown Castle Inc.",
+    "industry": "REIT\u2014Specialty",
+    "marketCap": 59318915072,
+    "totalRevenue": 6876000256,
+    "targetMeanPrice": 158.29,
+    "regularMarketDayLow": 134.95,
+    "regularMarketDayHigh": 137.02,
+    "52WeekChange": -0.330989,
+    "averageDailyVolume10Day": 2692990,
+    "regularMarketChangePercent": 0.010176914
+}

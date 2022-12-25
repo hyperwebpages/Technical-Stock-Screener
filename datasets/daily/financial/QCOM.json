@@ -1,1 +1,13 @@
-{"longName": "QUALCOMM Incorporated", "shortName": "QUALCOMM Incorporated", "industry": "Semiconductors", "marketCap": 128352002048, "totalRevenue": 42140999680, "targetMeanPrice": 194.73, "regularMarketDayLow": 113.45, "regularMarketDayHigh": 121.04, "52WeekChange": null, "averageDailyVolume10Day": 7902620, "regularMarketChangePercent": -0.052187618}
+{
+    "longName": "QUALCOMM Incorporated",
+    "shortName": "QUALCOMM Incorporated",
+    "industry": "Semiconductors",
+    "marketCap": 124140797952,
+    "totalRevenue": 42140999680,
+    "targetMeanPrice": 178.07,
+    "regularMarketDayLow": 108.22,
+    "regularMarketDayHigh": 110.92,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 8833320,
+    "regularMarketChangePercent": 0.0014455732
+}

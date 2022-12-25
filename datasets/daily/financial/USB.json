@@ -1,1 +1,13 @@
-{"longName": "U.S. Bancorp", "shortName": "U.S. Bancorp", "industry": "Banks\u2014Regional", "marketCap": 59059924992, "totalRevenue": 22496999424, "targetMeanPrice": 54.79, "regularMarketDayLow": 39.665, "regularMarketDayHigh": 40.59, "52WeekChange": null, "averageDailyVolume10Day": 10193600, "regularMarketChangePercent": -0.00920395}
+{
+    "longName": "U.S. Bancorp",
+    "shortName": "U.S. Bancorp",
+    "industry": "Banks\u2014Regional",
+    "marketCap": 64056963072,
+    "totalRevenue": 22361999360,
+    "targetMeanPrice": 51.58,
+    "regularMarketDayLow": 42.73,
+    "regularMarketDayHigh": 43.285,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 12182650,
+    "regularMarketChangePercent": 0.008168082
+}

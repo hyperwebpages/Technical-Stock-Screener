@@ -1,1 +1,13 @@
-{"longName": "Edison International", "shortName": "Edison International", "industry": "Utilities\u2014Regulated Electric", "marketCap": 21977677824, "totalRevenue": 16606000128, "targetMeanPrice": 73.4, "regularMarketDayLow": 57.83, "regularMarketDayHigh": 59.53, "52WeekChange": null, "averageDailyVolume10Day": 3060180, "regularMarketChangePercent": -0.0133038135}
+{
+    "longName": "Edison International",
+    "shortName": "Edison International",
+    "industry": "Utilities\u2014Regulated Electric",
+    "marketCap": 24762402816,
+    "totalRevenue": 16606000128,
+    "targetMeanPrice": 68,
+    "regularMarketDayLow": 64.23,
+    "regularMarketDayHigh": 65.25,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 1834560,
+    "regularMarketChangePercent": 0.01054264
+}

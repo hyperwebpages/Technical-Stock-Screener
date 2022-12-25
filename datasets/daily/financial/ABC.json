@@ -1,1 +1,13 @@
-{"longName": "AmerisourceBergen Corporation", "shortName": "AmerisourceBergen Corporation", "industry": "Medical Distribution", "marketCap": 28522844160, "totalRevenue": 236325273600, "targetMeanPrice": 173.83, "regularMarketDayLow": 137.1, "regularMarketDayHigh": 139.13, "52WeekChange": 0.12214053, "averageDailyVolume10Day": 1066020, "regularMarketChangePercent": 0.0019657009}
+{
+    "longName": "AmerisourceBergen Corporation",
+    "shortName": "AmerisourceBergen Corporation",
+    "industry": "Medical Distribution",
+    "marketCap": 34355279872,
+    "totalRevenue": 238587002880,
+    "targetMeanPrice": 177.25,
+    "regularMarketDayLow": 168.84,
+    "regularMarketDayHigh": 170.44,
+    "52WeekChange": 0.288931,
+    "averageDailyVolume10Day": 1512440,
+    "regularMarketChangePercent": 0.004371656
+}

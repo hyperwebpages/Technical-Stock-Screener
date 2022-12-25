@@ -1,1 +1,13 @@
-{"longName": "Hewlett Packard Enterprise Company", "shortName": "Hewlett Packard Enterprise Comp", "industry": "Communication Equipment", "marketCap": 15909312512, "totalRevenue": 27925000192, "targetMeanPrice": 17.13, "regularMarketDayLow": 12.145, "regularMarketDayHigh": 12.57, "52WeekChange": null, "averageDailyVolume10Day": 13765410, "regularMarketChangePercent": -0.0128411}
+{
+    "longName": "Hewlett Packard Enterprise Company",
+    "shortName": "Hewlett Packard Enterprise Comp",
+    "industry": "Communication Equipment",
+    "marketCap": 20371679232,
+    "totalRevenue": 27978999808,
+    "targetMeanPrice": 16.26,
+    "regularMarketDayLow": 15.49,
+    "regularMarketDayHigh": 15.775,
+    "52WeekChange": null,
+    "averageDailyVolume10Day": 15099360,
+    "regularMarketChangePercent": 0.0025461465
+}
