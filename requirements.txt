@@ -1,3 +1,4 @@
+beautifulsoup4==4.11.1
 nltk==3.7
 numpy==1.23.3
 pandas==1.4.4
@@ -7,4 +8,4 @@ ta==0.10.2
 toml==0.10.2
 tqdm==4.64.1
 tweepy==4.10.1
-yfinance==0.1.74
+yfinance==0.2.3
