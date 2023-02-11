@@ -7,6 +7,7 @@ import nltk
 import pandas as pd
 import pytz
 import requests
+import traceback
 import toml
 from tqdm import tqdm
 
@@ -36,22 +37,25 @@ def sync_symbols(path_to_stock_symbols: Path):
 
     no_force_watch_symbols = pd.DataFrame(current_symbols, columns=["symbol"])
     no_force_watch_symbols["force_watch"] = False
+    no_force_watch_symbols["from_date"] = datetime.today().strftime("%Y-%m-%d")
 
-    pd.concat([force_watch_symbols, no_force_watch_symbols], axis=0).sort_values(
+    new_symbols = pd.concat([force_watch_symbols, no_force_watch_symbols], axis=0).sort_values(
         by="symbol", axis=0
-    ).to_csv(path_to_stock_symbols, index=False)
+    )
+    new_symbols.loc[new_symbols["symbol"].isin(original_symbols["symbol"]), "from_date"] = original_symbols["from_date"]
+    new_symbols.to_csv(path_to_stock_symbols, index=False)
 
 
 def update_data(
-    index_symbols: List[str],
-    stock_symbols: List[str],
+    index_symbols: pd.DataFrame,
+    stock_symbols: pd.DataFrame,
     path_to_datasets: Path,
 ) -> Tuple[List[str], List[str], List[str]]:
     """Update the `path_to_datasets` folder by fetching the financials, sentiment score and klines of the assets
 
     Args:
-        index_symbols (List[str]): list of indices to update
-        stock_symbols (List[str]): list of stocks to update
+        index_symbols (pd.DataFrame): list of indices to update
+        stock_symbols (pd.DataFrame): list of stocks to update
         path_to_datasets (Path): path of the datasets to update
 
     Returns:
@@ -68,30 +72,46 @@ def update_data(
 
     pbar = tqdm(total=len(index_symbols) + 3 * len(stock_symbols))
 
-    for symbol in stock_symbols:
+    for _, row in stock_symbols.iterrows():
+        symbol = row["symbol"]
+        from_date = row["from_date"]
         try:
             financials = fetch_and_save_financials(
                 symbol=symbol,
                 directory=path_to_datasets / "financial",
             )
         except Exception as e:
-            print(f"Problme fetching {symbol} financials")
-            print(e)
+            print(f"Problem fetching {symbol} financials")
+            print(traceback.format_exc())
             problematic_financials.append(symbol)
-        # TODO: add future financials
         pbar.update(1)
-        try:
-            sentiments = fetch_and_save_sentiment(
-                symbol=symbol,
-                beginning_date=datetime(2021, 1, 1),
-                interval="1d",
-                directory=path_to_datasets / "sentiment",
-            )
-        except Exception as e:
-            print(f"Problem fetching {symbol} sentiment")
-            print(e)
-            problematic_sentiment.append(symbol)
+        # try:
+        #     sentiments = fetch_and_save_sentiment(
+        #         symbol=symbol,
+        #         beginning_date=datetime(2021, 1, 1),
+        #         interval="1d",
+        #         directory=path_to_datasets / "sentiment",
+        #     )
+        # except Exception as e:
+        #     print(f"Problem fetching {symbol} sentiment")
+        #     print(traceback.format_exc())
+        #     problematic_sentiment.append(symbol)
         pbar.update(1)
+        # try:
+        #     klines = fetch_and_save_klines(
+        #         symbol=symbol,
+        #         beginning_date=from_date,
+        #         interval="1d",
+        #         directory=path_to_datasets / "ohlcv",
+        #     )
+        # except Exception as e:
+        #     print(f"Problem fetching {symbol} klines")
+        #     print(traceback.format_exc())
+        #     problematic_ohlcv.append(symbol)
+        pbar.update(1)
+    for _, row in index_symbols.iterrows():
+        symbol = row["symbol"]
+        from_date = row["from_date"]
         try:
             klines = fetch_and_save_klines(
                 symbol=symbol,
@@ -101,20 +121,7 @@ def update_data(
             )
         except Exception as e:
             print(f"Problem fetching {symbol} klines")
-            print(e)
-            problematic_ohlcv.append(symbol)
-        pbar.update(1)
-    for symbol in index_symbols:
-        try:
-            klines = fetch_and_save_klines(
-                symbol=symbol,
-                beginning_date=datetime(2021, 1, 1),
-                interval="1d",
-                directory=path_to_datasets / "ohlcv",
-            )
-        except Exception as e:
-            print(f"Problem fetching {symbol} klines")
-            print(e)
+            print(traceback.format_exc())
             problematic_ohlcv.append(symbol)
         pbar.update(1)
 
@@ -137,9 +144,10 @@ if __name__ == "__main__":
     # sync active symbols
     sync_symbols(path_to_stock_symbols)
 
-    index_symbols = list(pd.read_csv(path_to_index_symbols)["symbol"])
-    stock_symbols = list(pd.read_csv(path_to_stock_symbols)["symbol"])
-
+    index_symbols = pd.read_csv(path_to_index_symbols)
+    index_symbols["from_date"] = pd.to_datetime(index_symbols["from_date"])
+    stock_symbols = pd.read_csv(path_to_stock_symbols)
+    stock_symbols["from_date"] = pd.to_datetime(stock_symbols["from_date"])
     # update assets
     problematic_ohlcv, problematic_sentiment, problematic_financials = update_data(
         index_symbols,

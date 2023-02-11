@@ -20,26 +20,32 @@ def fetch_financials(symbol: str, **kwargs) -> dict:
     Returns:
         dict: dict containing selected financials.
     """
-    stats = yf.Ticker(symbol.replace(".", "-")).stats()
+    stats = yf.Ticker(symbol.replace(".", "-")).fast_info
+    # financial_keys = [
+    #     ["price", "longName"],
+    #     ["price", "shortName"],
+    #     ["summaryProfile", "industry"],
+    #     ["price", "marketCap"],
+    #     ["financialData", "totalRevenue"],
+    #     ["financialData", "targetMeanPrice"],
+    #     ["price", "regularMarketDayLow"],
+    #     ["price", "regularMarketDayHigh"],
+    #     ["defaultKeyStatistics", "52WeekChange"],
+    #     ["price", "averageDailyVolume10Day"],
+    #     ["price", "regularMarketChangePercent"],
+    # ]
     financial_keys = [
-        ["price", "longName"],
-        ["price", "shortName"],
-        ["summaryProfile", "industry"],
-        ["price", "marketCap"],
-        ["financialData", "totalRevenue"],
-        ["financialData", "targetMeanPrice"],
-        ["price", "regularMarketDayLow"],
-        ["price", "regularMarketDayHigh"],
-        ["defaultKeyStatistics", "52WeekChange"],
-        ["price", "averageDailyVolume10Day"],
-        ["price", "regularMarketChangePercent"],
+        "marketCap",
+        "dayLow",
+        "dayHigh",
+        "yearChange",
+        "tenDayAverageVolume",
+        "twoHundredDayAverage",
     ]
-    financials = {}
-    for keys in financial_keys:
-        item = stats.get(keys[0], {})
-        if item == None:
-            item = {}
-        financials[keys[1]] = item.get(keys[1], None)
+    financials = {"shortName": symbol}
+    for key in financial_keys:
+        item = stats.get(key, None)
+        financials[key] = item
     return financials
 
 
@@ -62,6 +68,9 @@ def save_financials(data: dict, symbol: str, directory: Path, **kwargs) -> str:
     Path(filename).parent.mkdir(parents=True, exist_ok=True)
     filename = str(filename) + ".json"
     if len(data) > 0:
+        with open(filename, "r") as infile:
+            pre_data = json.load(infile)
+        data.update(pre_data)
         with open(filename, "w") as outfile:
             json.dump(data, outfile, indent=4)
     else:

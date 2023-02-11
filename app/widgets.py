@@ -55,7 +55,7 @@ def expander_widget(
     """
     if isinstance(stock, Stock):
         financials = stock.financials
-        st.write(financials["longName"] + ", " + financials["industry"])
+        st.write(financials.get("longName", stock.symbol) + ", " + financials.get("industry", "N/A"))
 
         _, col1, col2, _ = st.columns([1, 4, 4, 1])
         financial_cols = stock.financials_to_str()

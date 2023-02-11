@@ -1,6 +1,6 @@
-symbol
-BTC
-Dow
-SP500
-Nasdaq
+symbol,from_date
+BTC,2021-01-01
+Dow,2021-01-01
+SP500,2021-01-01
+Nasdaq,2021-01-01
 

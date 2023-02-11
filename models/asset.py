@@ -58,33 +58,24 @@ class Stock(Index):
     def financials_to_str(self):
         cols = [[], []]
         cols[0].append(
-            "Target price (1 year): "
-            + format_int_or_na(self.financials["targetMeanPrice"])
+            "200 days average: "
+            + format_int_or_na(self.financials["twoHundredDayAverage"])
         )
         cols[0].append(
             "\nDay Low - Day High: "
-            + format_int_or_na(self.financials["regularMarketDayLow"])
+            + format_int_or_na(self.financials["dayLow"])
             + " - "
-            + format_int_or_na(self.financials["regularMarketDayHigh"])
+            + format_int_or_na(self.financials["dayHigh"])
         )
         cols[0].append(
-            "\nMarket Change: "
-            + format_int_or_na(
-                self.financials["regularMarketChangePercent"], format="{:.3f}%"
-            )
-        )
-        cols[0].append(
-            "\n1 year week change: "
-            + format_int_or_na(self.financials["52WeekChange"], format="{:.3f}%")
+            "\n1 year change: "
+            + format_int_or_na(self.financials["yearChange"], format="{:.3f}%")
         )
         cols[1].append("Market Cap: " + format_int_or_na(self.financials["marketCap"]))
         cols[1].append(
-            "\nTotal Revenue: " + format_int_or_na(self.financials["totalRevenue"])
-        )
-        cols[1].append(
             "\nAverage Daily Volume (last 10 days): "
             + format_int_or_na(
-                self.financials["averageDailyVolume10Day"], format="{:,}"
+                self.financials["tenDayAverageVolume"], format="{:,}"
             )
         )
         return cols
